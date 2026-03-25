@@ -139,7 +139,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    gap:10px;
+    gap:20px;
     flex: 1;
 }
 .overview-cards{
@@ -199,7 +199,7 @@
 .overview-container{
     display: flex;
     width: 100%;
-    /* background-color: red; */
+    background-color: var(--black-utile-3);
     flex: 1;
     padding: 20px 10px;
     gap:10px;
@@ -210,12 +210,15 @@
     width:50%;
     /* background-color: yellow; */
     height: 100%;
-
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap:35px;
 }
 .recent-intro{
     width: 50%;
     background-color: var(--clr-green1);
-    height: 100%;
+    height: 200px;
     border-radius: var(--br-btn);
     display: flex;
     gap:10px;
@@ -224,6 +227,7 @@
     padding: 30px 10px;
     position: relative;
     box-shadow: var(--boxshadowPopup);
+    align-self: center;
 }
 .recent-intro .recent-pic{
     width: 250px;
@@ -250,12 +254,40 @@
     height: 100px;
     overflow: hidden;
     position: absolute;
-    top:120px;
+    top:100px;
     left: 150px;
-    transform: rotate(90deg);
+    transform: rotate(80deg);
 }
 .recent-pic-fleche img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.single-action{
+    background-color: var(--black-utile-2);
+    display: flex;
+    gap:10px;
+    padding: 10px 25px;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    border-radius: var(--br-btn);
+
+}
+.single-action .tft-icon-round-moyen{
+    position: absolute;
+    top:-20px;
+    left:-20px;
+}
+.action-info{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    width: fit-content;
+}
+.actions-details{
+    /* background-color: red; */
+    display: flex;
+    width:100%;
+    justify-content: space-between;
 }
