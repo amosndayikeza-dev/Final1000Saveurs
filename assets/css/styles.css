@@ -58,6 +58,7 @@
     padding: 10px 0px;
     width:100%;
     gap:10px;
+    cursor: pointer;
 }
 .c-left-option{
     display: flex;

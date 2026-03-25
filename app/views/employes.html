@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>1000saveurs</title>
+        <link rel="stylesheet" href="../../assets/css/styles.css">
+        <link rel="stylesheet" href="../../assets/css/big.css">
+        <link rel="stylesheet" href="../../assets/css/tft-configStyles.css">
+        <link rel="stylesheet" href="../../assets/fonts/feather/feather.css">
+        <link rel="stylesheet" href="../../assets/font-awesome/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="containerAll">
+            <!-- partie gauche -->
+            <div class="containerLeft">
+                <div class="c-left-header">
+                    <div class="tft-logo-avatar tft-bdr-greensav-1">
+                        <img src="../../assets/images/icons/abonnes.png" alt="">
+                    </div>
+                    <p class="app-name tft-title1">1000<span class="tft-clr-orangesav">Saveurs</span></p>
+                </div>
+                <div class="menu">
+                    <div class="c-left-menu">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <p class="option-name">Dashboard</p>
+                        </div>
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <p class="option-name">Départements</p>
+                        </div>
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <p class="option-name">Rapports</p>
+                        </div>
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <p class="option-name">Employés</p>
+                        </div>
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <p class="option-name">Notifications</p>
+                        </div>
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <p class="option-name">Parametres</p>
+                        </div>
+                    </div>
+                    <div class="user-option">
+                        <div class="tft-avatar-profil-petit tft-bdr-orangesav-2">
+                            <img src="../../assets/images/icons/femme.jpg" alt="">
+                        </div>
+                        <div class="user-infos">
+                            <div class="user-name">
+                                <h2 class="tft-title4 tft-fw-600">Triphine IRIBAGIZA</h2>
+                                <p class="tft-sm-title1">Patron</p>
+                            </div>
+                            <div class="tft-icon-carre-moyen tft-bg-black3">
+                                <i class="fe fe-log-out tft-clr-red"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="partie_centre">
+                <!--partie de haut de la page au dessus de la ligne-->
+                <div id="tete">
+                    <div class="partie_gauche">
+                        <h1>Employes</h1>
+                        <p>Tous les employes et leurs details essentiels</p>
+                    </div>
+                    <button id="ajouter_employe"><i class="fas fa-plus"></i> Nouveau employe</button>
+                </div>
+
+                <!-- la balise hr pour separer le contenu du haut et du bas--> 
+                <hr>
+
+                <!--partie pour les categories et autres options comme la barre de recherche 
+                et les filtres en dessous de la ligne-->
+                <div class="categories">
+                    <div class="choix">
+                        <button id="liste_complet">Tous</button>
+                        <button id="gerant_seulement">Gerants</button>
+                        <button id="employe_seulement">employes simples</button>
+                    </div>
+                    <div class="barre_filtres">
+                        <section class="barre_de_recherche">
+                            <input type="search" name="search" placeholder="Rechercher ici"> 
+                            <i class="fas fa-search tft-clr-blue-txt"></i>
+                        </section>
+                        <button id="pour_filtrer">Filtres</button><!--pour filtrer les elements-->
+                    </div>   
+                </div>
+                <!--partie pour l'affichage des employes-->
+                <section class="infos_employe">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="partie_nom"><input type="checkbox">
+                                    <div class="nom"><p>Nom du client</p></div>
+                                </th>
+                                <th>Id_employe</th>
+                                <th>Poste</th>
+                                <th>Departement</th>
+                                <th>Date_embauche</th>
+                                <th>Contact</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="partie_nom"><input type="checkbox">
+                                    <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
+                                    <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
+                                </td>
+                                <td>1</td>
+                                <td>Receptioniste</td>
+                                <td>Bar</td>
+                                <td>2026-03-17</td>
+                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td><div class="actionicones">
+                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
+                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                    </div>
+                                </td>
+                                <!--<i class="fa-regular fa-pen-to-square"></i>-->
+                                <!--<i class="fas fa-trash-alt"></i>-->
+                                <!--<i class="fas fa-trash-can">pour ue corbeille ouverte</i>-->
+                                <!--tr:nth-child(even)-->
+                            </tr>
+                            <tr>
+                                <td class="partie_nom"><input type="checkbox">
+                                    <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
+                                    <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
+                                </td>
+                                <td>1</td>
+                                <td>Receptioniste</td>
+                                <td>Bar</td>
+                                <td>2026-03-17</td>
+                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td><div class="actionicones">
+                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
+                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="partie_nom"><input type="checkbox">
+                                    <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
+                                    <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
+                                </td>
+                                <td>1</td>
+                                <td>Receptioniste</td>
+                                <td>Bar</td>
+                                <td>2026-03-17</td>
+                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td><div class="actionicones">
+                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
+                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="partie_nom"><input type="checkbox">
+                                    <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
+                                    <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
+                                </td>
+                                <td>1</td>
+                                <td>Receptioniste</td>
+                                <td>Bar</td>
+                                <td>2026-03-17</td>
+                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td><div class="actionicones">
+                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
+                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="partie_nom"><input type="checkbox">
+                                    <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
+                                    <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
+                                </td>
+                                <td>1</td>
+                                <td>Receptioniste</td>
+                                <td>Bar</td>
+                                <td>2026-03-17</td>
+                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td><div class="actionicones">
+                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
+                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="partie_nom"><input type="checkbox">
+                                    <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
+                                    <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
+                                </td>
+                                <td>1</td>
+                                <td>Receptioniste</td>
+                                <td>Bar</td>
+                                <td>2026-03-17</td>
+                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td><div class="actionicones">
+                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
+                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>
