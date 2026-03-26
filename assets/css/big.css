@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*div contenant les differentes informations de l'employe*/
+.partie_centre{
+    width: 80%;
+    height: 100vh;
+    background: var(--clr-orange1);
+}
+/*partie de haut de la page au dessus de la ligne*/
+#tete{
+    background: var(--clr-orange1);
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#tete .partie_gauche{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+#tete .partie_gauche h1{
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--white);
+}
+#tete .partie_gauche p{
+    color: var(--white-utile-2);
+    font-size: 15px;
+}
+#tete #ajouter_employe{
+    width: 14%;
+    height: 2.5rem;
+    font-size: 12px;
+    border-radius: 5px;
+    color: var(--white);
+    background: var(--blue-text);
+    margin-right: 10px;
+}
+
+/*la balise hr pour separer le contenu du haut et du bas*/
+hr{
+    border: none;
+    height: 2px;
+    background: var(--white-utile-2);
+    margin: 20px 0;
+}
+
+/*partie pour les categories et autres options comme la barre de recherche 
+et les filtres en dessous de la ligne*/
+.categories{
+    width: 100%;
+    height: 3rem;
+    background: var(--ColorTransparenceBleu);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.categories .choix{
+    width: 31%;
+    height: 3rem;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding-left: 7px;
+    background: var(--clr-green);
+}
+.categories .choix #liste_complet{
+    width: 19%;
+    height: 2rem;
+    border-radius: 5px;
+    color: var(--white);
+    background: var(--blue-text);
+}
+.categories .choix #gerant_seulement{
+    width: 24%;
+    height: 2rem;
+    border-radius: 5px;
+    color: var(--white);
+    background: var(--blue-text);
+}
+.categories .choix #employe_seulement{
+    width: 44%;
+    height: 2.4em;
+    border-radius: 5px;
+    color: var(--white);
+    background: var(--blue-text);
+}
+.categories .barre_filtres{
+    width: 35%;
+    height: 3rem;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding-left: 17px;
+    background: green;
+}
+.barre_filtres .barre_de_recherche{
+    width: 65%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--white-utile-2);
+}
+.barre_de_recherche input{
+    width: 200px;
+    height: 2.5rem;
+    border-radius: 3px;
+}
+.categories #pour_filtrer{
+    width: 25%;
+    height: 2rem;
+    border-radius: 5px;
+    background: var(--white);
+}
+/*partie pour l'affichage des employes et stylisation de la table*/
+.infos_employe{
+    width: 99%;
+    height: 25rem;
+    background: whitesmoke;
+    margin-left: 0.5%;
+    margin-top: 2px;
+}
+.infos_employe table{
+    width: 100%;
+    height: auto;
+    background: var(--blue-text);
+    border-collapse: collapse;
+}
+th{
+    background: yellow;
+    height: 3rem;
+}
+td{
+    background: var(--ColorTransparenceBleu);
+    text-align: center;
+}
+.partie_nom{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 5px;
+}
+input[type="checkbox"]{
+    width: 18px;
+    height: 18px;
+}
+.photo{
+    width: 30px;
+    height: 30px;
+}
+.photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.nom{
+    display: flex;
+    flex-direction: column;
+}
+.nom h1{
+    font-size: 18px;
+    text-align: start;
+    color: var(--white);
+}
+.nom .connaissance{
+    color: var(--white-utile-2);
+    font-size: 11px;
+}
+.actionicones{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+ 
+
+
+
+
+
