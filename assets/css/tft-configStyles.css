@@ -475,7 +475,7 @@ optgroup {
 }
 
 .tft-cursorpointer {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -921,8 +921,32 @@ position: relative !important;
 .tft-bdr-greensav-1{
   border: 1px solid var(--clr-green1) !important;
 }
+.tft-bdr-t-greensav-1{
+  border-top: 1px solid var(--clr-green1) !important;
+}
+.tft-bdr-b-greensav-1{
+  border-bottom: 1px solid var(--clr-green1) !important;
+}
+.tft-bdr-r-greensav-1{
+  border-right: 1px solid var(--clr-green1) !important;
+}
+.tft-bdr-l-greensav-1{
+  border-left: 1px solid var(--clr-green1) !important;
+}
 .tft-bdr-greensav-2{
   border: 2px solid var(--clr-green1) !important;
+}
+.tft-bdr-t-greensav-2{
+  border-top: 2px solid var(--clr-green1) !important;
+}
+.tft-bdr-b-greensav-2{
+  border-bottom: 2px solid var(--clr-green1) !important;
+}
+.tft-bdr-r-greensav-2{
+  border-right: 2px solid var(--clr-green1) !important;
+}
+.tft-bdr-l-greensav-2{
+  border-left: 2px solid var(--clr-green1) !important;
 }
 .tft-bdr-yellow{
   border: 1px solid var(--yellow-bg-icons) !important;
@@ -1450,6 +1474,11 @@ position: relative !important;
 }
 .tft-j-self-center{
   justify-self: end !important;
+}
+.tft-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* =                              FORMULAIRES                                        */
@@ -2063,8 +2092,9 @@ form{
 .tft-file-icon-moyen i{
     font-size: 10px;
 }
-.tft-hover-crimson:hover{
+.tft-hover-red:hover{
   background-color: var(--red-bg-icons) !important;
+  transition: all ease 0.5s;
 }
 .tft-close-icon i{
     font-size:14px;
@@ -2078,10 +2108,9 @@ form{
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     padding: 50px 10px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 .tft-show{
     display: flex !important;
@@ -2276,6 +2305,7 @@ form{
   width:fit-content;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 13px;
 }
 .tft-users{
     padding: 10px 5px;

@@ -6,6 +6,7 @@
     <title>1000saveurs</title>
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/tft-configStyles.css">
+    <link rel="stylesheet" href="../../assets/css/responsiveStyles.css">
     <link rel="stylesheet" href="../../assets/fonts/feather/feather.css">
     <link rel="stylesheet" href="../../assets/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,7 +14,7 @@
 <body>
     <div class="containerAll">
         <!-- partie gauche -->
-        <div class="containerLeft">
+        <div class="containerLeft" id="container-left">
             <div class="c-left-header">
                 <div class="tft-logo-avatar tft-bdr-greensav-1">
                     <img src="../../assets/images/icons/abonnes.png" alt="">
@@ -24,7 +25,7 @@
                 <div class="c-left-menu">
                     <a href="../views/dashboardpatron.html">
                         <div class="c-left-option">
-                            <div class="tft-icon-round">
+                            <div class="tft-icon-round" onclick="showSidebar()">
                                 <i class="fas fa-home"></i>
                             </div>
                             <p class="option-name">Dashboard</p>
@@ -74,9 +75,9 @@
                     <div class="user-infos">
                         <div class="user-name">
                             <h2 class="tft-title4 tft-fw-600">Triphine IRIBAGIZA</h2>
-                            <p class="tft-sm-title1">Patron</p>
+                            <p class="tft-sm-title1">Patronne</p>
                         </div>
-                        <div class="tft-icon-carre-moyen tft-bg-black3">
+                        <div class="tft-icon-carre-moyen tft-bg-black3" onclick="deconnectionModal()">
                             <i class="fe fe-log-out tft-clr-red"></i>
                         </div>
                     </div>
@@ -86,8 +87,12 @@
         <!-- partie centre -->
         <div class="containerCenter">
             <div class="c-center-header">
-                <h2 class="tft-title1 tft-fw-600">Dashboard</h2>
-                <div class="heaader-aside">
+                <h2 class="tft-title1 tft-fw-600 tft-center tft-gap-10px">
+                    <div class="tft-icon-carre tft-bdr-gris-1">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    Dashboard</h2>
+                <div class="header-aside">
                     <div class="tft-search-withIcon">
                         <input type="search" placeholder="Rechercher" class="tft-clr-white3">
                         <div class="tft-search-withIcon-icon tft-bg-greensav tft-clr-white3">
@@ -218,6 +223,23 @@
         <div class="containerRight">
             <!-- <h1>lania</h1> -->
         </div>
+        <!-- popup de deconnexion -->
+        <div class="tft-popup-modal" id="deconnection-modal">
+            <div class="tft-popup-container-small tft-bg-black3 tft-p-relative">
+                <div class="deconnection-actions">
+                    <h3 class="tft-title1">Voulez-vous deconnecter ?</h3>
+                    <div class="deconnection-options">
+                        <a class="tft-btn tft-bg-red tft-clr-white" href="#">Oui</a>
+                        <btn class="tft-btn tft-bg-greensav tft-clr-white" onclick="closeModal()">Non</btn>
+                    </div>
+                </div>
+                <div class="tft-close-icon tft-p-absolute tft-top-5 tft-right-10 tft-hover-red" onclick="closeModal()">
+                    <i class="fas fa-times tft-clr-white3"></i>
+                </div>
+            </div>
+        </div>
+        <!-- popup de deconnexion -->
     </div>
 </body>
+<script src="../../assets/js/scripts.js"></script>
 </html>

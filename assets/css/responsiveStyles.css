@@ -1,3 +1,23 @@
+@media  (min-width:768px) {
+    
+.tft-users{
+    display: flex !important;
+}
+.action-info h3{
+    font-size: 15px !important;
+}
+.action-info p{
+    font-size: 13px !important;
+}
+.actions-details p{
+    font-size:12px !important;
+}
+.c-center-header h2{
+    font-size: 20px !important;
+}
+.c-center-header h2 div{
+    display: none !important;
+}
 .containerAll{
     width:100%;
     height:100vh;
@@ -10,7 +30,7 @@
     height:100%;
     background-color: var(--black-utile-2);
     border-right: 2px solid var(--bg-icons);
-    display: none;
+    display: flex;
     padding: 10px 20px;
     flex-direction: column;
     gap:10px;
@@ -119,18 +139,12 @@
     flex-direction: column;
     gap:3px;
 }
-.tft-users{
-    display: none !important;
-}
 .c-center-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
     border-bottom:1px solid var(--bg-icons);
-}
-.c-center-header h2{
-    font-size: 18px !important;
 }
 .header-aside{
     display: flex;
@@ -224,12 +238,12 @@
     align-self: center;
 }
 .recent-intro .recent-pic{
-    width: 200px;
-    height: 150px;
+    width: 250px;
+    height: 200px;
     overflow: hidden;
     position: absolute;
     right: 0px;
-    top:30px;
+    top:0px;
     display: flex;
 }
 .recent-pic img{
@@ -238,7 +252,7 @@
     object-fit: cover;
 }
 .recent-intro .tft-title1{
-    font-size: 20px !important;
+    font-size: 25px !important;
     font-weight: 600;
     width: 60%;
 }
@@ -246,12 +260,12 @@
     -webkit-text-stroke: 1px var(--white);
 }
 .recent-pic-fleche{
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     overflow: hidden;
     position: absolute;
     top:100px;
-    left: 110px;
+    left: 150px;
     transform: rotate(80deg);
 }
 .recent-pic-fleche img{
@@ -269,6 +283,7 @@
     position: relative;
     border-radius: var(--br-btn);
     width: 100%;
+
 }
 .single-action .tft-icon-round-moyen{
     position: absolute;
@@ -281,19 +296,10 @@
     gap:5px;
     width: fit-content;
 }
-.action-info h3{
-    font-size: 13px !important;
-}
-.action-info p{
-    font-size: 12px !important;
-}
 .actions-details{
     display: flex;
     width:100%;
     justify-content: space-between;
-}
-.actions-details p{
-    font-size:11px !important;
 }
 .container_departements{
     display: flex;
@@ -302,7 +308,7 @@
     width:100%;
     flex:1;
     padding: 20px 30px;
-    overflow-y:auto;
+    overflow-y: auto;
 }
 .departement{
     background-color: var(--black-utile-3);
@@ -418,4 +424,5 @@
 }
 .deconnection-options .tft-btn{
     padding: 6px 15px !important;
+}
 }
