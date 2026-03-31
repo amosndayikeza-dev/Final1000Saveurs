@@ -709,7 +709,7 @@ i {
 .tft-p-2 {
   padding: 2px !important;
 }
-.tft-p-4_8 {
+.tft-p-4-8 {
   padding: 4px 8px !important;
 }
 .tft-pb-5{
@@ -729,6 +729,9 @@ i {
 }
 .tft-mt-10{
   margin-top:10px !important;
+}
+.tft-mt-20{
+  margin-top:20px !important;
 }
 .tft-m-10 {
   margin: 10px auto !important;
@@ -1518,11 +1521,12 @@ textarea {
     gap:5px;
 }
 .tft-form-label{
-    font-size: 12px;
+    font-size: 14px;
     opacity: 0.7;
 }
 .tft-form-label span{
     color: crimson;
+    font-size: 15px;
 }
 .tft-form-control{
     background-color: transparent;
@@ -1533,6 +1537,10 @@ textarea {
     color:var(--icons-white);
     opacity: 0.7;
     width:100%;
+    transition: all ease 0.5s;
+}
+.tft-form-control:focus{
+  border: 1px solid var(--white-utile-3);
 }
 .tft-select-custom{
     appearance: none;
@@ -1597,11 +1605,35 @@ form{
 }
 
 .tft-z-index-1{
-  z-index:1000;
+  z-index:1000 !important ;
 }
 
-.tft-opacity {
-  opacity: .6;
+.tft-opacity-1 {
+  opacity: .1 !important ;
+}
+.tft-opacity-2 {
+  opacity: .2 !important ;
+}
+.tft-opacity-3 {
+  opacity: .3 !important ;
+}
+.tft-opacity-4 {
+  opacity: .4 !important ;
+}
+.tft-opacity-5 {
+  opacity: .5 !important ;
+}
+.tft-opacity-6 {
+  opacity: .6 !important ;
+}
+.tft-opacity-7 {
+  opacity: .7 !important ;
+}
+.tft-opacity-8 {
+  opacity: .8 !important ;
+}
+.tft-opacity-9 {
+  opacity: .9 !important ;
 }
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* =                              CLASSES REUTILISABLES                               */
@@ -1745,11 +1777,22 @@ form{
   border-radius: 50%;
   object-fit: cover;
 }
-.tft-avatar-profil-grand-plus .plus-icon{
+.tft-avatar-profil-grand-plus .tft-plus-icon-grand{
   position:absolute;
   bottom: 5px;
   right:1px;
   cursor: pointer;
+}
+.tft-plus-icon{
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tft-plus-icon i{
+  font-size: 11px;
 }
 .tft-avatar-profil-grand
 {
@@ -1997,7 +2040,7 @@ form{
 .tft-btnBehavior {
   font-size: 16px;
 }
-.tft-plus-icon{
+.tft-plus-icon-grand{
     width:25px;
     height:25px;
     display: flex;
@@ -2006,7 +2049,7 @@ form{
     border-radius:50%;
     padding: 5px;
 }
-.tft-plus-icon i{
+.tft-plus-icon-grand i{
     font-size:15px;
 }
 .tft-close-icon{
@@ -2096,6 +2139,16 @@ form{
   background-color: var(--red-bg-icons) !important;
   transition: all ease 0.5s;
 }
+.tft-hover-greensav:hover{
+  background-color: var(--clr-green1) !important;
+  color:var(--white) !important;
+  transition: all ease 0.5s;
+}
+.tft-hover-orangesav:hover{
+  background-color: var(--clr-orange1) !important;
+  color:var(--white) !important;
+  transition: all ease 0.5s;
+}
 .tft-close-icon i{
     font-size:14px;
 }
@@ -2107,10 +2160,10 @@ form{
     z-index:1000;
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
-    padding: 50px 10px;
+    padding: 100px 10px;
     display: none;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 .tft-show{
     display: flex !important;
@@ -2123,7 +2176,7 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:5px;
+    gap:10px;
     padding: 15px 10px;
     width:40%;
     max-height: 100%;
@@ -2347,6 +2400,7 @@ form{
     left: 18px;
     top:-10px;
     z-index: 7; 
+    transition: all ease 0.5s;
 }
 .tft-user-pic:nth-child(2):hover{
     z-index: 1000;
@@ -2356,6 +2410,7 @@ form{
     left: 35px;
     top:-10px;
     z-index: 6;
+    transition: all ease 0.5s;
 }
 .tft-user-pic:nth-child(3):hover{
     z-index: 1000;
@@ -2365,6 +2420,7 @@ form{
     left: 50px;
     top:-10px;
     z-index: 5;
+    transition: all ease 0.5s;
 }
 .tft-user-pic:nth-child(4):hover{
     z-index: 1000;

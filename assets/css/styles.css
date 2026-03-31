@@ -68,7 +68,7 @@
     justify-content: start;
     align-items: center;
     border-radius: var(--br-btn);
-    transition: all 0.5s ease-in-out
+    transition: all 0.5s ease;
 }
 .c-left-option:hover{
     background-color: var(--whiteBlur2);
@@ -99,7 +99,7 @@
     justify-content: start;
     align-items: center;
     border-radius: var(--br-btn);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease;
     width: 100%;
 }
 .user-option:hover{
@@ -317,13 +317,13 @@
     border-radius: var(--br-btn);
     position: relative;
 }
-#add-departement{
+#ajouter-departement{
     justify-content: center;
     align-items: center;
     gap:15px;
     border: 2px dashed var(--clr-green1);
 }
-#add-departement .tft-icon-round-grand{
+#ajouter-departement .tft-icon-round-grand{
     box-shadow: 0px 0px 15px rgba(0, 106, 98,0.5),0px 0px 15px rgba(0, 106, 98,0.7),0px 0px 20px rgba(0, 106, 98,0.8);
 }
 .departement #creation-date{
@@ -390,11 +390,13 @@
 .departement-btns .tft-btn:first-child{
     border: 1px solid var(--clr-green1);
     color:var(--clr-green1);
+    transition: all ease 0.5s;
 }
 .departement-btns .tft-btn:last-child{
     border: 1px solid var(--clr-crimson);
     color:var(--clr-crimson);
     opacity: 0.9;
+    transition: all ease 0.5s;
 }
 .departement-btns .tft-btn:first-child:hover{
     background-color: var(--clr-green1);
@@ -419,4 +421,48 @@
 }
 .deconnection-options .tft-btn{
     padding: 6px 15px !important;
+}
+.employes-departement{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    gap:10px;
+    border: 1px solid var(--bg-icons);
+    width: 100%;
+    margin-top: 10px;
+    border-radius: var(--br-btn);
+    transition: all ease 0.5s;
+}
+.employes-departement:hover{
+    border:1px solid var(--white-utile-3)
+}
+.employes-details{
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    padding: 5px;
+}
+.single-employe{
+    display: flex;
+    gap:5px;
+    padding: 5px;
+    background-color: var(--black-utile-2);
+    border: 1px solid var(--green-bg-icons);
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--br-btn);
+    position: relative;
+}
+.employe-nom-poste{
+    display: flex;
+    flex-direction: column;
+    gap:3px;
+    padding: 2px 3px;
+}
+.employe-nom-poste p{
+    padding: 3px 5px;
+    border-radius: var(--br-btn);
+    background-color: var(--black-utile-3);
+    color: var(--clr-orange1);
+    width:fit-content;
 }
