@@ -80,10 +80,10 @@
                 <!--partie de haut de la page au dessus de la ligne-->
                 <div id="tete">
                     <div class="partie_gauche">
-                        <h1>Employes</h1>
-                        <p>Tous les employes et leurs details essentiels</p>
+                        <h1>Employés</h1>
+                        <p>Tous les employés et leurs détails essentiels</p>
                     </div>
-                    <button id="ajouter_employe"><i class="fas fa-plus"></i> Nouveau employe</button>
+                    <button class="ajouter_employe tft-bg-greensav"><i class="fas fa-plus"></i> Nouveau employé</button>
                 </div>
 
                 <!-- la balise hr pour separer le contenu du haut et du bas--> 
@@ -94,31 +94,31 @@
                 <div class="categories">
                     <div class="choix">
                         <button id="liste_complet">Tous</button>
-                        <button id="gerant_seulement">Gerants</button>
-                        <button id="employe_seulement">employes simples</button>
+                        <button id="gerant_seulement">Gérants</button>
+                        <button id="employe_seulement">Employés simples</button>
                     </div>
                     <div class="barre_filtres">
                         <section class="barre_de_recherche">
-                            <input type="search" name="search" placeholder="Rechercher ici"> 
-                            <i class="fas fa-search tft-clr-blue-txt"></i>
+                            <input type="search" name="search" class="tft-clr-white1" placeholder="Rechercher ici"> 
+                            <i class="fas fa-search tft-clr-white3"></i>
                         </section>
-                        <button id="pour_filtrer">Filtres</button><!--pour filtrer les elements-->
+                        <button class="pour_filtrer tft-clr-white1">Filtres</button><!--pour filtrer les elements-->
                     </div>   
                 </div>
                 <!--partie pour l'affichage des employes-->
-                <section class="infos_employe">
+                <section class="infos_employe tft-clr-black2">
                     <table>
                         <thead>
                             <tr>
-                                <th class="partie_nom"><input type="checkbox">
-                                    <div class="nom"><p>Nom du client</p></div>
+                                <th id="partie_nom_titre"><input type="checkbox">
+                                    <div class="nom"><p>Nom de l'employé</p></div>
                                 </th>
-                                <th>Id_employe</th>
-                                <th>Poste</th>
-                                <th>Departement</th>
-                                <th>Date_embauche</th>
-                                <th>Contact</th>
-                                <th>Actions</th>
+                                <th class="tft-clr-white1 tft-fs-15">Id_employé</th>
+                                <th class="tft-clr-white1 tft-fs-15">Poste</th>
+                                <th class="tft-clr-white1 tft-fs-15">Département</th>
+                                <th class="tft-clr-white1 tft-fs-15">Date_embauche</th>
+                                <th class="tft-clr-white1 tft-fs-15">Contacts</th>
+                                <th class="tft-clr-white1 tft-fs-15">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -127,14 +127,14 @@
                                     <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
                                     <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
                                 </td>
-                                <td>1</td>
-                                <td>Receptioniste</td>
-                                <td>Bar</td>
-                                <td>2026-03-17</td>
-                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td class="tft-clr-white3 tft-fs-13">1</td>
+                                <td class="tft-clr-white3 tft-fs-13">Réceptionniste</td>
+                                <td class="tft-clr-white3 tft-fs-13">Bar</td>
+                                <td class="tft-clr-white3 tft-fs-13">2026-03-17</td>
+                                <td class="tft-clr-white3 tft-fs-13"><a href="tel:+257 61616161">+257 61616161</a></td>
                                 <td><div class="actionicones">
-                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
-                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                        <div class="cercle tft-icon tft-bdr-blue-txt-1"><i class="tft-clr-blue-txt fas fa-pencil-alt"></i></div>
+                                        <div class="cercle1 tft-icon tft-bdr-red-txt-1"><i class="tft-clr-red-txt fas fa-trash"></i></div>
                                     </div>
                                 </td>
                                 <!--<i class="fa-regular fa-pen-to-square"></i>-->
@@ -147,14 +147,14 @@
                                     <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
                                     <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
                                 </td>
-                                <td>1</td>
-                                <td>Receptioniste</td>
-                                <td>Bar</td>
-                                <td>2026-03-17</td>
-                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td class="tft-clr-white3 tft-fs-13">1</td>
+                                <td class="tft-clr-white3 tft-fs-13">Réceptionniste</td>
+                                <td class="tft-clr-white3 tft-fs-13">Bar</td>
+                                <td class="tft-clr-white3 tft-fs-13">2026-03-17</td>
+                                <td class="tft-clr-white3 tft-fs-13"><a href="tel:+257 61616161">+257 61616161</a></td>
                                 <td><div class="actionicones">
-                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
-                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                        <div class="cercle tft-icon tft-bdr-blue-txt-1"><i class="tft-clr-blue-txt fas fa-pencil-alt"></i></div>
+                                        <div class="cercle1 tft-icon tft-bdr-red-txt-1"><i class="tft-clr-red-txt fas fa-trash"></i></div>
                                     </div>
                                 </td>
                             </tr>
@@ -163,14 +163,14 @@
                                     <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
                                     <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
                                 </td>
-                                <td>1</td>
-                                <td>Receptioniste</td>
-                                <td>Bar</td>
-                                <td>2026-03-17</td>
-                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td class="tft-clr-white3 tft-fs-13">1</td>
+                                <td class="tft-clr-white3 tft-fs-13">Réceptionniste</td>
+                                <td class="tft-clr-white3 tft-fs-13">Bar</td>
+                                <td class="tft-clr-white3 tft-fs-13">2026-03-17</td>
+                                <td class="tft-clr-white3 tft-fs-13"><a href="tel:+257 61616161">+257 61616161</a></td>
                                 <td><div class="actionicones">
-                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
-                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                        <div class="cercle tft-icon tft-bdr-blue-txt-1"><i class="tft-clr-blue-txt fas fa-pencil-alt"></i></div>
+                                        <div class="cercle1 tft-icon tft-bdr-red-txt-1"><i class="tft-clr-red-txt fas fa-trash"></i></div>
                                     </div>
                                 </td>
                             </tr>
@@ -179,14 +179,14 @@
                                     <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
                                     <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
                                 </td>
-                                <td>1</td>
-                                <td>Receptioniste</td>
-                                <td>Bar</td>
-                                <td>2026-03-17</td>
-                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td class="tft-clr-white3 tft-fs-13">1</td>
+                                <td class="tft-clr-white3 tft-fs-13">Réceptionniste</td>
+                                <td class="tft-clr-white3 tft-fs-13">Bar</td>
+                                <td class="tft-clr-white3 tft-fs-13">2026-03-17</td>
+                                <td class="tft-clr-white3 tft-fs-13"><a href="tel:+257 61616161">+257 61616161</a></td>
                                 <td><div class="actionicones">
-                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
-                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                        <div class="cercle tft-icon tft-bdr-blue-txt-1"><i class="tft-clr-blue-txt fas fa-pencil-alt"></i></div>
+                                        <div class="cercle1 tft-icon tft-bdr-red-txt-1"><i class="tft-clr-red-txt fas fa-trash"></i></div>
                                     </div>
                                 </td>
                             </tr>
@@ -195,14 +195,14 @@
                                     <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
                                     <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
                                 </td>
-                                <td>1</td>
-                                <td>Receptioniste</td>
-                                <td>Bar</td>
-                                <td>2026-03-17</td>
-                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td class="tft-clr-white3 tft-fs-13">1</td>
+                                <td class="tft-clr-white3 tft-fs-13">Réceptionniste</td>
+                                <td class="tft-clr-white3 tft-fs-13">Bar</td>
+                                <td class="tft-clr-white3 tft-fs-13">2026-03-17</td>
+                                <td class="tft-clr-white3 tft-fs-13"><a href="tel:+257 61616161">+257 61616161</a></td>
                                 <td><div class="actionicones">
-                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
-                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                        <div class="cercle tft-icon tft-bdr-blue-txt-1"><i class="tft-clr-blue-txt fas fa-pencil-alt"></i></div>
+                                        <div class="cercle1 tft-icon tft-bdr-red-txt-1"><i class="tft-clr-red-txt fas fa-trash"></i></div>
                                     </div>
                                 </td>
                             </tr>
@@ -211,14 +211,14 @@
                                     <div class="photo"><img src="../../assets/images/icons/femme.jpg"></div>
                                     <div class="nom"><h1>Ishimwe lania</h1><p class="connaissance">Experte en gestion economie</p></div>
                                 </td>
-                                <td>1</td>
-                                <td>Receptioniste</td>
-                                <td>Bar</td>
-                                <td>2026-03-17</td>
-                                <td><a href="tel:+257 61616161">+257 61616161</a></td>
+                                <td class="tft-clr-white3 tft-fs-13">1</td>
+                                <td class="tft-clr-white3 tft-fs-13">Réceptionniste</td>
+                                <td class="tft-clr-white3 tft-fs-13">Bar</td>
+                                <td class="tft-clr-white3 tft-fs-13">2026-03-17</td>
+                                <td class="tft-clr-white3 tft-fs-13"><a href="tel:+257 61616161">+257 61616161</a></td>
                                 <td><div class="actionicones">
-                                        <i class="tft-clr-blue-txt fas fa-pencil-alt"></i>
-                                        <i class="tft-clr-red-txt fas fa-trash"></i>
+                                        <div class="cercle tft-icon tft-bdr-blue-txt-1"><i class="tft-clr-blue-txt fas fa-pencil-alt"></i></div>
+                                        <div class="cercle1 tft-icon tft-bdr-red-txt-1"><i class="tft-clr-red-txt fas fa-trash"></i></div>
                                     </div>
                                 </td>
                             </tr>

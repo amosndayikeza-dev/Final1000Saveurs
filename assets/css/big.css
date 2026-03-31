@@ -8,13 +8,15 @@
 .partie_centre{
     width: 80%;
     height: 100vh;
-    background: var(--clr-orange1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--black-utile-2);
 }
 /*partie de haut de la page au dessus de la ligne*/
 #tete{
-    background: var(--clr-orange1);
     width: 100%;
-    height: 4rem;
+    height: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,31 +25,31 @@
     display: flex;
     flex-direction: column;
     padding: 5px;
+    gap: 8px;
 }
 #tete .partie_gauche h1{
-    font-size: 22px;
+    font-size: 23px;
     font-weight: bold;
     color: var(--white);
 }
 #tete .partie_gauche p{
-    color: var(--white-utile-2);
-    font-size: 15px;
+    color: var(--white-utile-3);
+    font-size: 12px;
 }
-#tete #ajouter_employe{
-    width: 14%;
-    height: 2.5rem;
+#tete .ajouter_employe{
+    width: 15%;
+    height: 2.2rem;
     font-size: 12px;
     border-radius: 5px;
     color: var(--white);
-    background: var(--blue-text);
     margin-right: 10px;
 }
 
 /*la balise hr pour separer le contenu du haut et du bas*/
 hr{
     border: none;
-    height: 2px;
-    background: var(--white-utile-2);
+    height: 0.5px;
+    background: var(--white-utile-3);
     margin: 20px 0;
 }
 
@@ -55,130 +57,189 @@ hr{
 et les filtres en dessous de la ligne*/
 .categories{
     width: 100%;
-    height: 3rem;
-    background: var(--ColorTransparenceBleu);
+    height: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .categories .choix{
-    width: 31%;
+    width: 35%;
     height: 3rem;
     display: flex;
     gap: 12px;
     align-items: center;
-    padding-left: 7px;
-    background: var(--clr-green);
+    padding-left: 18px;
 }
 .categories .choix #liste_complet{
     width: 19%;
     height: 2rem;
     border-radius: 5px;
+    color: var(--white-utile-1);
+    background: rgb(47, 46, 46);
+}
+.choix #liste_complet:hover{
+    background-color: rgb(91, 91, 91);
     color: var(--white);
-    background: var(--blue-text);
 }
 .categories .choix #gerant_seulement{
     width: 24%;
     height: 2rem;
     border-radius: 5px;
+    color: var(--white-utile-1);
+    background: rgb(47, 46, 46);
+}
+.choix #gerant_seulement:hover{
+    background-color: rgb(91, 91, 91);
     color: var(--white);
-    background: var(--blue-text);
 }
 .categories .choix #employe_seulement{
     width: 44%;
     height: 2.4em;
     border-radius: 5px;
+    color: var(--white-utile-1);
+    background: rgb(47, 46, 46);
+}
+.choix #employe_seulement:hover{
+    background-color: rgb(91, 91, 91);
     color: var(--white);
-    background: var(--blue-text);
 }
 .categories .barre_filtres{
-    width: 35%;
+    width: 33%;
     height: 3rem;
     display: flex;
     gap: 15px;
     align-items: center;
-    padding-left: 17px;
-    background: green;
+    padding-left: 12px;
 }
 .barre_filtres .barre_de_recherche{
     width: 65%;
     height: 2rem;
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
-    background: var(--white-utile-2);
+    background: rgb(47, 46, 46);
 }
 .barre_de_recherche input{
     width: 200px;
     height: 2.5rem;
     border-radius: 3px;
 }
-.categories #pour_filtrer{
+.categories .pour_filtrer{
     width: 25%;
     height: 2rem;
     border-radius: 5px;
-    background: var(--white);
+    background: rgb(47, 46, 46);
 }
 /*partie pour l'affichage des employes et stylisation de la table*/
-.infos_employe{
-    width: 99%;
-    height: 25rem;
-    background: whitesmoke;
-    margin-left: 0.5%;
+.infos_employe{ /*section contenant tous les infos de l'employe*/
+    width: 90%;
+    height: 100vh;
+    margin-left: 5%;
     margin-top: 2px;
+    overflow: auto;
 }
 .infos_employe table{
     width: 100%;
     height: auto;
-    background: var(--blue-text);
+    border: 2px solid rgb(46, 46, 46);
     border-collapse: collapse;
 }
 th{
-    background: yellow;
+    background: rgb(46, 46, 46);
     height: 3rem;
 }
 td{
-    background: var(--ColorTransparenceBleu);
     text-align: center;
 }
-.partie_nom{
+#partie_nom_titre{
+    display: flex;
+    align-items: center;
+    color: var(--white-utile-1);
+    gap: 10px;
+    padding: 10px;
+}
+.partie_nom{ /*pour la partie du nom et aussi profile dans le tableau*/
     display: flex;
     align-items: center;
     gap: 10px;
-    padding-left: 5px;
+    padding: 10px;
 }
 input[type="checkbox"]{
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
 }
 .photo{
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
 }
 .photo img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    border: 1.5px solid rgb(111, 188, 111);
 }
 .nom{
     display: flex;
     flex-direction: column;
 }
 .nom h1{
-    font-size: 18px;
+    font-size: 15px;
     text-align: start;
-    color: var(--white);
+    color: var(--white-utile-1);
+    font-weight: 600;
 }
 .nom .connaissance{
-    color: var(--white-utile-2);
+    color: rgb(155, 151, 151);
     font-size: 11px;
 }
-.actionicones{
+.actionicones{ /*div contenant les icones pour modifier et supprimer se trouvant dans le tableau*/
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
+}
+.actionicones .cercle{ /*bouton modifier*/
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cercle>i{
+    font-size: 13px;
+}
+.actionicones .cercle1{ /*bouton supprimer*/
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.cercle1>i{
+    font-size: 13px;
+}
+.actionicones .cercle :hover{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.2px solid var(--blue-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+}
+.actionicones .cercle1 :hover{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.2px solid crimson;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(221, 162, 174);
 }
 
  
