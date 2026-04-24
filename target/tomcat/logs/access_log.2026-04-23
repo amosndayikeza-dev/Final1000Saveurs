@@ -1,4 +1,0 @@
-0:0:0:0:0:0:0:1 - - [23/Apr/2026:18:24:19 +0100] "POST /api/auth/login HTTP/1.1" 200 69 http-bio-8080-exec-1 3970
-0:0:0:0:0:0:0:1 - - [23/Apr/2026:18:24:28 +0100] "GET /api/patron/reports/sales/export?department_id=1&start_date=2026-04-01&end_date=2026-04-30 HTTP/1.1" 500 2689 http-bio-8080-exec-3 49
-0:0:0:0:0:0:0:1 - - [23/Apr/2026:18:43:25 +0100] "POST /api/auth/login HTTP/1.1" 200 69 http-bio-8080-exec-4 2542
-0:0:0:0:0:0:0:1 - - [23/Apr/2026:18:43:30 +0100] "GET /api/patron/reports/sales/export?department_id=1&start_date=2026-04-01&end_date=2026-04-30 HTTP/1.1" 500 2560 http-bio-8080-exec-6 1393

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000saveurs</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tft-configStyles.css">
+    <link rel="stylesheet" href="../assets/css/responsiveStyles.css">
+    <link rel="stylesheet" href="../assets/css/big.css">
+    <link rel="stylesheet" href="../assets/fonts/feather/feather.css">
+    <link rel="stylesheet" href="../assets/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="containerAll">
+        <!-- partie gauche -->
+        <div class="containerLeft" id="container-left">
+            <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3" onclick="hideSidebar()">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="c-left-header">
+                <div class="tft-logo-avatar tft-bdr-greensav-1">
+                    <img src="../assets/images/icons/abonnes.png" alt="">
+                </div>
+                <p class="app-name">1000<span>Saveurs</span></p>
+            </div>
+            <div class="menu">
+                <div class="c-left-menu">
+                    <a href="../dashboardpatron.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round" onclick="showSidebar()">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <p class="option-name">Dashboard</p>
+                        </div>
+                    </a>
+                    <a href="../departements.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <p class="option-name">Départements</p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <p class="option-name">Rapports</p>
+                        </div>
+                    </a>
+                    <a href="../employes.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <p class="option-name">Employés</p>
+                        </div>
+                    </a>
+                    <div class="c-left-option" onclick="showContainerRightNotification()">
+                        <div class="tft-icon-round">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <p class="option-name">Notifications</p>
+                    </div>
+                    <div class="c-left-option" onclick="showContainerRightParametre()">
+                        <div class="tft-icon-round">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <p class="option-name">Parametres</p>
+                    </div>
+                </div>
+                <div class="user-option">
+                    <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer" onclick="showContainerRight()">
+                        <img src="../assets/images/icons/femme.jpg" alt="">
+                    </div>
+                    <div class="user-infos">
+                        <div class="user-name">
+                            <h2 class="tft-title4 tft-fw-600">Triphine IRIBAGIZA</h2>
+                            <p class="tft-sm-title1">Patronne</p>
+                        </div>
+                        <div class="tft-icon-carre-moyen tft-bg-black3 tft-transition" onclick="deconnectionModal()">
+                            <i class="fe fe-log-out tft-clr-red"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- partie centre -->
+        <div class="containerCenter">
+            <div class="c-center-header">
+                <h2 class="tft-title1 tft-fw-600">Départements</h2>
+                <div class="header-aside">
+                    <div class="tft-search-withIcon">
+                        <input type="search" placeholder="Rechercher" class="tft-clr-white3">
+                        <div class="tft-search-withIcon-icon tft-bg-greensav">
+                            <i class="fas fa-search tft-clr-remain-white tft-fw-600"></i>
+                        </div>
+                    </div>
+                    <div class="tft-users tft-bdr-gris-1" id="tft-users">
+                        <div class="tft-users-pics"  id="tft-users-pics">
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/user/arashmil.jpg">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/user/chadengle.jpg">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/user/mlane.jpg">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/user/sauro.jpg">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <p class="tft-clr-white3">+15</p>
+                            </div>
+                        </div>
+                        <h4 class="tft-sm-title1 tft-bg-black1" id="user-desc">Utilisateurs</h4>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bg-orangesav2" id="btn-light-mode" onclick="changeMode()">
+                        <i class="fas fa-sun tft-clr-white"></i>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bg-orangesav2 tft-hidden" id="btn-dark-mode" onclick="changeMode()">
+                        <i class="fas fa-moon tft-clr-white"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="container_departements" id="container-departements">
+                <div class="departement">
+                    <p class="tft-sm-title2 tft-bg-black2" id="creation-date">Crée le 24-3-2026</p>
+                    <div class="departement-details">
+                        <h3 class="tft-title2 tft-clr-orangesav tft-a-self-center">Boucherie</h3>
+                        <p class="tft-sm-title1 tft-text-justify tft-w-100 tft-break-word tft-fs-15px tft-line-h-1-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quod ab dolor repudiandae nemo quia et alias animi</p>
+                    </div>
+                    <div class="departement-workers">
+                        <div class="simple-workers">
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/1.png.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/user7.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/mlane.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="departement-manager">
+                            <div class="tft-avatar-profil-moyen tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/chadengle.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="simple-workers">
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/arashmil.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/sauro.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/jm_denis.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="departement-btns">
+                        <a class="tft-btn" href="#">
+                            Editer
+                        </a>
+                        <button class="tft-btn">Supprimer</button>
+                    </div>
+                </div>
+                <div class="departement">
+                    <p class="tft-sm-title2 tft-bg-black2" id="creation-date">Crée le 24-3-2026</p>
+                    <div class="departement-details">
+                        <h3 class="tft-title2 tft-clr-orangesav tft-a-self-center">Boutique des vins</h3>
+                        <p class="tft-sm-title1 tft-text-justify tft-w-100 tft-break-word tft-fs-15px tft-line-h-1-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quod ab dolor repudiandae nemo quia et alias animi Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi ratione qui, at vero rerum laborum veniam accusantium accusamus expedita incidunt facilis ullam libero ex odio unde excepturi non molestias atque.</p>
+                    </div>
+                    <div class="departement-workers">
+                        <div class="simple-workers">
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/1.png.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/user7.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/mlane.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="departement-manager">
+                            <div class="tft-avatar-profil-moyen tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/chadengle.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="simple-workers">
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/arashmil.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/sauro.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/jm_denis.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="departement-btns">
+                        <a class="tft-btn" href="#">
+                            Editer
+                        </a>
+                        <button class="tft-btn">Supprimer</button>
+                    </div>
+                </div>
+                <div class="departement">
+                    <p class="tft-sm-title2 tft-bg-black2" id="creation-date">Crée le 24-3-2026</p>
+                    <div class="departement-details">
+                        <h3 class="tft-title2 tft-clr-orangesav tft-a-self-center">Bar</h3>
+                        <p class="tft-sm-title1 tft-text-justify tft-w-100 tft-break-word tft-fs-15px tft-line-h-1-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quod ab dolor repudiandae nemo quia et alias animi</p>
+                    </div>
+                    <div class="departement-workers">
+                        <div class="simple-workers">
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/1.png.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/user7.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/mlane.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="departement-manager">
+                            <div class="tft-avatar-profil-moyen tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/chadengle.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="simple-workers">
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/arashmil.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/sauro.jpg" alt="">
+                            </div>
+                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
+                                <img src="../assets/images/user/jm_denis.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="departement-btns">
+                        <a class="tft-btn" href="#">
+                            Editer
+                        </a>
+                        <button class="tft-btn">Supprimer</button>
+                    </div>
+                </div>
+                <div class="departement" id="btn-ajouter-departement">
+                    <div class="tft-icon-round-grand tft-bg-greensav" onclick="ajouterDepartement()">
+                        <i class="fas fa-plus tft-clr-remain-white"></i>
+                    </div>
+                    <p class="tft-title2">Ajouter un département</p>
+                </div>
+            </div>
+        </div>
+        <!-- partie droite ajoute la classe active pour montrer-->
+        <div class="containerRight tft-p-relative" id="container-right">
+            <div class="tft-close-icon tft-p-absolute tft-top-15 tft-right-15 tft-hover-red" onclick="closeModalInfos()">
+                <i class="fas fa-times tft-clr-white3"></i>
+            </div>
+            <div class="admin-profil">
+                <div class="tft-avatar-profil-moyen2 tft-bdr-greensav-2">
+                    <img src="../assets/images/user/arashmil.jpg">
+                </div>
+                <h4 class="tft-title4 tft-fw-600">Triphine Iribagiza</h4>
+                <p class="tft-sm-title1">Patronne</p>
+            </div>
+            <div class="admin-infos-container" id="profil-admin">
+                <div class="tft-w-100 tft-centre-tout tft-gap-20px tft-mt-10 infos-options">
+                    <div class="tft-icon-carre tft-bg-gris tft-bg-greensav" onclick="showProfil()" id="btn-show-profil">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="tft-icon-carre tft-bg-gris" onclick="showNotification()" id="btn-show-notification">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="tft-icon-carre tft-bg-gris" onclick="showParametre()" id="btn-show-parametre">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+                <div class="container-infos-user tft-show tft-mt-10" id="profil-modal">
+                    <div class="infos-container">
+                        <div class="infos-header">
+                            <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                <i class="fas fa-user tft-clr-greensav"></i>
+                            </div>
+                            <h3 class="tft-title3">Les informations du Profil</h3>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-mail tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Email</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">lania@gmail.com</p>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-phone tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Telephone</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">+257 68 90 81 32</p>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-users tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Genre</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">masculin</p>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-calendar tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Naissance</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">16-11-2025</p>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-map-pin tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Adresse</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">Burundi</p>
+                        </div>
+                    </div>
+                    <div class="infos-buttons tft-mt-10">
+                        <div class="infos-button tft-bg-greensav centre-tout tft-gap-5px">
+                            <i class="fe fe-edit tft-clr-remain-white"></i>
+                            <a href="#" class="tft-mt-2 tft-clr-remain-white">Editer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-infos-user tft-mt-10" id="notification-modal">
+                    <div class="infos-container">
+                        <div class="infos-header">
+                            <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                <i class="fas fa-bell tft-clr-greensav"></i>
+                            </div>
+                            <h3 class="tft-title3">Notifications</h3>
+                        </div>
+                        <div class="single-notification">
+                            <div class="title-notification">
+                                <h4 class="tft-title4">Rapport</h4>
+                                <p class="tft-sm-title2">2026-11-04</p>
+                            </div>
+                            <p class="tft-sm-title1">Lania Ishimwe</p>
+                        </div>
+                        <div class="single-notification">
+                            <div class="title-notification">
+                                <h4 class="tft-title4">Rapport</h4>
+                                <p class="tft-sm-title2">2026-11-04</p>
+                            </div>
+                            <p class="tft-sm-title1">Lania Ishimwe</p>
+                        </div>
+                        <div class="single-notification">
+                            <div class="title-notification">
+                                <h4 class="tft-title4">Rapport</h4>
+                                <p class="tft-sm-title2">2026-11-04</p>
+                            </div>
+                            <p class="tft-sm-title1">Lania Ishimwe</p>
+                        </div>
+                        <div class="single-notification">
+                            <div class="title-notification">
+                                <h4 class="tft-title4">Rapport</h4>
+                                <p class="tft-sm-title2">2026-11-04</p>
+                            </div>
+                            <p class="tft-sm-title1">Lania Ishimwe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-infos-user tft-mt-10" id="parametre-modal">
+                    <div class="infos-container">
+                        <div class="infos-header">
+                            <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                <i class="fas fa-cog tft-clr-greensav"></i>
+                            </div>
+                            <h3 class="tft-title3">Parametres</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- popup de deconnexion -->
+        <div class="tft-popup-modal tft-a-center" id="deconnection-modal">
+            <div class="tft-popup-container-small tft-bg-remain-black3 tft-p-relative">
+                <div class="deconnection-actions">
+                    <h3 class="tft-title1 tft-clr-remain-white">Voulez-vous deconnecter ?</h3>
+                    <div class="deconnection-options">
+                        <a class="tft-btn tft-bg-red tft-clr-remain-white" href="#">Oui</a>
+                        <btn class="tft-btn tft-bg-greensav tft-clr-remain-white" onclick="closeModal()">Non</btn>
+                    </div>
+                </div>
+                <div class="tft-close-icon tft-p-absolute tft-top-5 tft-right-10 tft-hover-red" onclick="closeModal()">
+                    <i class="fas fa-times tft-clr-remain-white3"></i>
+                </div>
+            </div>
+        </div>
+        <!-- popup de deconnexion -->
+        <!-- popup d'ajouter le departement -->
+         <div class="tft-popup-modal" id="add-departement">
+            <div class="tft-popup-container-small tft-bg-remain-black3 tft-p-relative">
+                <h1 class="tft-title1 tft-mt-20 tft-clr-remain-white">Ajouter un nouveau département</h1>
+                <div class="tft-form-container">
+                    <form action="" method="post" name="ajout-departement" id="ajout-departement" class="tft-gap-10px">
+                        <div class="tft-form-group tft-gap-10px">
+                            <label for="nom-departement" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-user tft-clr-orangesav"></i></div>
+                                Le nom du département<span>*</span></label>
+                            <input type="text" class="tft-form-control" placeholder="Tapez le nom ici..." id="nom-departement" name="nomDepartement" required>
+                        </div>
+                        <div class="tft-form-group tft-gap-10px">
+                            <label for="description-departement" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-user tft-clr-orangesav"></i></div>
+                                La description <span>*</span></label>
+                            <textarea class="tft-form-control" placeholder="Tapez la description ici..." id="description-departement" name="descriptionDepartement" required></textarea>
+                        </div>
+                        <div class="tft-form-group tft-gap-10px">
+                            <label for="date-creation" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-calendar tft-clr-orangesav"></i></div>
+                                La date <span>*</span></label>
+                            <input type="date" class="tft-form-control" placeholder="Indiquez la date ici..." id="date-creation-departement" name="dateCreation" required></input>
+                        </div>
+                        <div class="employes-departement">
+                            <h3 class="tft-title3 tft-flex tft-gap-10px tft-a-center tft-clr-remain-white">
+                                <div class="tft-icon-round-moyen tft-bdr-greensav-1"><i class="fas fa-users tft-clr-greensav"></i></div>
+                                Les employés</h3>
+                            <div class="employes-details" id="employes-details">
+                                <div class="single-employe tft-p-relative">
+                                    <div class="tft-avatar-profil-petit">
+                                        <img src="../../assets/images/user/arashmil.jpg" alt="">
+                                    </div>
+                                    <div class="employe-nom-poste">
+                                        <h4 class="tft-title4 tft-clr-remain-white2">Lania Ishimwe</h4>
+                                        <p class="tft-sm-title1">Gérant</p>
+                                    </div>
+                                </div>
+                                <div class="single-employe">
+                                    <div class="tft-avatar-profil-petit">
+                                        <img src="../assets/images/user/arashmil.jpg" alt="">
+                                    </div>
+                                    <div class="employe-nom-poste">
+                                        <h4 class="tft-title4 tft-clr-remain-white2">Lania Ishimwe</h4>
+                                        <p class="tft-sm-title1">Gérant</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="single-employe">
+                                    <label for="employe-img" class="tft-p-relative">
+                                        <div class="tft-avatar-profil-petit tft-bdr-greensav-2">
+                                            <img src="../../assets/images/icons/homme.jpg" alt="" id="avatarProfil">
+                                        </div>
+                                        <div class="tft-plus-icon tft-bg-greensav tft-p-absolute">
+                                            <i class="fas fa-plus tft-clr-white"></i>
+                                        </div>
+                                    </label>
+                                    <input type="file" id="employe-img" class="tft-d-none" accept="image/*" id="photo-employe-departement">
+                                    <div class="employe-nom-poste tft-gap-10px">
+                                        <input type="text" id="employe-nom" placeholder="Le nom et prenom" class="tft-form-control" id="nom-employe-departement" name="nomEmploye" required></input>
+                                        <input type="text" id="employe-poste" placeholder="Le poste..." class="tft-form-control" id="poste-employe-departement" name="posteEmploye" required></input>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <a class="tft-btn tft-bdr-greensav-1 tft-clr-greensav tft-hover-greensav tft-a-self-end tft-mt-10">Ajouter un employé</a>
+                        </div>
+                        <button type="submit" class="tft-btn tft-bdr-orangesav-1 tft-clr-orangesav tft-hover-orangesav tft-a-self-center tft-mt-20 tft-opacity-8" onclick="closeModal()">Ajouter un departement</button>
+                    </form>
+                </div>
+                <div class="tft-close-icon tft-p-absolute tft-top-5 tft-right-10 tft-hover-red" onclick="closeModal()">
+                    <i class="fas fa-times tft-clr-remain-white3"></i>
+                </div>
+            </div>
+         </div>
+        <!-- popup d'ajouter le departement -->
+    </div>
+</body>
+<script src="../assets/js/scripts.js"></script>
+</html>
