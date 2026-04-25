@@ -27,6 +27,7 @@
     const btnShowProfil=document.getElementById("btn-show-profil");
     const btnShowNotification=document.getElementById("btn-show-notification");
     const btnShowParametre=document.getElementById("btn-show-parametre");
+    const iconSidebar=document.getElementById("icon-sidebar");
 
 
 
@@ -35,6 +36,7 @@
     // affiche le sidebar mobile
     function showSidebar(){
         containerLeft.classList.add("tft-show");
+        iconSidebar.classList.add("tft-show");
     }
 
     // affiche le sidebar mobile

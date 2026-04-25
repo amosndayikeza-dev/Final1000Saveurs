@@ -125,21 +125,13 @@
     background-color: var(--black-utile-2);
     border-right: 0.125rem solid var(--bg-icons);
     display: none;
-    position: absolute;
-    z-index: 1000;
     padding: 0.625rem 1.25rem;
     flex-direction: column;
     gap:0.625rem;
     overflow-y: auto;
-    animation: floatSidebar 0.5s ease 0s 1 alternate forwards;
 }
-@keyframes floatSidebar{
-    0%{
-        transform: translateX(-10rem) ;
-    }
-    100%{
-        transform:translateX(0rem);
-    }
+#icon-sidebar{
+    display: none;
 }
 .containerCenter{
     flex:1;
@@ -442,6 +434,8 @@
     flex:1;
     padding: 1.25rem 1.875rem;
     overflow-y:auto;
+    justify-content: start;
+    align-items: start;
 }
 .departement{
     background-color: var(--black-utile-3);
@@ -449,7 +443,7 @@
     display: flex;
     flex-direction: column;
     gap:0.3125rem;
-    padding: 1.875rem 0.625rem 0.9375rem 0.625rem;
+    padding: 1.875rem 0.625rem 15px 0.625rem;
     width:23.75rem;
     height: 300px;
     border-radius: var(--br-btn);
@@ -486,6 +480,10 @@
 }
 .departement-details h3{
     font-weight: 600;
+}
+.departement-details p{
+    max-height: 4rem;
+    overflow-y: auto;
 }
 .departement-workers{
     display: flex;
@@ -525,6 +523,7 @@
     justify-content: end;
     align-items: center;
     flex:1;
+    margin-top: 10px;
 }
 .departement-btns .tft-btn{
     padding: 0.3125rem 0.5625rem !important;

@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1000saveurs</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/tft-configStyles.css">
-    <link rel="stylesheet" href="../assets/css/responsiveStyles.css">
-    <link rel="stylesheet" href="../assets/css/big.css">
-    <link rel="stylesheet" href="../assets/fonts/feather/feather.css">
-    <link rel="stylesheet" href="../assets/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/tft-configStyles.css">
+    <link rel="stylesheet" href="../../assets/css/responsiveStyles.css">
+    <link rel="stylesheet" href="../../assets/css/big.css">
+    <link rel="stylesheet" href="../../assets/fonts/feather/feather.css">
+    <link rel="stylesheet" href="../../assets/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="containerAll">
         <!-- partie gauche -->
         <div class="containerLeft" id="container-left">
-            <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3" onclick="hideSidebar()">
+            <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3" onclick="hideSidebar()" id="icon-sidebar">
                 <i class="fas fa-arrow-right"></i>
             </div>
             <div class="c-left-header">
                 <div class="tft-logo-avatar tft-bdr-greensav-1">
-                    <img src="../assets/images/icons/abonnes.png" alt="">
+                    <img src="../../assets/images/icons/abonnes.png" alt="">
                 </div>
                 <p class="app-name">1000<span>Saveurs</span></p>
             </div>
             <div class="menu">
                 <div class="c-left-menu">
-                    <a href="../dashboardpatron.html">
+                    <a href="../views/dashboardpatron.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round" onclick="showSidebar()">
                                 <i class="fas fa-home"></i>
@@ -35,7 +35,7 @@
                             <p class="option-name">Dashboard</p>
                         </div>
                     </a>
-                    <a href="../departements.html">
+                    <a href="../views/departements.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-sitemap"></i>
@@ -51,7 +51,7 @@
                             <p class="option-name">Rapports</p>
                         </div>
                     </a>
-                    <a href="../employes.html">
+                    <a href="../views/employes.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-users"></i>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="user-option">
                     <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer" onclick="showContainerRight()">
-                        <img src="../assets/images/icons/femme.jpg" alt="">
+                        <img src="../../assets/images/icons/femme.jpg" alt="">
                     </div>
                     <div class="user-infos">
                         <div class="user-name">
@@ -91,7 +91,11 @@
         <!-- partie centre -->
         <div class="containerCenter">
             <div class="c-center-header">
-                <h2 class="tft-title1 tft-fw-600">Départements</h2>
+                <h2 class="tft-title1 tft-fw-600 tft-center tft-gap-10px">
+                    <div class="tft-icon-carre tft-bdr-gris-1" onclick="showSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    Départements</h2>
                 <div class="header-aside">
                     <div class="tft-search-withIcon">
                         <input type="search" placeholder="Rechercher" class="tft-clr-white3">
@@ -102,16 +106,16 @@
                     <div class="tft-users tft-bdr-gris-1" id="tft-users">
                         <div class="tft-users-pics"  id="tft-users-pics">
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="../assets/images/user/arashmil.jpg">
+                                <img src="../../assets/images/user/arashmil.jpg">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="../assets/images/user/chadengle.jpg">
+                                <img src="../../assets/images/user/chadengle.jpg">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="../assets/images/user/mlane.jpg">
+                                <img src="../../assets/images/user/mlane.jpg">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="../assets/images/user/sauro.jpg">
+                                <img src="../../assets/images/user/sauro.jpg">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
                                 <p class="tft-clr-white3">+15</p>
@@ -137,29 +141,29 @@
                     <div class="departement-workers">
                         <div class="simple-workers">
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/1.png.jpg" alt="">
+                                <img src="../../assets/images/user/1.png.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/user7.jpg" alt="">
+                                <img src="../../assets/images/user/user7.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/mlane.jpg" alt="">
+                                <img src="../../assets/images/user/mlane.jpg" alt="">
                             </div>
                         </div>
                         <div class="departement-manager">
                             <div class="tft-avatar-profil-moyen tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/chadengle.jpg" alt="">
+                                <img src="../../assets/images/user/chadengle.jpg" alt="">
                             </div>
                         </div>
                         <div class="simple-workers">
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/arashmil.jpg" alt="">
+                                <img src="../../assets/images/user/arashmil.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/sauro.jpg" alt="">
+                                <img src="../../assets/images/user/sauro.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/jm_denis.jpg" alt="">
+                                <img src="../../assets/images/user/jm_denis.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -179,29 +183,29 @@
                     <div class="departement-workers">
                         <div class="simple-workers">
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/1.png.jpg" alt="">
+                                <img src="../../assets/images/user/1.png.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/user7.jpg" alt="">
+                                <img src="../../assets/images/user/user7.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/mlane.jpg" alt="">
+                                <img src="../../assets/images/user/mlane.jpg" alt="">
                             </div>
                         </div>
                         <div class="departement-manager">
                             <div class="tft-avatar-profil-moyen tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/chadengle.jpg" alt="">
+                                <img src="../../assets/images/user/chadengle.jpg" alt="">
                             </div>
                         </div>
                         <div class="simple-workers">
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/arashmil.jpg" alt="">
+                                <img src="../../assets/images/user/arashmil.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/sauro.jpg" alt="">
+                                <img src="../../assets/images/user/sauro.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/jm_denis.jpg" alt="">
+                                <img src="../../assets/images/user/jm_denis.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -221,29 +225,29 @@
                     <div class="departement-workers">
                         <div class="simple-workers">
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/1.png.jpg" alt="">
+                                <img src="../../assets/images/user/1.png.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/user7.jpg" alt="">
+                                <img src="../../assets/images/user/user7.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/mlane.jpg" alt="">
+                                <img src="../../assets/images/user/mlane.jpg" alt="">
                             </div>
                         </div>
                         <div class="departement-manager">
                             <div class="tft-avatar-profil-moyen tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/chadengle.jpg" alt="">
+                                <img src="../../assets/images/user/chadengle.jpg" alt="">
                             </div>
                         </div>
                         <div class="simple-workers">
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/arashmil.jpg" alt="">
+                                <img src="../../assets/images/user/arashmil.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/sauro.jpg" alt="">
+                                <img src="../../assets/images/user/sauro.jpg" alt="">
                             </div>
                             <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="../assets/images/user/jm_denis.jpg" alt="">
+                                <img src="../../assets/images/user/jm_denis.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -269,7 +273,7 @@
             </div>
             <div class="admin-profil">
                 <div class="tft-avatar-profil-moyen2 tft-bdr-greensav-2">
-                    <img src="../assets/images/user/arashmil.jpg">
+                    <img src="../../assets/images/user/arashmil.jpg">
                 </div>
                 <h4 class="tft-title4 tft-fw-600">Triphine Iribagiza</h4>
                 <p class="tft-sm-title1">Patronne</p>
@@ -453,7 +457,7 @@
                                 </div>
                                 <div class="single-employe">
                                     <div class="tft-avatar-profil-petit">
-                                        <img src="../assets/images/user/arashmil.jpg" alt="">
+                                        <img src="../../assets/images/user/arashmil.jpg" alt="">
                                     </div>
                                     <div class="employe-nom-poste">
                                         <h4 class="tft-title4 tft-clr-remain-white2">Lania Ishimwe</h4>
@@ -489,5 +493,5 @@
         <!-- popup d'ajouter le departement -->
     </div>
 </body>
-<script src="../assets/js/scripts.js"></script>
+<script src="../../assets/js/scripts.js"></script>
 </html>
