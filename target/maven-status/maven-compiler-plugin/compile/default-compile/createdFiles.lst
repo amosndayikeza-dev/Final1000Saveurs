@@ -16,6 +16,7 @@ apps\app\services\DebtService.class
 apps\app\controllers\api\patron\PatronDepartementsApiServlet.class
 apps\app\models\ActivityLog.class
 apps\app\dao\SalaryReportDAO.class
+apps\app\controllers\auth\AuthMeApiServlet.class
 apps\app\models\Users.class
 apps\app\controllers\api\patron\PatronSalariesReportApiServlet.class
 apps\app\dao\StockMovementDAO.class
@@ -34,6 +35,7 @@ apps\app\dao\ActivityLogDAO.class
 apps\TestApiServer$LoginHandler.class
 apps\app\controllers\api\manager\ManagerSalesApiServlet.class
 apps\app\utils\PasswordUtil.class
+apps\app\controllers\api\patron\PatronDashboardApiServlet.class
 apps\app\models\SaleItem.class
 apps\app\controllers\api\patron\PatronDebtsReportApiServlet.class
 apps\app\dao\EmployeeDAO.class

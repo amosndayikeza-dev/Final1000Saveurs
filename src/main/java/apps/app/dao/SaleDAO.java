@@ -225,4 +225,23 @@ public class SaleDAO {
     }
 
 
+    public double getTotalSalesByPeriod(Date start, Date end) {
+        String sql = "SELECT COALESCE(SUM(total_amount), 0) FROM sales WHERE sold_at BETWEEN ? AND ?";
+        try {
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setDate(1, start);
+            stmt.setDate(2, end);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble(1);
+            }
+            return 0.0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
 }

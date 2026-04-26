@@ -295,4 +295,20 @@ public class DebtDAO {
             throw new RuntimeException(e);
         }
    }
+
+   //
+   public double getTotalPendingDebts() throws SQLException {
+       String sql = "SELECT COALESCE(SUM(amount), 0) FROM debts WHERE status = 'pending'";
+       try {
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+           if (rs.next()) {
+               return rs.getDouble(1);
+           }
+           return 0.0;
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
+   }
 }

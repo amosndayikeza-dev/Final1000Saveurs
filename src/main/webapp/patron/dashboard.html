@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1000saveurs</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/tft-configStyles.css">
-    <link rel="stylesheet" href="../assets/css/responsiveStyles.css">
-    <link rel="stylesheet" href="../assets/fonts/feather/feather.css">
-    <link rel="stylesheet" href="../assets/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/tft-configStyles.css">
+    <link rel="stylesheet" href="/assets/css/responsiveStyles.css">
+    <link rel="stylesheet" href="/assets/fonts/feather/feather.css">
+    <link rel="stylesheet" href="/assets/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
             </div>
             <div class="menu">
                 <div class="c-left-menu">
-                    <a href="../dashboardpatron.html">
+                    <a href="/patron/dashboard.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round" onclick="showSidebar()">
                                 <i class="fas fa-home"></i>
@@ -34,7 +34,7 @@
                             <p class="option-name">Dashboard</p>
                         </div>
                     </a>
-                    <a href="../departements.html">
+                    <a href="/patron/departements.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-sitemap"></i>
@@ -42,7 +42,7 @@
                             <p class="option-name">Départements</p>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="patron/rapports/ventes.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-chart-bar"></i>
@@ -50,7 +50,7 @@
                             <p class="option-name">Rapports</p>
                         </div>
                     </a>
-                    <a href="../employes.html">
+                    <a href="/patron/employes.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-users"></i>
@@ -73,12 +73,12 @@
                 </div>
                 <div class="user-option">
                     <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer" onclick="showContainerRight()">
-                        <img src="../assets/images/icons/femme.jpg" alt="">
+                        <img src="/assets/images/icons/femme.jpg" alt="">
                     </div>
                     <div class="user-infos">
                         <div class="user-name">
-                            <h2 class="tft-title4 tft-fw-600">Triphine IRIBAGIZA</h2>
-                            <p class="tft-sm-title1">Patronne</p>
+                            <h2 id="userName" class="tft-title4 tft-fw-600"> Chargement</h2>
+                            <p id="userRole" class="tft-sm-title1">Patronne</p>
                         </div>
                         <div class="tft-icon-carre-moyen tft-bg-black3 tft-transition" onclick="deconnectionModal()">
                             <i class="fe fe-log-out tft-clr-red"></i>
@@ -105,16 +105,16 @@
                     <div class="tft-users tft-bdr-gris-1" id="tft-users">
                         <div class="tft-users-pics"  id="tft-users-pics">
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="../assets/images/user/arashmil.jpg">
+                                <img src="/assets/images/user/arashmil.jpg">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="../assets/images/user/chadengle.jpg">
+                                <img src="/assets/images/user/chadengle.jpg">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="../assets/images/user/mlane.jpg">
+                                <img src="/assets/images/user/mlane.jpg">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="../assets/images/user/sauro.jpg">
+                                <img src="/assets/images/user/sauro.jpg">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
                                 <p class="tft-clr-white3">+15</p>
@@ -140,7 +140,7 @@
                         </div>
                         <div class="card-info">
                             <h3 class="tft-title4">Départements</h3>
-                            <p class="tft-title1 tft-fw-700 tft-clr-white">100</p>
+                            <p id="deptCount" class="tft-title1 tft-fw-700 tft-clr-white">0</p>
                         </div>
                     </div>
                     <div class="overview-card tft-bg-green-bg">
@@ -151,7 +151,7 @@
                         </div>
                         <div class="card-info">
                             <h3 class="tft-title4">Employés</h3>
-                            <p class="tft-title1 tft-fw-700 tft-clr-white">100</p>
+                            <p id="empCount" class="tft-title1 tft-fw-700 tft-clr-white">0</p>
                         </div>
                     </div>
                     <div class="overview-card tft-bg-blue-bg">
@@ -162,7 +162,7 @@
                         </div>
                         <div class="card-info">
                             <h3 class="tft-title4">Rapports</h3>
-                            <p class="tft-title1 tft-fw-700 tft-clr-white">100</p>
+                            <p id="reportsCount" class="tft-title1 tft-fw-700 tft-clr-white">0</p>
                         </div>
                     </div>
                     <div class="overview-card tft-bg-orangesav2">
@@ -173,7 +173,7 @@
                         </div>
                         <div class="card-info">
                             <h3 class="tft-title4">Dettes</h3>
-                            <p class="tft-title1 tft-fw-700 tft-clr-white">100 000 fbu</p>
+                            <p id="debtsTotal" class="tft-title1 tft-fw-700 tft-clr-white">0 fbu</p>
                         </div>
                     </div>
                 </div>
@@ -185,10 +185,10 @@
                             </div>
                             <div class="actions-details">
                                 <div class="action-info">
-                                    <h3 class="tft-title3">Lania Ishimwe</h3>
-                                    <p class="tft-sm-title1">Caissiere</p>
+                                    <h3 class="tft-title3">Dernier employé </h3>
+                                    <p id="lastEmployee" class="tft-sm-title1">---</p>
                                 </div>
-                                <p class="tft-title4 tft-clr-orangesav">Employé recent</p>
+                                <p id="lastEmployeeDate" class="tft-title4 tft-clr-orangesav"></p>
                             </div>
                         </div>
                         <div class="single-action tft-bdr-gris-2">
@@ -197,10 +197,10 @@
                             </div>
                             <div class="actions-details">
                                 <div class="action-info">
-                                    <h3 class="tft-title3">Lania Ishimwe</h3>
-                                    <p class="tft-sm-title1">Serveur</p>
+                                    <h3 class="tft-title3">Dernier rapport</h3>
+                                    <p id="lastReport" class="tft-sm-title1"> --- </p>
                                 </div>
-                                <p class="tft-title4 tft-clr-orangesav">Rapport recent</p>
+                                <p id="lastReportDate" class="tft-title4 tft-clr-orangesav"></p>
                             </div>
                         </div>
                         <div class="single-action tft-bdr-gris-2">
@@ -209,20 +209,20 @@
                             </div>
                             <div class="actions-details">
                                 <div class="action-info">
-                                    <h3 class="tft-title3">Lania Ishimwe</h3>
-                                    <p class="tft-sm-title1">Serveur</p>
+                                    <h3 class="tft-title3">Dernier département</h3>
+                                    <p id="lastDepartement" class="tft-sm-title1">---</p>
                                 </div>
-                                <p class="tft-title4 tft-clr-orangesav">Département recent</p>
+                                <p  id="lastDepartementDate" class="tft-title4 tft-clr-orangesav"></p>
                             </div>
                         </div>
                     </div>
                     <div class="recent-intro" id="recent-intro">
                         <h1 class="tft-clr-orangesav tft-title1">Découvrez les nouveautés dans <span class="tft-clr-orangesav">1000Saveurs</span></h1>
                         <div class="recent-pic">
-                            <img src="../assets/images/icons/illuHomme (1).png" alt="">
+                            <img src="/assets/images/icons/illuHomme (1).png" alt="">
                         </div>
                         <div class="recent-pic-fleche">
-                            <img src="../assets/images/icons/illfleche.png" alt="">
+                            <img src="/assets/images/icons/illfleche.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@
             </div>
             <div class="admin-profil">
                 <div class="tft-avatar-profil-moyen2 tft-bdr-greensav-2">
-                    <img src="../assets/images/user/arashmil.jpg">
+                    <img src="/assets/images/user/arashmil.jpg">
                 </div>
                 <h4 class="tft-title4 tft-fw-600">Triphine Iribagiza</h4>
                 <p class="tft-sm-title1">Patronne</p>
@@ -369,7 +369,7 @@
                 <div class="deconnection-actions">
                     <h3 class="tft-title1">Voulez-vous deconnecter ?</h3>
                     <div class="deconnection-options">
-                        <a class="tft-btn tft-bg-red tft-clr-white" href="#">Oui</a>
+                        <a class="tft-btn tft-bg-red tft-clr-white" href="#" id="logoutyes" >Oui</a>
                         <btn class="tft-btn tft-bg-greensav tft-clr-white" onclick="closeModal()">Non</btn>
                     </div>
                 </div>
@@ -381,5 +381,7 @@
         <!-- popup de deconnexion -->
     </div>
 </body>
-<script src="../assets/js/scripts.js"></script>
+<script src="/assets/js/scripts.js"></script>
+<script src="../assets/js/patron/dashboard.js"></script>
+
 </html>
