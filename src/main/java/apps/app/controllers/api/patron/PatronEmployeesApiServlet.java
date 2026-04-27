@@ -14,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/api/patron/employees/*")
 public class PatronEmployeesApiServlet extends HttpServlet {
@@ -32,7 +33,7 @@ public class PatronEmployeesApiServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         try {
             if (pathInfo == null || pathInfo.equals("/")) {
-                List<Employee> employees = employeeDAO.findAll();
+                List<Map<String,Object>> employees = employeeDAO.findAllWithUserDetails();
                 resp.getWriter().write(gson.toJson(employees));
             } else {
                 int id = Integer.parseInt(pathInfo.substring(1));

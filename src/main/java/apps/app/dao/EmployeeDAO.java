@@ -5,7 +5,9 @@ import apps.app.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EmployeeDAO {
 
@@ -57,6 +59,28 @@ public class EmployeeDAO {
             while (rs.next()) {
                 list.add(mapRowToEmployee(rs));
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
+    public List<Map<String,Object>> findAllWithUserDetails(){
+        List<Map<String,Object>> list = new ArrayList<>();
+        String sql = "SELECT e.id,e.user_id,u.first_name,u.last_name,e.position FROM employees e JOIN users u ON e.user_id = u.id";
+        try{
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+                while (rs.next()){
+                    Map<String,Object> map = new HashMap<>();
+                    map.put("id",rs.getInt("id"));
+                    map.put("user_id",rs.getInt("user_id"));
+                    map.put("first_name",rs.getString("first_name"));
+                    map.put("last_name",rs.getString("last_name"));
+                    map.put("position",rs.getString("position"));
+                    list.add(map);
+                }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -207,5 +231,25 @@ public class EmployeeDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Map<String, String> getLastEmployee() throws SQLException {
+        String sql = "SELECT CONCAT(u.first_name, ' ', u.last_name) AS name, e.created_at AS date " +
+                "FROM employees e JOIN users u ON e.user_id = u.id " +
+                "ORDER BY e.id DESC LIMIT 1"; // ou ORDER BY e.created_at DESC
+        try {
+             Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Map<String, String> map = new HashMap<>();
+                map.put("name", rs.getString("name"));
+                map.put("date", rs.getTimestamp("date").toString());
+                return map;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 }

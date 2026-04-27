@@ -20,7 +20,7 @@
             </div>
             <div class="c-left-header">
                 <div class="tft-logo-avatar tft-bdr-greensav-1">
-                    <img src="../assets/images/icons/abonnes.png" alt="">
+                    <img src="/assets/images/icons/abonnes.png" alt="">
                 </div>
                 <p class="app-name">1000<span>Saveurs</span></p>
             </div>
@@ -381,7 +381,69 @@
         <!-- popup de deconnexion -->
     </div>
 </body>
+
+<script>
+    function closeModal() {
+        document.getElementById('deconnection-modal').style.display = 'none';
+    }
+    function deconnectionModal() {
+        document.getElementById('deconnection-modal').style.display = 'flex';
+    }
+
+    async function loadDashboardData() {
+        try {
+            const response = await fetch('/api/patron/dashboard');
+            if (!response.ok) throw new Error('Erreur chargement dashboard');
+            const data = await response.json();
+            document.getElementById('deptCount').innerText = data.departementsCount || 0;
+            document.getElementById('empCount').innerText = data.employeesCount || 0;
+            document.getElementById('debtsTotal').innerHTML = (data.pendingDebts || 0).toLocaleString() + ' fbu';
+            document.getElementById('reportsCount').innerText = data.reportsCount || 0;
+
+            // (Optionnel) Mettre à jour les activités récentes si votre API les renvoie
+
+            if (data.recentEmployee) {
+                document.getElementById('lastEmployee').innerText = data.recentEmployee.name;
+                document.getElementById('lastEmployeeDate').innerText = data.recentEmployee.date;
+            }
+            if (data.recentReport) {
+                document.getElementById('lastReport').innerText = data.recentReport.name;
+                document.getElementById('lastReportDate').innerText = data.recentReport.date;
+            }
+            if (data.recentDepartement) {
+                document.getElementById('lastDepartement').innerText = data.recentDepartement.name;
+                document.getElementById('lastDepartementDate').innerText = data.recentDepartement.date;
+            }
+        } catch (error) {
+            console.error('Erreur chargement dashboard :', error);
+        }
+    }
+
+    async function loadUserInfo() {
+        try {
+            const response = await fetch('/api/auth/me');
+            if (response.ok) {
+                const user = await response.json();
+                document.getElementById('userName').innerText = user.userName || 'Utilisateur';
+                document.getElementById('userRole').innerText = (user.role === 'patron') ? 'Patron' : 'Utilisateur';
+            }
+        } catch (error) {
+            console.error('Erreur chargement utilisateur :', error);
+        }
+    }
+
+    document.getElementById('logoutyes').addEventListener('click', async (e) => {
+        e.preventDefault();
+        await fetch('/api/auth/logout', { method: 'POST' });
+        window.location.href = '/login.html';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadDashboardData();
+        loadUserInfo();
+    });
+</script>
+
 <script src="/assets/js/scripts.js"></script>
-<script src="../assets/js/patron/dashboard.js"></script>
 
 </html>

@@ -5,7 +5,9 @@ import apps.app.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SalaryReportDAO {
 
@@ -228,6 +230,24 @@ public class SalaryReportDAO {
             throw new RuntimeException(e);
         }
         return false;
+    }
+
+    public Map<String, String> getLastSalaryReport() throws SQLException {
+        String sql = "SELECT id, submitted_at AS date FROM salary_reports ORDER BY id DESC LIMIT 1";
+        try {
+             Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Map<String, String> map = new HashMap<>();
+                map.put("name", "Rapport #" + rs.getInt("id"));
+                map.put("date", rs.getTimestamp("date").toString());
+                return map;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 }
 

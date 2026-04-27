@@ -4,9 +4,7 @@ import apps.app.models.Departement;
 import apps.app.models.Departement;
 import apps.app.utils.DBConnection;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class DepartementDAO {
 
@@ -167,6 +165,24 @@ public class DepartementDAO {
             throw new RuntimeException(e);
         }
         return list;
+    }
+
+    public Map<String, String> getLastDepartement() throws SQLException {
+        String sql = "SELECT name, created_at AS date FROM departements ORDER BY id DESC LIMIT 1";
+        try {
+             Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Map<String, String> map = new HashMap<>();
+                map.put("name", rs.getString("name"));
+                map.put("date", rs.getTimestamp("date").toString());
+                return map;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 }
 
