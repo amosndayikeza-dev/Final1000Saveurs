@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet("/api/manager/salary-report")
 public class ManagerSalaryReportApiServlet extends HttpServlet {
@@ -61,5 +64,58 @@ public class ManagerSalaryReportApiServlet extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             resp.getWriter().write("{\"error\":\"" + e.getMessage() + "\"}");
         }
+    }
+
+    // GET : récupérer les rapports de salaire du département du manager
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("departementId") == null) {
+            sendError(resp, 401, "Non authentifié");
+            return;
+        }
+        Integer departementId = (Integer) session.getAttribute("departementId");
+        String pathInfo = req.getPathInfo();
+        resp.setContentType("application/json");
+
+        try {
+            if (pathInfo == null || pathInfo.equals("/")) {
+                // Récupérer les paramètres de filtrage (optionnels)
+                String monthParam = req.getParameter("month");
+                String yearParam = req.getParameter("year");
+                String status = req.getParameter("status"); // pending, approved, rejected
+                Integer month = monthParam != null ? Integer.parseInt(monthParam) : null;
+                Integer year = yearParam != null ? Integer.parseInt(yearParam) : null;
+
+                List<SalaryReport> reports = salaryReportDAO.findByDepartement(departementId, month, year, status);
+                resp.getWriter().write(gson.toJson(reports));
+                return;
+            }
+            if (pathInfo.matches("/\\d+")) {
+                int reportId = Integer.parseInt(pathInfo.substring(1));
+                SalaryReport report = salaryReportDAO.findById(reportId);
+                if (report == null || report.getDepartementId() != departementId) {
+                    sendError(resp, 404, "Rapport non trouvé");
+                    return;
+                }
+                resp.getWriter().write(gson.toJson(report));
+                return;
+            }
+            sendError(resp, 404, "Endpoint inconnu");
+        } catch (NumberFormatException e) {
+            sendError(resp, 400, "Paramètre numérique invalide");
+        } catch (SQLException e) {
+            sendError(resp, 500, "Erreur base de données");
+        }
+    }
+
+    // ============================ Utilitaire ============================
+    private void sendError(HttpServletResponse resp, int statusCode, String message) throws IOException {
+        resp.setStatus(statusCode);
+        resp.setContentType("application/json");
+        Map<String, String> error = new HashMap<>();
+        error.put("error", message);
+        resp.getWriter().write(gson.toJson(error));
     }
 }

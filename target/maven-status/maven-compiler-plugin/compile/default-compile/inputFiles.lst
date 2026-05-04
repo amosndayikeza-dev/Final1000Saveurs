@@ -5,13 +5,16 @@ A:\1000saveurs\src\main\java\apps\app\controllers\api\manager\ManagerSalaryRepor
 A:\1000saveurs\src\main\java\apps\app\controllers\api\manager\ManagerSalesApiServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\manager\ManagerStocksApiServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronDashboardApiServlet.java
+A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronDebtsExportExcelServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronDebtsReportApiServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronDepartementsApiServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronEmployeesApiServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronProductsApiServlet.java
+A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronSalariesExportServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronSalariesReportApiServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronSalesExportServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronSalesReportApiServlet.java
+A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronStocksExportServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\patron\PatronStocksReportApiServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\api\TestServlet.java
 A:\1000saveurs\src\main\java\apps\app\controllers\auth\AuthMeApiServlet.java
@@ -45,7 +48,6 @@ A:\1000saveurs\src\main\java\apps\app\models\Users.java
 A:\1000saveurs\src\main\java\apps\app\services\DebtService.java
 A:\1000saveurs\src\main\java\apps\app\services\SaleService.java
 A:\1000saveurs\src\main\java\apps\app\services\StockService.java
-A:\1000saveurs\src\main\java\apps\app\TestApiServer.java
 A:\1000saveurs\src\main\java\apps\app\utils\DateUtil.java
 A:\1000saveurs\src\main\java\apps\app\utils\DBConnection.java
 A:\1000saveurs\src\main\java\apps\app\utils\FlashMessageUtil.java

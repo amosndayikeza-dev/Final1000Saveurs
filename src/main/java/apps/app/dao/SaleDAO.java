@@ -10,7 +10,7 @@ import java.util.List;
 public class SaleDAO {
 
     //create
-    public void create(Sale sale){
+    public void create(Sale sale) throws SQLException{
         String sql = "INSERT INTO sales(departement_id, sold_at, total_amount, created_by, notes) VALUES (?, ?, ?, ?, ?)";
 
         try{
@@ -109,7 +109,7 @@ public class SaleDAO {
     }
 
     //delete
-    public void delete(int id) {
+    public void delete(int id) throws SQLException{
         String sql = "DELETE FROM sales WHERE id = ?";
         try {Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);

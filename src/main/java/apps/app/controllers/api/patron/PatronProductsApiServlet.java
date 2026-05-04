@@ -73,7 +73,11 @@ public class PatronProductsApiServlet extends HttpServlet {
         BufferedReader reader = req.getReader();
         Product product = gson.fromJson(reader, Product.class);
         product.setId(id);
-        productDAO.update(product);
+        try {
+            productDAO.update(product);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         resp.setContentType("application/json");
         resp.getWriter().write(gson.toJson(product));
     }

@@ -21,6 +21,7 @@ apps\app\models\Users.class
 apps\app\controllers\api\patron\PatronSalariesReportApiServlet.class
 apps\app\dao\StockMovementDAO.class
 apps\app\services\StockService.class
+apps\app\controllers\api\patron\PatronDebtsExportExcelServlet.class
 apps\app\filters\ApiAuthFilter.class
 apps\app\dao\SaleItemDAO.class
 apps\app\models\Debt.class
@@ -39,6 +40,7 @@ apps\app\controllers\api\patron\PatronDashboardApiServlet.class
 apps\app\models\SaleItem.class
 apps\app\controllers\api\patron\PatronDebtsReportApiServlet.class
 apps\app\dao\EmployeeDAO.class
+apps\app\controllers\api\patron\PatronStocksExportServlet.class
 apps\TestApiServer.class
 apps\app\controllers\api\manager\ManagerSalaryReportApiServlet.class
 apps\app\models\Departement.class
@@ -50,6 +52,7 @@ apps\app\models\Employee.class
 apps\app\models\Product.class
 apps\app\utils\FlashMessageUtil.class
 apps\app\filters\RoleFilter.class
+apps\app\controllers\api\patron\PatronSalariesExportServlet.class
 apps\app\controllers\api\admin\AdminLogsApiServlet.class
 apps\app\controllers\AuthController.class
 apps\app\controllers\api\manager\ManagerStocksApiServlet.class
