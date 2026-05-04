@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000saveurs</title>
+    <link rel="icon" href="../assets/images/icons/abonnes.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tft-configStyles.css">
+    <link rel="stylesheet" href="../assets/css/responsiveStyles.css">
+    <link rel="stylesheet" href="../assets/fonts/feather/feather.css">
+    <link rel="stylesheet" href="../assets/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="containerAll">
+        <!-- partie gauche debut-->
+        <div class="containerLeft" id="container-left">
+            <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3" onclick="hideSidebar()" id="icon-sidebar">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="c-left-header">
+                <a href="./dashboardpatron.php">
+                    <div class="tft-logo-avatar tft-bdr-greensav-1">
+                        <img src="../assets/images/icons/abonnes.png" alt="">
+                    </div>
+                </a>
+                <div class="app-title">
+                    <h1 class="app-name">1000<span>Saveurs</span></h1>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="c-left-menu">
+                    <a href="./dashboardpatron.php">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round" onclick="showSidebar()">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <p class="option-name">Dashboard</p>
+                        </div>
+                    </a>
+                    <a href="./departementspatron.php">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <p class="option-name">Départements</p>
+                        </div>
+                    </a>
+                    <a href="patron/rapports/ventes.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <p class="option-name">Rapports</p>
+                        </div>
+                    </a>
+                    <a href="/patron/employes.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <p class="option-name">Employés</p>
+                        </div>
+                    </a>
+                    <a href="./stockpatron.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <p class="option-name">Stock</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="user-option">
+                    <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer" onclick="showContainerRight()">
+                        <img src="../assets/images/icons/femme.jpg" alt="">
+                    </div>
+                    <div class="user-infos">
+                        <div class="user-name">
+                            <h2 id="userName" class="tft-title4 tft-fw-600"> Chargement</h2>
+                            <p id="userRole" class="tft-sm-title1">Patronne</p>
+                        </div>
+                        <div class="tft-icon-carre-moyen tft-bg-black3 tft-transition" onclick="deconnectionModal()">
+                            <i class="fe fe-log-out tft-clr-red"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- partie gauche fin-->
+        <!-- partie centre -->
+        <div class="containerCenter">
+            <div class="c-center-header">
+                <h2 class="tft-title1 tft-fw-600 tft-center tft-gap-10px">
+                    <div class="tft-icon-carre tft-bdr-gris-1" onclick="showSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    Dashboard</h2>
+                <div class="header-aside">
+                    <div class="tft-search-withIcon">
+                        <input type="search" placeholder="Rechercher" class="tft-clr-white3">
+                        <div class="tft-search-withIcon-icon tft-bg-greensav">
+                            <i class="fas fa-search tft-clr-remain-white tft-fw-600"></i>
+                        </div>
+                    </div>
+                    <!-- <div class="tft-users tft-bdr-gris-1" id="tft-users">
+                        <div class="tft-users-pics"  id="tft-users-pics">
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/icon/femme.png">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/icon/femme.png">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/icon/femme.png">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/icon/femme.png">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <p class="tft-clr-white3">+15</p>
+                            </div>
+                        </div>
+                        <h4 class="tft-sm-title1 tft-bg-black1" id="user-desc">Utilisateurs</h4>
+                    </div> -->
+                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3" onclick="showContainerRightNotification()">
+                        <i class="fas fa-bell tft-clr-greensav"></i>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3"  onclick="showContainerRightParametre()">
+                        <i class="fas fa-cog tft-clr-greensav"></i>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bg-orangesav2" id="btn-light-mode" onclick="changeMode()">
+                        <i class="fas fa-moon tft-clr-white"></i>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bg-orangesav2 tft-hidden" id="btn-dark-mode" onclick="changeMode()">
+                        <i class="fas fa-moon tft-clr-white"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="c-center-body">
+                <div class="overview-cards">
+                    <div class="overview-card tft-bg-yellow-bg">
+                        <div class="icon-container tft-bdr-yellow-txt-1">
+                            <div class="tft-icon-round-moyen tft-bg-yellow-bg">
+                                <i class="fas fa-sitemap tft-clr-yellow-txt"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="tft-title4">Départements</h3>
+                            <p id="deptCount" class="tft-title1 tft-fw-700 tft-clr-white">0</p>
+                        </div>
+                    </div>
+                    <div class="overview-card tft-bg-green-bg">
+                        <div class="icon-container tft-bdr-green-txt-1">
+                            <div class="tft-icon-round-moyen tft-bg-green-bg">
+                                <i class="fas fa-users tft-clr-green-txt"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="tft-title4">Employés</h3>
+                            <p id="empCount" class="tft-title1 tft-fw-700 tft-clr-white">0</p>
+                        </div>
+                    </div>
+                    <div class="overview-card tft-bg-blue-bg">
+                        <div class="icon-container tft-bdr-blue-txt-1">
+                            <div class="tft-icon-round-moyen tft-bg-blue-bg">
+                                <i class="fas fa-chart-bar tft-clr-blue-txt"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="tft-title4">Rapports</h3>
+                            <p id="reportsCount" class="tft-title1 tft-fw-700 tft-clr-white">0</p>
+                        </div>
+                    </div>
+                    <div class="overview-card tft-bg-orangesav2">
+                        <div class="icon-container tft-bdr-orangesav-1">
+                            <div class="tft-icon-round-moyen tft-bg-orangesav2">
+                                <i class="fas fa-users tft-clr-orangesav"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="tft-title4">Dettes</h3>
+                            <p id="debtsTotal" class="tft-title1 tft-fw-700 tft-clr-white">0 fbu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-container">
+                    <div class="recent-actions">
+                        <div class="single-action tft-bdr-gris-2">
+                            <div class="tft-icon-round-moyen tft-bg-greensav tft-bdr-remain-white-1">
+                                <i class="fas fa-user tft-clr-remain-white"></i>
+                            </div>
+                            <div class="actions-details">
+                                <div class="action-info">
+                                    <h3 class="tft-title3">Dernier employé </h3>
+                                    <p id="lastEmployee" class="tft-sm-title1">...</p>
+                                </div>
+                                <p id="lastEmployeeDate" class="tft-title4 tft-clr-orangesav"></p>
+                            </div>
+                        </div>
+                        <div class="single-action tft-bdr-gris-2">
+                            <div class="tft-icon-round-moyen tft-bg-greensav tft-bdr-remain-white-1">
+                                <i class="fas fa-chart-bar tft-clr-remain-white"></i>
+                            </div>
+                            <div class="actions-details">
+                                <div class="action-info">
+                                    <h3 class="tft-title3">Dernier rapport</h3>
+                                    <p id="lastReport" class="tft-sm-title1"> ... </p>
+                                </div>
+                                <p id="lastReportDate" class="tft-title4 tft-clr-orangesav"></p>
+                            </div>
+                        </div>
+                        <div class="single-action tft-bdr-gris-2">
+                            <div class="tft-icon-round-moyen tft-bg-greensav tft-bdr-remain-white-1">
+                                <i class="fas fa-sitemap tft-clr-remain-white"></i>
+                            </div>
+                            <div class="actions-details">
+                                <div class="action-info">
+                                    <h3 class="tft-title3">Dernier département</h3>
+                                    <p id="lastDepartement" class="tft-sm-title1">...</p>
+                                </div>
+                                <p  id="lastDepartementDate" class="tft-title4 tft-clr-orangesav"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-intro" id="recent-intro">
+                        <h1 class="tft-clr-orangesav tft-title1">Découvrez les nouveautés dans <span class="tft-clr-orangesav">1000Saveurs</span></h1>
+                        <div class="recent-pic">
+                            <img src="../assets/images/icons/illuHomme (1).png" alt="">
+                        </div>
+                        <div class="recent-pic-fleche">
+                            <img src="../assets/images/icons/illfleche.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- partie droite ajoute la classe active pour montrer debut-->
+        <div class="containerRight tft-p-relative" id="container-right">
+            <div class="tft-close-icon tft-p-absolute tft-top-15 tft-right-15 tft-hover-red" onclick="closeModalInfos()">
+                <i class="fas fa-times tft-clr-white3"></i>
+            </div>
+            <div class="admin-profil">
+                <div class="tft-avatar-profil-moyen2 tft-bdr-greensav-2">
+                    <img src="../assets/images/icons/femme.jpg">
+                </div>
+                <h4 class="tft-title4 tft-fw-600">Triphine Iribagiza</h4>
+                <p class="tft-sm-title1">Patronne</p>
+            </div>
+            <div class="admin-infos-container" id="profil-admin">
+                <div class="tft-w-100 tft-centre-tout tft-gap-20px tft-mt-10 infos-options">
+                    <div class="tft-icon-carre tft-bg-gris tft-bg-greensav" onclick="showProfil()" id="btn-show-profil">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="tft-icon-carre tft-bg-gris" onclick="showNotification()" id="btn-show-notification">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="tft-icon-carre tft-bg-gris" onclick="showParametre()" id="btn-show-parametre">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+                <div class="container-infos-user tft-show tft-mt-10" id="profil-modal">
+                    <div class="infos-container">
+                        <div class="infos-header">
+                            <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                <i class="fas fa-user tft-clr-greensav"></i>
+                            </div>
+                            <h3 class="tft-title3">Les informations du Profil</h3>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-mail tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Email</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">lania@gmail.com</p>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-phone tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Telephone</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">+257 68 90 81 32</p>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-users tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Genre</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">masculin</p>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-calendar tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Naissance</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">16-11-2025</p>
+                        </div>
+                        <div class="infos-details">
+                            <div class="info-titre">
+                                <div class="info-icon tft-bg-orangesav2">
+                                    <i class="fe fe-map-pin tft-clr-white"></i>
+                                </div>
+                                <p class="tft-clr-white3 tft-title4">Adresse</p>
+                            </div>
+                            <p class="tft-text-start tft-opacity-7">Burundi</p>
+                        </div>
+                    </div>
+                    <div class="infos-buttons tft-mt-10">
+                        <div class="infos-button tft-bg-greensav centre-tout tft-gap-5px">
+                            <i class="fe fe-edit tft-clr-remain-white"></i>
+                            <a href="#" class="tft-mt-2 tft-clr-remain-white">Editer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-infos-user tft-mt-10" id="notification-modal">
+                    <div class="infos-container">
+                        <div class="infos-header">
+                            <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                <i class="fas fa-bell tft-clr-greensav"></i>
+                            </div>
+                            <h3 class="tft-title3">Notifications</h3>
+                        </div>
+                        <div class="single-notification">
+                            <div class="title-notification">
+                                <h4 class="tft-title4">Rapport</h4>
+                                <p class="tft-sm-title2">2026-11-04</p>
+                            </div>
+                            <p class="tft-sm-title1">Lania Ishimwe</p>
+                        </div>
+                        <div class="single-notification">
+                            <div class="title-notification">
+                                <h4 class="tft-title4">Rapport</h4>
+                                <p class="tft-sm-title2">2026-11-04</p>
+                            </div>
+                            <p class="tft-sm-title1">Lania Ishimwe</p>
+                        </div>
+                        <div class="single-notification">
+                            <div class="title-notification">
+                                <h4 class="tft-title4">Rapport</h4>
+                                <p class="tft-sm-title2">2026-11-04</p>
+                            </div>
+                            <p class="tft-sm-title1">Lania Ishimwe</p>
+                        </div>
+                        <div class="single-notification">
+                            <div class="title-notification">
+                                <h4 class="tft-title4">Rapport</h4>
+                                <p class="tft-sm-title2">2026-11-04</p>
+                            </div>
+                            <p class="tft-sm-title1">Lania Ishimwe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-infos-user tft-mt-10" id="parametre-modal">
+                    <div class="infos-container">
+                        <div class="infos-header">
+                            <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                <i class="fas fa-cog tft-clr-greensav"></i>
+                            </div>
+                            <h3 class="tft-title3">Parametres</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- partie droite ajoute la classe active pour montrer fin-->
+        <!-- popup de deconnexion -->
+        <div class="tft-popup-modal tft-a-center" id="deconnection-modal">
+            <div class="tft-popup-container-small tft-bg-black3 tft-p-relative">
+                <div class="deconnection-actions">
+                    <h3 class="tft-title1">Voulez-vous deconnecter ?</h3>
+                    <div class="deconnection-options">
+                        <a class="tft-btn tft-bg-red tft-clr-white" href="#" id="logoutyes" >Oui</a>
+                        <btn class="tft-btn tft-bg-greensav tft-clr-white" onclick="closeModal()">Non</btn>
+                    </div>
+                </div>
+                <div class="tft-close-icon tft-p-absolute tft-top-5 tft-right-10 tft-hover-red" onclick="closeModal()">
+                    <i class="fas fa-times tft-clr-white3"></i>
+                </div>
+            </div>
+        </div>
+        <!-- popup de deconnexion -->
+    </div>
+</body>
+
+<script>
+    function closeModal() {
+        document.getElementById('deconnection-modal').style.display = 'none';
+    }
+    function deconnectionModal() {
+        document.getElementById('deconnection-modal').style.display = 'flex';
+    }
+
+    async function loadDashboardData() {
+        try {
+            const response = await fetch('/api/patron/dashboard');
+            if (!response.ok) throw new Error('Erreur chargement dashboard');
+            const data = await response.json();
+            document.getElementById('deptCount').innerText = data.departementsCount || 0;
+            document.getElementById('empCount').innerText = data.employeesCount || 0;
+            document.getElementById('debtsTotal').innerHTML = (data.pendingDebts || 0).toLocaleString() + ' fbu';
+            document.getElementById('reportsCount').innerText = data.reportsCount || 0;
+
+            // (Optionnel) Mettre à jour les activités récentes si votre API les renvoie
+
+            if (data.recentEmployee) {
+                document.getElementById('lastEmployee').innerText = data.recentEmployee.name;
+                document.getElementById('lastEmployeeDate').innerText = data.recentEmployee.date;
+            }
+            if (data.recentReport) {
+                document.getElementById('lastReport').innerText = data.recentReport.name;
+                document.getElementById('lastReportDate').innerText = data.recentReport.date;
+            }
+            if (data.recentDepartement) {
+                document.getElementById('lastDepartement').innerText = data.recentDepartement.name;
+                document.getElementById('lastDepartementDate').innerText = data.recentDepartement.date;
+            }
+        } catch (error) {
+            console.error('Erreur chargement dashboard :', error);
+        }
+    }
+
+    async function loadUserInfo() {
+        try {
+            const response = await fetch('/api/auth/me');
+            if (response.ok) {
+                const user = await response.json();
+                document.getElementById('userName').innerText = user.userName || 'Utilisateur';
+                document.getElementById('userRole').innerText = (user.role === 'patron') ? 'Patron' : 'Utilisateur';
+            }
+        } catch (error) {
+            console.error('Erreur chargement utilisateur :', error);
+        }
+    }
+
+    document.getElementById('logoutyes').addEventListener('click', async (e) => {
+        e.preventDefault();
+        await fetch('/api/auth/logout', { method: 'POST' });
+        window.location.href = '/login.html';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadDashboardData();
+        loadUserInfo();
+    });
+</script>
+
+<script src="../assets/js/scripts.js"></script>
+
+</html>

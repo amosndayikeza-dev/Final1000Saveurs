@@ -1,32 +1,39 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1000saveurs</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/tft-configStyles.css">
-    <link rel="stylesheet" href="/assets/css/responsiveStyles.css">
-    <link rel="stylesheet" href="/assets/fonts/feather/feather.css">
-    <link rel="stylesheet" href="/assets/font-awesome/css/all.min.css">
+    <link rel="icon" href="../assets/images/icons/abonnes.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tft-configStyles.css">
+    <link rel="stylesheet" href="../assets/css/responsiveStyles.css">
+    <link rel="stylesheet" href="../assets/fonts/feather/feather.css">
+    <link rel="stylesheet" href="../assets/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="containerAll">
-        <!-- partie gauche -->
+        <!-- partie gauche debut-->
         <div class="containerLeft" id="container-left">
             <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3" onclick="hideSidebar()" id="icon-sidebar">
                 <i class="fas fa-arrow-right"></i>
             </div>
             <div class="c-left-header">
-                <div class="tft-logo-avatar tft-bdr-greensav-1">
-                    <img src="/assets/images/icons/abonnes.png" alt="">
+                <a href="./dashboardmanager.html">
+                    <div class="tft-logo-avatar tft-bdr-greensav-1">
+                        <img src="../assets/images/icons/abonnes.png" alt="">
+                    </div>
+                </a>
+                <div class="app-title">
+                    <h1 class="app-name">1000<span>Saveurs</span></h1>
+                    <p class="tft-title3">Nom du departement</p>
                 </div>
-                <p class="app-name">1000<span>Saveurs</span></p>
             </div>
             <div class="menu">
                 <div class="c-left-menu">
-                    <a href="/patron/dashboard.html">
+                    <a href="./dashboardmanager.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round" onclick="showSidebar()">
                                 <i class="fas fa-home"></i>
@@ -34,15 +41,7 @@
                             <p class="option-name">Dashboard</p>
                         </div>
                     </a>
-                    <a href="/patron/departements.html">
-                        <div class="c-left-option">
-                            <div class="tft-icon-round">
-                                <i class="fas fa-sitemap"></i>
-                            </div>
-                            <p class="option-name">Départements</p>
-                        </div>
-                    </a>
-                    <a href="patron/rapports/ventes.html">
+                    <a href="#">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-chart-bar"></i>
@@ -50,7 +49,7 @@
                             <p class="option-name">Rapports</p>
                         </div>
                     </a>
-                    <a href="/patron/employes.html">
+                    <a href="./employeesmanager.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-users"></i>
@@ -58,27 +57,23 @@
                             <p class="option-name">Employés</p>
                         </div>
                     </a>
-                    <div class="c-left-option" onclick="showContainerRightNotification()">
-                        <div class="tft-icon-round">
-                            <i class="fas fa-bell"></i>
+                    <a href="./stockmanager.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round" onclick="showSidebar()">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <p class="option-name">Stock</p>
                         </div>
-                        <p class="option-name">Notifications</p>
-                    </div>
-                    <div class="c-left-option" onclick="showContainerRightParametre()">
-                        <div class="tft-icon-round">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <p class="option-name">Parametres</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="user-option">
                     <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer" onclick="showContainerRight()">
-                        <img src="/assets/images/icons/femme.jpg" alt="">
+                        <img src="../assets/images/icons/femme.jpg" alt="">
                     </div>
                     <div class="user-infos">
                         <div class="user-name">
                             <h2 id="userName" class="tft-title4 tft-fw-600"> Chargement</h2>
-                            <p id="userRole" class="tft-sm-title1">Patronne</p>
+                            <p id="userRole" class="tft-sm-title1">Manager</p>
                         </div>
                         <div class="tft-icon-carre-moyen tft-bg-black3 tft-transition" onclick="deconnectionModal()">
                             <i class="fe fe-log-out tft-clr-red"></i>
@@ -87,6 +82,7 @@
                 </div>
             </div>
         </div>
+        <!-- partie gauche fin-->
         <!-- partie centre -->
         <div class="containerCenter">
             <div class="c-center-header">
@@ -102,28 +98,14 @@
                             <i class="fas fa-search tft-clr-remain-white tft-fw-600"></i>
                         </div>
                     </div>
-                    <div class="tft-users tft-bdr-gris-1" id="tft-users">
-                        <div class="tft-users-pics"  id="tft-users-pics">
-                            <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="/assets/images/user/arashmil.jpg">
-                            </div>
-                            <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="/assets/images/user/chadengle.jpg">
-                            </div>
-                            <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="/assets/images/user/mlane.jpg">
-                            </div>
-                            <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="/assets/images/user/sauro.jpg">
-                            </div>
-                            <div class="tft-user-pic tft-bdr-greensav-1">
-                                <p class="tft-clr-white3">+15</p>
-                            </div>
-                        </div>
-                        <h4 class="tft-sm-title1 tft-bg-black1" id="user-desc">Utilisateurs</h4>
+                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3" onclick="showContainerRightNotification()">
+                        <i class="fas fa-bell tft-clr-greensav"></i>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3"  onclick="showContainerRightParametre()">
+                        <i class="fas fa-cog tft-clr-greensav"></i>
                     </div>
                     <div class="tft-icon-carre-moyen tft-bg-orangesav2" id="btn-light-mode" onclick="changeMode()">
-                        <i class="fas fa-sun tft-clr-white"></i>
+                        <i class="fas fa-moon tft-clr-white"></i>
                     </div>
                     <div class="tft-icon-carre-moyen tft-bg-orangesav2 tft-hidden" id="btn-dark-mode" onclick="changeMode()">
                         <i class="fas fa-moon tft-clr-white"></i>
@@ -135,11 +117,11 @@
                     <div class="overview-card tft-bg-yellow-bg">
                         <div class="icon-container tft-bdr-yellow-txt-1">
                             <div class="tft-icon-round-moyen tft-bg-yellow-bg">
-                                <i class="fas fa-sitemap tft-clr-yellow-txt"></i>
+                                <i class="fas fa-shopping-cart tft-clr-yellow-txt"></i>
                             </div>
                         </div>
                         <div class="card-info">
-                            <h3 class="tft-title4">Départements</h3>
+                            <h3 class="tft-title4">Ventes</h3>
                             <p id="deptCount" class="tft-title1 tft-fw-700 tft-clr-white">0</p>
                         </div>
                     </div>
@@ -209,7 +191,7 @@
                             </div>
                             <div class="actions-details">
                                 <div class="action-info">
-                                    <h3 class="tft-title3">Dernier département</h3>
+                                    <h3 class="tft-title3">Derniere vente</h3>
                                     <p id="lastDepartement" class="tft-sm-title1">---</p>
                                 </div>
                                 <p  id="lastDepartementDate" class="tft-title4 tft-clr-orangesav"></p>
@@ -219,26 +201,26 @@
                     <div class="recent-intro" id="recent-intro">
                         <h1 class="tft-clr-orangesav tft-title1">Découvrez les nouveautés dans <span class="tft-clr-orangesav">1000Saveurs</span></h1>
                         <div class="recent-pic">
-                            <img src="/assets/images/icons/illuHomme (1).png" alt="">
+                            <img src="../assets/images/icons/illuHomme (1).png" alt="">
                         </div>
                         <div class="recent-pic-fleche">
-                            <img src="/assets/images/icons/illfleche.png" alt="">
+                            <img src="../assets/images/icons/illfleche.png" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- partie droite ajoute la classe tft-show pour montrer-->
+        <!-- partie droite ajoute la classe active pour montrer debut-->
         <div class="containerRight tft-p-relative" id="container-right">
             <div class="tft-close-icon tft-p-absolute tft-top-15 tft-right-15 tft-hover-red" onclick="closeModalInfos()">
                 <i class="fas fa-times tft-clr-white3"></i>
             </div>
             <div class="admin-profil">
                 <div class="tft-avatar-profil-moyen2 tft-bdr-greensav-2">
-                    <img src="/assets/images/user/arashmil.jpg">
+                    <img src="../assets/images/user/femme.png">
                 </div>
                 <h4 class="tft-title4 tft-fw-600">Triphine Iribagiza</h4>
-                <p class="tft-sm-title1">Patronne</p>
+                <p class="tft-sm-title1">Manager</p>
             </div>
             <div class="admin-infos-container" id="profil-admin">
                 <div class="tft-w-100 tft-centre-tout tft-gap-20px tft-mt-10 infos-options">
@@ -363,6 +345,7 @@
                 </div>
             </div>
         </div>
+        <!-- partie droite ajoute la classe active pour montrer fin-->
         <!-- popup de deconnexion -->
         <div class="tft-popup-modal tft-a-center" id="deconnection-modal">
             <div class="tft-popup-container-small tft-bg-black3 tft-p-relative">
@@ -444,6 +427,6 @@
     });
 </script>
 
-<script src="/assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
 
 </html>

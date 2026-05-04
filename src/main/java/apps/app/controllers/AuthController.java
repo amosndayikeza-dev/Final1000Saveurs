@@ -56,13 +56,13 @@ public class AuthController extends HttpServlet {
                 // Redirection selon le rôle stocké en base
                 switch (user.getRole()) {
                     case "manager":
-                        resp.sendRedirect(req.getContextPath() + "/manager/dashboard.html");
+                        resp.sendRedirect(req.getContextPath() + "/manager/dashboardpatron.php");
                         break;
                     case "admin":
                         resp.sendRedirect(req.getContextPath() + "/admin/dashboard.html");
                         break;
                     default: // patron ou autre
-                        resp.sendRedirect(req.getContextPath() + "/patron/dashboard.html");
+                        resp.sendRedirect(req.getContextPath() + "/patron/dashboardpatron.php");
                 }
             } else {
                 // Identifiants incorrects : redirection avec paramètre d'erreur

@@ -278,6 +278,12 @@ optgroup {
 .tft-bg-gris{
   background-color: var(--bg-icons) !important;
 }
+.tft-clr-gris1{
+  color: var(--icons-white) !important;
+}
+.tft-bg-gris1{
+  background-color: var(--icons-white) !important;
+}
 .tft-clr-black{
   color: var(--black) !important;
 }
@@ -821,6 +827,9 @@ position: relative !important;
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* =                              CLASSES POUR LES BORDURES                              */
 /* ////////////////////////////////////////////////////////////////////////////////// */
+.tft-br-none {
+  border-radius: 0px !important;
+}
 .tft-br-5 {
   border-radius: 0.3125rem !important;
 }
@@ -973,6 +982,12 @@ position: relative !important;
 }
 .tft-bdr-gris-1{
   border:0.0625rem solid var(--bg-icons) !important;
+}
+.tft-bdr-gris1-2{
+  border:0.125rem solid var(--icons-white) !important;
+}
+.tft-bdr-gris1-1{
+  border:0.0625rem solid var(--icons-white) !important;
 }
 .tft-bdr-gris-2{
   border:0.125rem solid var(--bg-icons) !important;
@@ -1181,16 +1196,16 @@ position: relative !important;
 .tft-bdr-t-black2-1{
   border-top:0.0625rem solid var(--black-utile-2) !important;
 }
-.tft-bdr-bottom-black2-2{
+.tft-bdr-b-black2-2{
   border-bottom:0.125rem solid var(--black-utile-2) !important;
 }
-.tft-bdr-left-black2-2{
+.tft-bdr-l-black2-2{
   border-left:0.125rem solid var(--black-utile-2) !important;
 }
-.tft-bdr-right-black2-2{
+.tft-bdr-r-black2-2{
   border-right:0.125rem solid var(--black-utile-2) !important;
 }
-.tft-bdr-top-black2-2{
+.tft-bdr-t-black2-2{
   border-top:0.125rem solid var(--black-utile-2) !important;
 }
 .tft-bdr-b-black-1{
@@ -1205,17 +1220,65 @@ position: relative !important;
 .tft-bdr-t-black-1{
   border-top:0.0625rem solid var(--black-utile) !important;
 }
-.tft-bdr-bottom-black-2{
+.tft-bdr-b-black-2{
   border-bottom:0.125rem solid var(--black-utile) !important;
 }
-.tft-bdr-left-black-2{
+.tft-bdr-l-black-2{
   border-left:0.125rem solid var(--black-utile) !important;
 }
-.tft-bdr-right-black-2{
+.tft-bdr-r-black-2{
   border-right:0.125rem solid var(--black-utile) !important;
 }
-.tft-bdr-top-black-2{
+.tft-bdr-t-black-2{
   border-top:0.125rem solid var(--black-utile) !important;
+}
+.tft-bdr-b-gris1-1{
+  border-bottom:0.0625rem solid var(--icons-white) !important;
+}
+.tft-bdr-l-gris1-1{
+  border-left:0.0625rem solid var(--icons-white) !important;
+}
+.tft-bdr-r-gris1-1{
+  border-right:0.0625rem solid var(--icons-white) !important;
+}
+.tft-bdr-t-gris1-1{
+  border-top:0.0625rem solid var(--icons-white) !important;
+}
+.tft-bdr-b-gris1-2{
+  border-bottom:0.125rem solid var(--icons-white) !important;
+}
+.tft-bdr-l-gris1-2{
+  border-left:0.125rem solid var(--icons-white) !important;
+}
+.tft-bdr-r-gris1-2{
+  border-right:0.125rem solid var(--icons-white) !important;
+}
+.tft-bdr-t-gris1-2{
+  border-top:0.125rem solid var(--icons-white) !important;
+}
+.tft-bdr-b-gris-1{
+  border-bottom:0.0625rem solid var(--bg-icons) !important;
+}
+.tft-bdr-l-gris-1{
+  border-left:0.0625rem solid var(--bg-icons) !important;
+}
+.tft-bdr-r-gris-1{
+  border-right:0.0625rem solid var(--bg-icons) !important;
+}
+.tft-bdr-t-gris-1{
+  border-top:0.0625rem solid var(--bg-icons) !important;
+}
+.tft-bdr-b-gris-2{
+  border-bottom:0.125rem solid var(--bg-icons) !important;
+}
+.tft-bdr-l-gris-2{
+  border-left:0.125rem solid var(--bg-icons) !important;
+}
+.tft-bdr-r-gris-2{
+  border-right:0.125rem solid var(--bg-icons) !important;
+}
+.tft-bdr-t-gris-2{
+  border-top:0.125rem solid var(--bg-icons) !important;
 }
 .tft-bdr-orangesav-1{
   border: 0.0625rem solid var(--clr-orange1) !important;
@@ -1455,6 +1518,27 @@ position: relative !important;
   justify-content: center;
   align-items: center;
 }
+/* ////////////////////////////////////////////////////////////////////////////////// */
+/* =                              TABLEAUX                                            */
+/* ////////////////////////////////////////////////////////////////////////////////// */
+.tft-table{
+  width:100%;
+  border: collapse;
+  border-spacing: 0;
+  border-radius: 5px;
+  background-color: var(--black-utile-3);
+ }
+.tft-table tr th{
+    padding: 10px 20px;
+    text-align: left;
+    border-bottom: 2px solid var(--bg-icons);
+ }
+ .tft-table tr td{
+    padding: 10px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--bg-icons);
+    vertical-align: middle;
+ }
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* =                              FORMULAIRES                                        */
 /* ////////////////////////////////////////////////////////////////////////////////// */
@@ -2124,6 +2208,9 @@ form{
   color:var(--remain-white) !important;
   transition: all ease 0.5s;
 }
+.tft-hover-greensav:hover i{
+  color:var(--remain-white);
+}
 .tft-hover-orangesav:hover{
   background-color: var(--clr-orange1) !important;
   color:var(--remain-white) !important;
@@ -2339,6 +2426,7 @@ form{
   border-radius: 0.3125rem;
   cursor: pointer;
   font-size: 0.8125rem;
+  gap:10px;
 }
 .tft-users{
     padding: 0.625rem 0.3125rem;
@@ -2424,6 +2512,103 @@ form{
 /* =                              LES BADGES                                           */
 /* ////////////////////////////////////////////////////////////////////////////////// */
 
+.tft-stock-badge{
+    display: flex;
+    gap:0.625rem;
+    justify-content: start;
+    align-items: center;
+ }
+ .tft-stock-badge .tft-stock-dot{
+    width:0.4375rem;
+    height:0.4375rem;
+    border-radius: 50%;
+ }
+ .tft-stock-badge .tft-stock-info{
+    padding: 0.1875rem 0.3125rem;
+    border-radius: 0.3125rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+ }
+ .tft-stock-badge .tft-stock-info p{
+    font-size: 0.75rem;
+    text-align: center;
+ }
+ .tft-stock-badge-green1{
+    display: flex;
+    gap:0.625rem;
+    justify-content: start;
+    align-items: center;
+ }
+ .tft-stock-badge-green1 .tft-stock-dot{
+    width:0.4375rem;
+    height:0.4375rem;
+    border-radius: 50%;
+    background-color: var(--green-txt-icons);
+ }
+ .tft-stock-badge-green1 .tft-stock-info{
+    padding: 0.1875rem 0.3125rem;
+    background-color: var(--green-bg-icons);
+    border-radius: 0.3125rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+ }
+ .tft-stock-badge-green1 .tft-stock-info p{
+    color:var(--green-txt-icons);
+    font-size: 0.75rem;
+    text-align: center;
+ }
+ .tft-stock-badge-red1{
+    display: flex;
+    gap:0.625rem;
+    justify-content: start;
+    align-items: center;
+ }
+ .tft-stock-badge-red1 .tft-stock-dot{
+    width:0.4375rem;
+    height:0.4375rem;
+    border-radius: 50%;
+    background-color: var(--red-txt-icons);
+ }
+ .tft-stock-badge-red1 .tft-stock-info{
+    padding: 0.1875rem 0.3125rem;
+    background-color: var(--red-bg-icons);
+    border-radius: 0.3125rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+ }
+ .tft-stock-badge-red1 .tft-stock-info p{
+    color:var(--red-txt-icons);
+    font-size: 0.75rem;
+    text-align: center;
+ }
+ .tft-stock-badge-yellow1{
+    display: flex;
+    gap:0.625rem;
+    justify-content: start;
+    align-items: center;
+ }
+ .tft-stock-badge-yellow1 .tft-stock-dot{
+    width:0.4375rem;
+    height:0.4375rem;
+    border-radius: 50%;
+    background-color: var(--yellow-txt-icons);
+ }
+ .tft-stock-badge-yellow1 .tft-stock-info{
+    padding: 0.1875rem 0.3125rem;
+    background-color: var(--yellow-bg-icons);
+    border-radius: 0.3125rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+ }
+ .tft-stock-badge-yellow1 .tft-stock-info p{
+    color:var(--yellow-txt-icons);
+    font-size: 0.75rem;
+    text-align: center;
+ }
 .tft-stock-badge-green{
     display: flex;
     gap:0.625rem;

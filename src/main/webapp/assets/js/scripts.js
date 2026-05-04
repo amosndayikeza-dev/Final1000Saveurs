@@ -11,6 +11,7 @@
     const formAjoutDepartement=document.getElementById("ajout-departement");
     const containerDepartements=document.getElementById("container-departements");
     const addDepartement=document.getElementById("add-departement");
+    const addProduct=document.getElementById("add-product");
     const btnAjouterDepartement=document.getElementById("btn-ajouter-departement");
     const body=document.body;
     let mode=localStorage.getItem("mode");
@@ -28,11 +29,44 @@
     const btnShowNotification=document.getElementById("btn-show-notification");
     const btnShowParametre=document.getElementById("btn-show-parametre");
     const iconSidebar=document.getElementById("icon-sidebar");
+    const deleteIcons=document.querySelectorAll(".delete-icon");
+    const filterOptions=document.getElementById("filter-options");
 
 
 
+    // fonction pour montrer les optionds du filtrage
+    function showFilterOptions(){
+        filterOptions.classList.add("tft-show");
+    }
 
+    // fonction pour montrer les optionds du filtrage
+    function hideFilterOptions(){
+        filterOptions.classList.remove("tft-show");
+    }
 
+    // fonction pour afficher le popup de suppression d'un element
+        function popupdeleteElement(){
+            deleteIcons.forEach(deleteIcon =>{
+                const deleteElement=document.getElementById("popup-modal-deleteElement");
+                deleteElement.classList.add("tft-show");
+            });
+        }
+    // fonction pour activer/desactiver un element
+        function activeDesactiveElement(element){
+            const activeIcon = element.querySelector("i");
+            if(activeIcon.classList.contains("fa-toggle-on")){
+                activeIcon.classList.remove("fa-toggle-on","tft-clr-orangesav");
+                activeIcon.classList.add("fa-toggle-off" ,"tft-clr-gris1");
+                element.classList.remove("tft-bdr-orangesav-1");
+                element.classList.add("tft-bdr-gris-1");
+            }
+            else{
+                activeIcon.classList.remove("fa-toggle-off" ,"tft-clr-gris1");
+                activeIcon.classList.add("fa-toggle-on" ,"tft-clr-orangesav");
+                element.classList.add("tft-bdr-orangesav-1");
+                element.classList.remove("tft-bdr-gris-1");
+            }
+        }
     // affiche le sidebar mobile
     function showSidebar(){
         containerLeft.classList.add("tft-show");
@@ -94,10 +128,6 @@
     // affiche le container right
     function showContainerRight(){
         containerRight.classList.add("tft-show");
-        tftUsers.classList.add("tft-hidden");
-        tftUsers.classList.remove("tft-bdr-gris-1");
-        tftUsersPics.classList.add("tft-hidden");
-        userDesc.classList.add("tft-hidden");
         showProfil();
         recentIntro.classList.add("tft-hidden");
     }
@@ -105,10 +135,6 @@
     // affiche les notifications en cliquant dns le sidebar
     function showContainerRightNotification(){
         containerRight.classList.add("tft-show");
-        tftUsers.classList.add("tft-hidden");
-        tftUsers.classList.remove("tft-bdr-gris-1");
-        tftUsersPics.classList.add("tft-hidden");
-        userDesc.classList.add("tft-hidden");
         showNotification();
         recentIntro.classList.add("tft-hidden");
     }
@@ -116,10 +142,6 @@
     // affiche les parametres en cliquant dns le sidebar
     function showContainerRightParametre(){
         containerRight.classList.add("tft-show");
-        tftUsers.classList.add("tft-hidden");
-        tftUsers.classList.remove("tft-bdr-gris-1");
-        tftUsersPics.classList.add("tft-hidden");
-        userDesc.classList.add("tft-hidden");
         showParametre();
         recentIntro.classList.add("tft-hidden");
     }
@@ -127,10 +149,6 @@
     // ferme le container-right
     function closeModalInfos(){
         containerRight.classList.remove("tft-show");
-        tftUsers.classList.remove("tft-hidden");
-        tftUsers.classList.add("tft-bdr-gris-1");
-        tftUsersPics.classList.remove("tft-hidden");
-        userDesc.classList.remove("tft-hidden");
         recentIntro.classList.remove("tft-hidden");
     }
 
@@ -142,6 +160,11 @@
     // affiche le popup d'ajout de departement
     function ajouterDepartement(){
         addDepartement.classList.add("tft-show");
+    }
+
+    // affiche le popup d'ajout de produit
+    function ajouterProduct(){
+        addProduct.classList.add("tft-show");
     }
 
     // changer le theme

@@ -1,33 +1,37 @@
+
+<!-- head debut-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1000saveurs</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/tft-configStyles.css">
-    <link rel="stylesheet" href="/assets/css/responsiveStyles.css">
-    <link rel="stylesheet" href="/assets/css/big.css">
-    <link rel="stylesheet" href="/assets/fonts/feather/feather.css">
-    <link rel="stylesheet" href="/assets/font-awesome/css/all.min.css">
+    <link rel="icon" href="../assets/images/icons/abonnes.png">
+    <link rel="icon" href="../assets/images/icons/abonnes.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tft-configStyles.css">
+    <link rel="stylesheet" href="../assets/css/responsiveStyles.css">
+    <link rel="stylesheet" href="../assets/fonts/feather/feather.css">
+    <link rel="stylesheet" href="../assets/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+<!-- head fin-->
 <body>
     <div class="containerAll">
-        <!-- partie gauche -->
+        <!-- partie gauche debut-->
         <div class="containerLeft" id="container-left">
             <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3" onclick="hideSidebar()" id="icon-sidebar">
                 <i class="fas fa-arrow-right"></i>
             </div>
             <div class="c-left-header">
                 <div class="tft-logo-avatar tft-bdr-greensav-1">
-                    <img src="/assets/images/icons/abonnes.png" alt="">
+                    <img src="../assets/images/icons/abonnes.png" alt="">
                 </div>
                 <p class="app-name">1000<span>Saveurs</span></p>
             </div>
             <div class="menu">
                 <div class="c-left-menu">
-                    <a href="/patron/dashboard.html">
+                    <a href="./dashboardpatron.php">
                         <div class="c-left-option">
                             <div class="tft-icon-round" onclick="showSidebar()">
                                 <i class="fas fa-home"></i>
@@ -35,7 +39,7 @@
                             <p class="option-name">Dashboard</p>
                         </div>
                     </a>
-                    <a href="/patron/departements.html">
+                    <a href="./departementspatron.php">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-sitemap"></i>
@@ -43,7 +47,7 @@
                             <p class="option-name">Départements</p>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="patron/rapports/ventes.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-chart-bar"></i>
@@ -59,27 +63,23 @@
                             <p class="option-name">Employés</p>
                         </div>
                     </a>
-                    <div class="c-left-option" onclick="showContainerRightNotification()">
-                        <div class="tft-icon-round">
-                            <i class="fas fa-bell"></i>
+                    <a href="./stockpatron.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <p class="option-name">Stock</p>
                         </div>
-                        <p class="option-name">Notifications</p>
-                    </div>
-                    <div class="c-left-option" onclick="showContainerRightParametre()">
-                        <div class="tft-icon-round">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <p class="option-name">Parametres</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="user-option">
                     <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer" onclick="showContainerRight()">
-                        <img src="/assets/images/icons/femme.jpg" alt="">
+                        <img src="../assets/images/icons/femme.jpg" alt="">
                     </div>
                     <div class="user-infos">
                         <div class="user-name">
-                            <h2 id="user-name" class="tft-title4 tft-fw-600">Chargement... </h2>
-                            <p class="tft-sm-title1">Patronne</p>
+                            <h2 id="userName" class="tft-title4 tft-fw-600"> Chargement</h2>
+                            <p id="userRole" class="tft-sm-title1">Patronne</p>
                         </div>
                         <div class="tft-icon-carre-moyen tft-bg-black3 tft-transition" onclick="deconnectionModal()">
                             <i class="fe fe-log-out tft-clr-red"></i>
@@ -88,6 +88,7 @@
                 </div>
             </div>
         </div>
+        <!-- partie gauche fin-->
         <!-- partie centre -->
         <div class="containerCenter">
             <div class="c-center-header">
@@ -95,7 +96,8 @@
                     <div class="tft-icon-carre tft-bdr-gris-1" onclick="showSidebar()">
                         <i class="fas fa-bars"></i>
                     </div>
-                    Départements</h2>
+                    Départements
+                </h2>
                 <div class="header-aside">
                     <div class="tft-search-withIcon">
                         <input type="search" placeholder="Rechercher" class="tft-clr-white3">
@@ -103,74 +105,68 @@
                             <i class="fas fa-search tft-clr-remain-white tft-fw-600"></i>
                         </div>
                     </div>
-                    <div class="tft-users tft-bdr-gris-1" id="tft-users">
+                    <!-- <div class="tft-users tft-bdr-gris-1" id="tft-users">
                         <div class="tft-users-pics"  id="tft-users-pics">
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="/assets/images/user/arashmil.jpg">
+                                <img src="../assets/images/icons/femme.png">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="/assets/images/user/chadengle.jpg">
+                                <img src="../assets/images/icons/femme.png">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="/assets/images/user/mlane.jpg">
+                                <img src="../assets/images/icons/femme.png">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
-                                <img src="/assets/images/user/sauro.jpg">
+                                <img src="../assets/images/icons/femme.png">
                             </div>
                             <div class="tft-user-pic tft-bdr-greensav-1">
                                 <p class="tft-clr-white3">+15</p>
                             </div>
                         </div>
                         <h4 class="tft-sm-title1 tft-bg-black1" id="user-desc">Utilisateurs</h4>
+                    </div> -->
+                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3" onclick="showContainerRightNotification()">
+                        <i class="fas fa-bell tft-clr-greensav"></i>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3"  onclick="showContainerRightParametre()">
+                        <i class="fas fa-cog tft-clr-greensav"></i>
                     </div>
                     <div class="tft-icon-carre-moyen tft-bg-orangesav2" id="btn-light-mode" onclick="changeMode()">
-                        <i class="fas fa-sun tft-clr-white"></i>
+                        <i class="fas fa-moon tft-clr-white"></i>
                     </div>
                     <div class="tft-icon-carre-moyen tft-bg-orangesav2 tft-hidden" id="btn-dark-mode" onclick="changeMode()">
                         <i class="fas fa-moon tft-clr-white"></i>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
             <div class="container_departements" id="container-departements">
-                <div class="departement">
+                <!-- <div class="departement">
                     <p class="tft-sm-title2 tft-bg-black2" id="creation-date">Crée le 24-3-2026</p>
                     <div class="departement-details">
                         <h3 class="tft-title2 tft-clr-orangesav tft-a-self-center">Boucherie</h3>
                         <p class="tft-sm-title1 tft-text-justify tft-w-100 tft-break-word tft-fs-15px tft-line-h-1-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quod ab dolor repudiandae nemo quia et alias animi</p>
                     </div>
-                    <div class="departement-workers">
-                        <div class="simple-workers">
-                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="/assets/images/user/1.png.jpg" alt="">
+                    <div class="departement-infos">
+                        <div class="manager-infos">
+                            <div class="departement-info-icon">
+                                <div class="tft-icon-round-moyen tft-bg-black2 tft-bdr-greensav-1 tft-cursor-pointer">
+                                    <i class="fas fa-user-tie tft-clr-greensav"></i>
+                                </div>
                             </div>
-                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="/assets/images/user/user7.jpg" alt="">
-                            </div>
-                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="/assets/images/user/mlane.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="departement-manager">
-                            <div class="tft-avatar-profil-moyen tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="/assets/images/user/chadengle.jpg" alt="">
+                            <div class="manager-name">
+                                <h4 class="tft-title4">Lania Ishimwe</h4>
+                                <p class="tft-sm-title1">Manager</p>
                             </div>
                         </div>
-                        <div class="simple-workers">
-                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="/assets/images/user/arashmil.jpg" alt="">
+                        <div class="manager-infos">
+                            <div class="departement-info-icon">
+                                <div class="tft-icon-round-moyen tft-bg-black2 tft-bdr-greensav-1 tft-cursor-pointer">
+                                    <i class="fas fa-map-marker-alt tft-clr-greensav"></i>
+                                </div>
                             </div>
-                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="/assets/images/user/sauro.jpg" alt="">
-                            </div>
-                            <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                <img src="/assets/images/user/jm_denis.jpg" alt="">
+                            <div class="manager-name">
+                                <h4 class="tft-title4">Rohero 2</h4>
+                                <p class="tft-sm-title1">Adresse</p>
                             </div>
                         </div>
                     </div>
@@ -180,41 +176,28 @@
                         </a>
                         <button class="tft-btn">Supprimer</button>
                     </div>
-                </div>
+                </div> -->
                 <!--<div class="departement">
                 </div>
                 <div class="departement">
 
                 </div>-->
-                <div class="departement" id="btn-ajouter-departement">
+                <!-- <div class="departement" id="btn-ajouter-departement">
                     <div class="tft-icon-round-grand tft-bg-greensav" onclick="ajouterDepartement()">
                         <i class="fas fa-plus tft-clr-remain-white"></i>
                     </div>
                     <p class="tft-title2">Ajouter un département</p>
-                </div>
+                </div> -->
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- partie droite ajoute la classe active pour montrer-->
+        <!-- partie droite ajoute la classe active pour montrer debut-->
         <div class="containerRight tft-p-relative" id="container-right">
             <div class="tft-close-icon tft-p-absolute tft-top-15 tft-right-15 tft-hover-red" onclick="closeModalInfos()">
                 <i class="fas fa-times tft-clr-white3"></i>
             </div>
             <div class="admin-profil">
                 <div class="tft-avatar-profil-moyen2 tft-bdr-greensav-2">
-                    <img src="/assets/images/user/arashmil.jpg">
+                    <img src="../assets/images/icons/femme.jpg">
                 </div>
                 <h4 class="tft-title4 tft-fw-600">Triphine Iribagiza</h4>
                 <p class="tft-sm-title1">Patronne</p>
@@ -342,6 +325,7 @@
                 </div>
             </div>
         </div>
+        <!-- partie droite ajoute la classe active pour montrer fin-->
         <!-- popup de deconnexion -->
         <div class="tft-popup-modal tft-a-center" id="deconnection-modal">
             <div class="tft-popup-container-small tft-bg-remain-black3 tft-p-relative">
@@ -407,15 +391,15 @@
             </div>
         </div>
     </div>
-    <script src="/assets/js/scripts.js"></script>
+    <script src="../assets/js/scripts.js"></script>
     <script>
-        // Fermeture des modales
-        function closeModal() {
-            document.getElementById('deconnection-modal').style.display = 'none';
-        }
-        function deconnectionModal() {
-            document.getElementById('deconnection-modal').style.display = 'flex';
-        }
+        // // Fermeture des modales
+        // function closeModal() {
+        //     document.getElementById('deconnection-modal').style.display = 'none';
+        // }
+        // function deconnectionModal() {
+        //     document.getElementById('deconnection-modal').style.display = 'flex';
+        // }
         function closeModalForm() {
             document.getElementById('add-departement').style.display = 'none';
             document.getElementById('departementForm').reset();
@@ -455,37 +439,32 @@
                         return match ? `${match[3]}/${match[2]}/${match[1]}` : 'Date inconnue';
                     })() : 'Date inconnue';
                     card.innerHTML = `
-                        <p class="tft-sm-title2 tft-bg-black2">Créé le ${createdAt}</p>
+                        <p class="tft-sm-title2 tft-bg-black2" id="creation-date">Créé le ${createdAt}</p>
                         <div class="departement-details">
                             <h3 class="tft-title2 tft-clr-orangesav tft-a-self-center">${escapeHtml(dept.name)}</h3>
                             <p class="tft-sm-title1 tft-text-justify tft-w-100 tft-break-word tft-fs-15px tft-line-h-1-4">${escapeHtml(dept.description || '')}</p>
                         </div>
-                        <div class="departement-workers">
-                            <div class="simple-workers">
-                                <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                    <img src="/assets/images/user/1.png.jpg" alt="">
+                        <div class="departement-infos">
+                            <div class="manager-infos">
+                                <div class="departement-info-icon">
+                                    <div class="tft-icon-round-moyen tft-bg-black2 tft-bdr-greensav-1 tft-cursor-pointer">
+                                        <i class="fas fa-user-tie tft-clr-greensav"></i>
+                                    </div>
                                 </div>
-                                <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                    <img src="/assets/images/user/user7.jpg" alt="">
-                                </div>
-                                <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                    <img src="/assets/images/user/mlane.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="departement-manager">
-                                <div class="tft-avatar-profil-moyen tft-bdr-remain-white-2 tft-cursor-pointer">
-                                    <img src="/assets/images/user/chadengle.jpg" alt="">
+                                <div class="manager-name">
+                                    <h4 class="tft-title4">Lania Ishimwe</h4>
+                                    <p class="tft-sm-title1">Manager</p>
                                 </div>
                             </div>
-                            <div class="simple-workers">
-                                <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                    <img src="/assets/images/user/arashmil.jpg" alt="">
+                            <div class="manager-infos">
+                                <div class="departement-info-icon">
+                                    <div class="tft-icon-round-moyen tft-bg-black2 tft-bdr-greensav-1 tft-cursor-pointer">
+                                        <i class="fas fa-map-marker-alt tft-clr-greensav"></i>
+                                    </div>
                                 </div>
-                                <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                    <img src="/assets/images/user/sauro.jpg" alt="">
-                                </div>
-                                <div class="tft-avatar-profil-petit tft-bdr-remain-white-2 tft-cursor-pointer">
-                                    <img src="/assets/images/user/jm_denis.jpg" alt="">
+                                <div class="manager-name">
+                                    <h4 class="tft-title4">Rohero 2</h4>
+                                    <p class="tft-sm-title1">Adresse</p>
                                 </div>
                             </div>
                         </div>
@@ -525,7 +504,13 @@
                 });
             } catch (error) {
                 console.error(error);
-                document.getElementById('container-departements').innerHTML = '<div class="error">Impossible de charger les départements.</div>';
+                document.getElementById('container-departements').innerHTML = `
+                <div class="error">
+                    <div class="tft-icon-carre-moyen tft-bg-red">
+                        <i class="fas fa-exclamation-triangle tft-clr-remain-white"></i>
+                    </div>
+                    <p class="tft-title1">Impossible de charger les départements</p>
+                </div>`;
             }
         }
 
