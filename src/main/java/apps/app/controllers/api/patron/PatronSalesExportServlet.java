@@ -1,6 +1,8 @@
 package apps.app.controllers.api.patron;
 
+import apps.app.dao.DepartementDAO;
 import apps.app.dao.SaleDAO;
+import apps.app.models.Departement;
 import apps.app.models.Sale;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -15,19 +17,23 @@ import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.List;
 
+
 @WebServlet("/api/patron/reports/sales/export")
 public class PatronSalesExportServlet extends HttpServlet {
+
     private SaleDAO saleDAO = new SaleDAO();
+    private DepartementDAO departementDAO = new DepartementDAO();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        // Récupération des paramètres de filtrage
         String deptIdStr = req.getParameter("departement_id");
         String startDateStr = req.getParameter("start_date");
         String endDateStr = req.getParameter("end_date");
 
         try {
-            // Récupération des données filtrées
+            // 1. Récupération des ventes selon les filtres
             List<Sale> sales;
             if (deptIdStr != null && !deptIdStr.isEmpty()) {
                 int deptId = Integer.parseInt(deptIdStr);
@@ -39,6 +45,7 @@ public class PatronSalesExportServlet extends HttpServlet {
                     sales = saleDAO.findByDepartement(deptId);
                 }
             } else {
+                //filtrage par date
                 if (startDateStr != null && !startDateStr.isEmpty() && endDateStr != null && !endDateStr.isEmpty()) {
                     java.sql.Date start = java.sql.Date.valueOf(startDateStr);
                     java.sql.Date end = java.sql.Date.valueOf(endDateStr);
@@ -48,17 +55,17 @@ public class PatronSalesExportServlet extends HttpServlet {
                 }
             }
 
-            // Création du classeur
+            // 2. Création du classeur Excel
             Workbook workbook = new XSSFWorkbook();
             Sheet sheet = workbook.createSheet("Ventes");
 
-            // Styles
+            // 3. Styles
             CellStyle headerStyle = createHeaderStyle(workbook);
             CellStyle dateStyle = createDateStyle(workbook);
             CellStyle currencyStyle = createCurrencyStyle(workbook);
 
-            // En-tête
-            String[] headers = {"ID", "Date", "Département", "Montant total", "Créé par", "Notes"};
+            // 4. En-tête
+            String[] headers = {"ID", "Date", "Département", "Montant total (FBU)", "Créé par", "Notes"};
             Row headerRow = sheet.createRow(0);
             for (int i = 0; i < headers.length; i++) {
                 Cell cell = headerRow.createCell(i);
@@ -66,21 +73,28 @@ public class PatronSalesExportServlet extends HttpServlet {
                 cell.setCellStyle(headerStyle);
             }
 
-            // Remplissage des données
+            // 5. Remplissage des données
             int rowNum = 1;
             for (Sale sale : sales) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(sale.getId());
+                // Date formatée
                 row.createCell(1).setCellValue(sale.getSoldAt());
                 row.getCell(1).setCellStyle(dateStyle);
-                row.createCell(2).setCellValue(sale.getDepartementId());
+
+                // Département : nom au lieu de l'ID
+                String deptName = "Inconnu";
+                Departement dept = departementDAO.findById(sale.getDepartementId());
+                if (dept != null) deptName = dept.getName();
+                row.createCell(2).setCellValue(deptName);
+
                 row.createCell(3).setCellValue(sale.getTotalAmount());
                 row.getCell(3).setCellStyle(currencyStyle);
                 row.createCell(4).setCellValue(sale.getCreatedBy());
                 row.createCell(5).setCellValue(sale.getNotes() != null ? sale.getNotes() : "");
             }
 
-            // Ligne de total
+            // 6. Ligne de total (somme des montants)
             Row totalRow = sheet.createRow(rowNum);
             Cell totalLabel = totalRow.createCell(2);
             totalLabel.setCellValue("Total général :");
@@ -89,20 +103,22 @@ public class PatronSalesExportServlet extends HttpServlet {
             totalLabel.setCellStyle(headerStyle);
             totalValue.setCellStyle(currencyStyle);
 
-            // Ajustement des colonnes
+            // 7. Ajustement automatique des largeurs de colonnes
             for (int i = 0; i < headers.length; i++) {
                 sheet.autoSizeColumn(i);
             }
 
-            // Envoi de la réponse
+            // 8. Envoi de la réponse HTTP
             resp.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
             resp.setHeader("Content-Disposition", "attachment; filename=ventes_" + System.currentTimeMillis() + ".xlsx");
             try (OutputStream out = resp.getOutputStream()) {
                 workbook.write(out);
             }
             workbook.close();
-        } catch (SQLException e) {
+
+        } catch (SQLException | NumberFormatException e) {
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            resp.setContentType("application/json");
             resp.getWriter().write("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }

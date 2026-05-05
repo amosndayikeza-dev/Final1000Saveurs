@@ -5,7 +5,9 @@ import apps.app.utils.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProductDAO {
 
@@ -13,9 +15,9 @@ public class ProductDAO {
     public void create(Product product) throws SQLException {
         String sql = "INSERT INTO products (departement_id, name, description, unit_price, current_stock, low_stock_threshold) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
-        try {
+        try (
             Connection conn = DBConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
             stmt.setInt(1, product.getDepartementId());
             stmt.setString(2, product.getName());
             stmt.setString(3, product.getDescription());
@@ -34,7 +36,7 @@ public class ProductDAO {
     }
 
     //find by id
-    public Product findById(int id){
+    public Product findById(int id) throws SQLException {
         String sql = "SELECT * FROM products WHERE id = ?";
         try {
             Connection conn = DBConnection.getConnection();
@@ -51,12 +53,12 @@ public class ProductDAO {
     }
 
     //find all
-    public List<Product> findAll(){
+    public List<Product> findAll() throws SQLException {
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM products ORDER BY name";
-        try{
+        try(
              Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
+             PreparedStatement stmt = conn.prepareStatement(sql)){
              ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 list.add(mapRowToProduct(rs));
@@ -69,12 +71,12 @@ public class ProductDAO {
 
     //find by departement
 
-    public List<Product> findByDepartement(int departementId){
+    public List<Product> findByDepartement(int departementId) throws SQLException{
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM products WHERE departement_id = ? ORDER BY name";
-        try {
+        try (
             Connection conn = DBConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setInt(1, departementId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -87,12 +89,12 @@ public class ProductDAO {
     }
 
     //find low stock
-    public List<Product> findLowStock(){
+    public List<Product> findLowStock() throws SQLException{
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM products WHERE current_stock <= low_stock_threshold ORDER BY current_stock ASC";
-        try {
+        try (
              Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
+             PreparedStatement stmt = conn.prepareStatement(sql)){
              ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 list.add(mapRowToProduct(rs));
@@ -104,31 +106,27 @@ public class ProductDAO {
     }
 
     //update
-    public void update(Product product){
-        String sql = "UPDATE products SET departement_id = ?, name = ?, description = ?, unit_price = ?, " +
-                "current_stock = ?, low_stock_threshold = ? WHERE id = ?";
-        try {
-            Connection conn = DBConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, product.getDepartementId());
-            stmt.setString(2, product.getName());
-            stmt.setString(3, product.getDescription());
-            stmt.setDouble(4, product.getUnitPrice());
-            stmt.setInt(5, product.getCurrentStock());
-            stmt.setInt(6, product.getLowStockThreshold());
-            stmt.setInt(7, product.getId());
+    // Mettre à jour un produit (utilisé dans PUT et pour l'ajustement)
+    public void update(Product product) throws SQLException {
+        String sql = "UPDATE product SET name=?, description=?, unit_price=?, current_stock=?, low_stock_threshold=?, updated_at=NOW() WHERE id=?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, product.getName());
+            stmt.setString(2, product.getDescription());
+            stmt.setDouble(3, product.getUnitPrice());
+            stmt.setInt(4, product.getCurrentStock());
+            stmt.setInt(5, product.getLowStockThreshold());
+            stmt.setInt(6, product.getId());
             stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
     //delete
-    public void delete(int id){
+    public boolean delete(int id) throws SQLException{
         String sql = "DELETE FROM products WHERE id = ?";
-        try {
+        try (
             Connection conn = DBConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            PreparedStatement stmt = conn.prepareStatement(sql)){
             stmt.setInt(1, id);
             int affected = stmt.executeUpdate();
             if (affected == 0) {
@@ -137,6 +135,7 @@ public class ProductDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return false;
     }
 
     // mapping d'un ResultSet en objet Product
@@ -189,8 +188,8 @@ public class ProductDAO {
             params.add(maxStock);
         }
 
-        try {Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql.toString());
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql.toString())){
             for (int i = 0; i < params.size(); i++) {
                 stmt.setObject(i + 1, params.get(i));
             }
@@ -202,6 +201,141 @@ public class ProductDAO {
             throw new RuntimeException(e);
         }
         return list;
+    }
+
+
+    // Ajoutez ces méthodes dans votre classe ProductDAO
+
+    /**
+     * Récupère tous les produits avec le nom de leur département.
+     * @return une liste de Map contenant les champs du produit + "departement_name"
+     */
+    public List<Map<String, Object>> findAllWithDepartementName() throws SQLException {
+        List<Map<String, Object>> list = new ArrayList<>();
+        // Construction de la requête SQL avec jointure
+        String sql = "SELECT p.*, d.name AS departement_name " +
+                "FROM products p " +
+                "JOIN departements d ON p.departement_id = d.id";
+        try (
+             Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+             ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("id", rs.getInt("id"));
+                map.put("departement_id", rs.getInt("departement_id"));
+                map.put("departement_name", rs.getString("departement_name")); // ← nom du département
+                map.put("name", rs.getString("name"));
+                map.put("description", rs.getString("description"));
+                map.put("unit_price", rs.getDouble("unit_price"));
+                map.put("current_stock", rs.getInt("current_stock"));
+                map.put("low_stock_threshold", rs.getInt("low_stock_threshold"));
+                map.put("created_at", rs.getTimestamp("created_at"));
+                map.put("updated_at", rs.getTimestamp("updated_at"));
+                list.add(map);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
+    /**
+     * Récupère les produits d'un département donné avec le nom du département.
+     * @param departementId l'ID du département
+     * @return liste de Map
+     */
+    public List<Map<String, Object>> findByDepartementWithName(int departementId) throws SQLException {
+        List<Map<String, Object>> list = new ArrayList<>();
+        String sql = "SELECT p.*, d.name AS departement_name " +
+                "FROM products p " +
+                "JOIN departements d ON p.departement_id = d.id " +
+                "WHERE p.departement_id = ?";
+        try {
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, departementId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("id", rs.getInt("id"));
+                map.put("departement_id", rs.getInt("departement_id"));
+                map.put("departement_name", rs.getString("departement_name"));
+                map.put("name", rs.getString("name"));
+                map.put("description", rs.getString("description"));
+                map.put("unit_price", rs.getDouble("unit_price"));
+                map.put("current_stock", rs.getInt("current_stock"));
+                map.put("low_stock_threshold", rs.getInt("low_stock_threshold"));
+                map.put("created_at", rs.getTimestamp("created_at"));
+                map.put("updated_at", rs.getTimestamp("updated_at"));
+                list.add(map);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
+    // Liste paginée avec filtres et tri (uniquement actifs)
+    public List<Product> findByDepartementWithFilters(int departementId, String search, String sortBy, String order, int page, int size) throws SQLException {
+        StringBuilder sql = new StringBuilder("SELECT * FROM product WHERE departement_id = ? AND active = true");
+        if (search != null && !search.isEmpty()) {
+            sql.append(" AND (name LIKE ? OR description LIKE ?)");
+        }
+        if (sortBy != null && !sortBy.isEmpty()) {
+            sql.append(" ORDER BY ").append(sortBy).append(" ").append("desc".equalsIgnoreCase(order) ? "DESC" : "ASC");
+        } else {
+            sql.append(" ORDER BY name ASC");
+        }
+        sql.append(" LIMIT ? OFFSET ?");
+        List<Product> products = new ArrayList<>();
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+            int idx = 1;
+            stmt.setInt(idx++, departementId);
+            if (search != null && !search.isEmpty()) {
+                stmt.setString(idx++, "%" + search + "%");
+                stmt.setString(idx++, "%" + search + "%");
+            }
+            stmt.setInt(idx++, size);
+            stmt.setInt(idx, (page - 1) * size);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) products.add(mapRowToProduct(rs));
+            }
+        }
+        return products;
+    }
+
+    // Compte le nombre total (pour pagination)
+    public int countByDepartementWithFilters(int departementId, String search) throws SQLException {
+        StringBuilder sql = new StringBuilder("SELECT COUNT(*) FROM product WHERE departement_id = ? AND active = true");
+        if (search != null && !search.isEmpty()) {
+            sql.append(" AND (name LIKE ? OR description LIKE ?)");
+        }
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+            int idx = 1;
+            stmt.setInt(idx++, departementId);
+            if (search != null && !search.isEmpty()) {
+                stmt.setString(idx++, "%" + search + "%");
+                stmt.setString(idx++, "%" + search + "%");
+            }
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) return rs.getInt(1);
+                return 0;
+            }
+        }
+    }
+
+    // Suppression logique
+    public boolean softDelete(int id) throws SQLException {
+        String sql = "UPDATE product SET active = false, updated_at = NOW() WHERE id = ? AND active = true";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            int rows = stmt.executeUpdate();
+            return rows > 0;
+        }
     }
 }
 

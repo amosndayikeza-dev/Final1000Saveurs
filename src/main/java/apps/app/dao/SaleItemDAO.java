@@ -53,7 +53,7 @@ public class SaleItemDAO {
     }
 
     //find by sale id
-    public List<SaleItem> findBySaleId(int saleId){
+    public List<SaleItem> findBySaleId(int saleId) throws SQLException{
         List<SaleItem> list = new ArrayList<>();
         String sql = "SELECT * FROM sale_items WHERE sale_items = ? ORDER BY";
 

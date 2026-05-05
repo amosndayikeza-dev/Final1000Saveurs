@@ -261,7 +261,7 @@ public class DebtDAO {
 
 
     // Dans DebtDAO
-    public List<Debt> findByDepartmentAndStatus(int departmentId, String status) throws SQLException {
+    public List<Debt> findByDepartementAndStatus(int departmentId, String status) throws SQLException {
         List<Debt> list = new ArrayList<>();
         String sql = "SELECT d.* FROM debts d " +
                 "JOIN sale_items si ON d.sale_item_id = si.id " +
@@ -311,4 +311,34 @@ public class DebtDAO {
            throw new RuntimeException(e);
        }
    }
+
+    public String findDepartementNameByDebtId(int debtId) throws SQLException {
+        String sql = "SELECT d.nom FROM departement d " +
+                "JOIN dette de ON de.departement_id = d.id " +
+                "WHERE de.id = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, debtId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("nom");
+                }
+                return null; // debt not found or no department linked
+            }
+        }
+    }
+    /**
+     * Supprime toutes les dettes liées à une vente (via les sale_items).
+     * @param saleId l'identifiant de la vente
+     * @throws SQLException
+     */
+    public void deleteBySaleId(int saleId) throws SQLException {
+        String sql = "DELETE FROM debts WHERE sale_item_id IN (SELECT id FROM sale_items WHERE sale_id = ?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, saleId);
+            stmt.executeUpdate();
+        }
+    }
 }

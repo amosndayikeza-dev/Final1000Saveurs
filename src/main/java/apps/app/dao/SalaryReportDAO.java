@@ -43,14 +43,24 @@ public class SalaryReportDAO {
         try {Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return mapRowToSalaryReport(rs);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    SalaryReport r = new SalaryReport();
+                    r.setId(rs.getInt("id"));
+                    r.setDepartmentId(rs.getInt("department_id"));
+                    r.setManagerId(rs.getInt("manager_id"));
+                    r.setMonth(rs.getInt("month"));
+                    r.setYear(rs.getInt("year"));
+                    r.setTotalSalary(rs.getDouble("total_salary"));
+                    r.setStatus(rs.getString("status"));
+                    r.setSubmittedAt(rs.getTimestamp("submitted_at"));
+                    return r;
+                }
+                return null;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
     }
 
     //FIND All
@@ -249,5 +259,78 @@ public class SalaryReportDAO {
         }
         return null;
     }
+
+    public List<SalaryReport> findByStatusAndDepartment(String status, int departementId) {
+        // 1. Créer une liste vide pour stocker les résultats
+        List<SalaryReport> list = new ArrayList<>();
+
+        String sql = "SELECT * FROM salary_reports WHERE status = ? AND departement_id = ? ORDER BY submitted_at DESC";
+
+        // 3. Utiliser try-with-resources pour fermer automatiquement la connexion et le statement
+        try {
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, status);
+            stmt.setInt(2, departementId);
+
+            // 5. Exécuter la requête et obtenir le ResultSet
+            ResultSet rs = stmt.executeQuery();
+            // 6. Parcourir chaque ligne du résultat
+            while (rs.next()) {
+                // 7. Transformer la ligne en objet SalaryReport (via une méthode utilitaire)
+                list.add(mapRowToSalaryReport(rs));
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
+    public List<SalaryReport> findByDepartement(int departementId, Integer month, Integer year, String status) throws SQLException {
+        StringBuilder sql = new StringBuilder("SELECT * FROM salary_reports WHERE department_id = ?");
+        List<Object> params = new ArrayList<>();
+        params.add(departementId);
+        if (month != null) {
+            sql.append(" AND month = ?");
+            params.add(month);
+        }
+        if (year != null) {
+            sql.append(" AND year = ?");
+            params.add(year);
+        }
+        if (status != null && !status.isEmpty()) {
+            sql.append(" AND status = ?");
+            params.add(status);
+        }
+        sql.append(" ORDER BY year DESC, month DESC");
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+            for (int i = 0; i < params.size(); i++) {
+                stmt.setObject(i + 1, params.get(i));
+            }
+            List<SalaryReport> list = new ArrayList<>();
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    SalaryReport r = new SalaryReport();
+                    r.setId(rs.getInt("id"));
+                    r.setDepartmentId(rs.getInt("department_id"));
+                    r.setManagerId(rs.getInt("manager_id"));
+                    r.setMonth(rs.getInt("month"));
+                    r.setYear(rs.getInt("year"));
+                    r.setTotalSalary(rs.getDouble("total_salary"));
+                    r.setStatus(rs.getString("status"));
+                    r.setSubmittedAt(rs.getTimestamp("submitted_at"));
+                    list.add(r);
+                }
+            }
+            return list;
+        }
+    }
+
+
+
 }
 

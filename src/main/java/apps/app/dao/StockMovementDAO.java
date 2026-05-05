@@ -69,7 +69,7 @@ public class StockMovementDAO {
     }
 
     //READ by product
-    public List<StockMovement> findByProduct(int productId) {
+    public List<StockMovement> findByProductId(int productId) {
         List<StockMovement> list = new ArrayList<>();
         String sql = "SELECT * FROM stock_movements WHERE product_id = ? ORDER BY created_at DESC";
 

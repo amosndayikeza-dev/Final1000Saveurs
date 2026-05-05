@@ -180,7 +180,6 @@
                 <!--<div class="departement">
                 </div>
                 <div class="departement">
-
                 </div>-->
                 <!-- <div class="departement" id="btn-ajouter-departement">
                     <div class="tft-icon-round-grand tft-bg-greensav" onclick="ajouterDepartement()">
@@ -393,13 +392,18 @@
     </div>
     <script src="../assets/js/scripts.js"></script>
     <script>
-        // // Fermeture des modales
-        // function closeModal() {
-        //     document.getElementById('deconnection-modal').style.display = 'none';
-        // }
-        // function deconnectionModal() {
-        //     document.getElementById('deconnection-modal').style.display = 'flex';
-        // }
+HEAD:src/main/webapp/patron/departementspatron.php
+       
+
+
+        // Fermeture des modales
+        function closeModal() {
+            document.getElementById('deconnection-modal').style.display = 'none';
+        }
+        function deconnectionModal() {
+            document.getElementById('deconnection-modal').style.display = 'flex';
+        }
+ mes_modifications:src/main/webapp/patron/departements.html
         function closeModalForm() {
             document.getElementById('add-departement').style.display = 'none';
             document.getElementById('departementForm').reset();
