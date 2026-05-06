@@ -88,7 +88,7 @@
                     <div class="tft-icon-carre tft-bdr-gris-1" onclick="showSidebar()">
                         <i class="fas fa-bars"></i>
                     </div>
-                    Les produits</h2>
+                    Les employés</h2>
                 <div class="header-aside">
                     <div class="tft-search-withIcon">
                         <input type="search" placeholder="Rechercher" class="tft-clr-white3">
@@ -96,6 +96,26 @@
                             <i class="fas fa-search tft-clr-remain-white tft-fw-600"></i>
                         </div>
                     </div>
+                    <!-- <div class="tft-users tft-bdr-gris-1" id="tft-users">
+                        <div class="tft-users-pics"  id="tft-users-pics">
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/icons/femme.png">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/icons/femme.png">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/icons/femme.png">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <img src="../assets/images/icons/femme.png">
+                            </div>
+                            <div class="tft-user-pic tft-bdr-greensav-1">
+                                <p class="tft-clr-white3">+15</p>
+                            </div>
+                        </div>
+                        <h4 class="tft-sm-title1 tft-bg-black1" id="user-desc">Utilisateurs</h4>
+                    </div> -->
                     <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3" onclick="showContainerRightNotification()">
                         <i class="fas fa-bell tft-clr-greensav"></i>
                     </div>
@@ -107,6 +127,218 @@
                     </div>
                     <div class="tft-icon-carre-moyen tft-bg-orangesav2 tft-hidden" id="btn-dark-mode" onclick="changeMode()">
                         <i class="fas fa-moon tft-clr-white"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="c-center-body">
+                <div class="products-header">
+                    <button class="tft-btn tft-bg-greensav tft-clr-remain-white tft-p-relative" onmouseenter="showFilterOptions()">
+                        Filtrer<i class="fas fa-stream"></i>
+                        <div class="tft-filters tft-p-absolute" id="filter-options" onmouseenter="showFilterOptions()" onmouseleave="hideFilterOptions()">
+                            <p class="tft-title4 tft-hover-greensav">Tous</p>
+                            <p class="tft-title4 tft-hover-greensav">Les employés</p>
+                            <p class="tft-title4 tft-hover-greensav">Les gérants</p>
+                        </div>
+                    </button>
+                    <button class="tft-btn tft-bdr-greensav-1 tft-clr-white3 tft-hover-greensav" onclick="ajouterProduct()">
+                        <i class="fas fa-add"></i>ajouter un employé
+                    </button>
+                </div>
+                <div class="products-container">
+                    <table class="tft-table">
+                        <tr class="tft-b-bottom-gris">
+                            <th class="tft-title3">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1" onclick="activeCheckboxAll(this)">
+                                    <i class="fas fa-check tft-clr-transparent "></i>
+                                </div>
+                            </th>
+                            <th class="tft-title3">Profil</th>
+                            <th class="tft-title3">Departement</th>
+                            <th class="tft-title3">Poste</th>
+                            <th class="tft-title3">Salaire</th>
+                            <th class="tft-title3">Date</th>
+                            <th class="tft-title3 ">Actions</th>
+                        </tr>
+                        <tr class="tft-b-bottom-gris line-selected">
+                            <td class="tft-title3 checkbox">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 checkbox-icon" onclick="activeCheckbox(this)">
+                                    <i class="fas fa-check tft-clr-transparent "></i>
+                                </div>
+                            </td>
+                            <td class="tft-profile-td">
+                                <div class="tft-avatar-profil-petit table-profile">
+                                    <img src="../assets/images/icons/homme.jpg">
+                                </div>
+                                <div class="tft-flex tft-flex-column tft-gap-2px">
+                                    <h4 class="tft-sm-title1">Kalenga Marc</h4>
+                                    <p class="tft-sm-title2">lania@gmail.com</p>
+                                </div>
+                            </td>
+                            <td class="tft-title4 tft-clr-white3">Bar</td>
+                            <td class="tft-title4 tft-clr-white3">Gerant</td>
+                            <td class="tft-title4 tft-clr-white3">600000 fbu</td>
+                            <td class="tft-title4 tft-clr-white3">4-5-2026</td>
+                            <td class="tft-bdr-l-gris-1">
+                                <div class="actions">
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                        <i class="fe fe-edit tft-clr-greensav"></i>
+                                    </div>
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
+                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
+                                    </div>
+                                    <!-- <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
+                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
+                                    </div> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tft-b-bottom-gris">
+                            <td class="tft-title3 checkbox">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 checkbox-icon" onclick="activeCheckbox(this)">
+                                    <i class="fas fa-check tft-clr-transparent "></i>
+                                </div>
+                            </td>
+                            <td class="tft-profile-td">
+                                <div class="tft-avatar-profil-petit table-profile">
+                                    <img src="../assets/images/icons/homme.jpg">
+                                </div>
+                                <div class="tft-flex tft-flex-column tft-gap-2px">
+                                    <h4 class="tft-sm-title1">Kalenga Marc</h4>
+                                    <p class="tft-sm-title2">lania@gmail.com</p>
+                                </div>
+                            </td>
+                            <td class="tft-title4 tft-clr-white3">Bar</td>
+                            <td class="tft-title4 tft-clr-white3">Gerant</td>
+                            <td class="tft-title4 tft-clr-white3">600000 fbu</td>
+                            <td class="tft-title4 tft-clr-white3">4-5-2026</td>
+                            <td class="tft-bdr-l-gris-1">
+                                <div class="actions">
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                        <i class="fe fe-edit tft-clr-greensav"></i>
+                                    </div>
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
+                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
+                                    </div>
+                                    <!-- <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
+                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
+                                    </div> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tft-b-bottom-gris">
+                            <td class="tft-title3 checkbox">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 checkbox-icon" onclick="activeCheckbox(this)">
+                                    <i class="fas fa-check tft-clr-transparent "></i>
+                                </div>
+                            </td>
+                            <td class="tft-profile-td">
+                                <div class="tft-avatar-profil-petit table-profile">
+                                    <img src="../assets/images/icons/homme.jpg">
+                                </div>
+                                <div class="tft-flex tft-flex-column tft-gap-2px">
+                                    <h4 class="tft-sm-title1">Kalenga Marc</h4>
+                                    <p class="tft-sm-title2">lania@gmail.com</p>
+                                </div>
+                            </td>
+                            <td class="tft-title4 tft-clr-white3">Bar</td>
+                            <td class="tft-title4 tft-clr-white3">Gerant</td>
+                            <td class="tft-title4 tft-clr-white3">600000 fbu</td>
+                            <td class="tft-title4 tft-clr-white3">4-5-2026</td>
+                            <td class="tft-bdr-l-gris-1">
+                                <div class="actions">
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                        <i class="fe fe-edit tft-clr-greensav"></i>
+                                    </div>
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
+                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
+                                    </div>
+                                    <!-- <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
+                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
+                                    </div> -->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tft-b-bottom-gris">
+                            <td class="tft-title3 checkbox">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 checkbox-icon" onclick="activeCheckbox(this)">
+                                    <i class="fas fa-check tft-clr-transparent"></i>
+                                </div>
+                            </td>
+                            <td class="tft-profile-td">
+                                <div class="tft-avatar-profil-petit table-profile">
+                                    <img src="../assets/images/icons/homme.jpg">
+                                </div>
+                                <div class="tft-flex tft-flex-column tft-gap-2px">
+                                    <h4 class="tft-sm-title1">Kalenga Marc</h4>
+                                    <p class="tft-sm-title2">lania@gmail.com</p>
+                                </div>
+                            </td>
+                            <td class="tft-title4 tft-clr-white3">Bar</td>
+                            <td class="tft-title4 tft-clr-white3">Gerant</td>
+                            <td class="tft-title4 tft-clr-white3">600000 fbu</td>
+                            <td class="tft-title4 tft-clr-white3">4-5-2026</td>
+                            <td class="tft-bdr-l-gris-1">
+                                <div class="actions">
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                        <i class="fe fe-edit tft-clr-greensav"></i>
+                                    </div>
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
+                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
+                                    </div>
+                                    <!-- <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
+                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
+                                    </div> -->
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr class="tft-b-bottom-gris">
+                            <td class="tft-title3 checkbox">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 checkbox-icon" onclick="activeCheckbox(this)">
+                                    <i class="fas fa-check tft-clr-transparent "></i>
+                                </div>
+                            </td>
+                            <td class="tft-profile-td">
+                                <div class="tft-avatar-profil-petit table-profile">
+                                    <img src="../assets/images/icons/homme.jpg">
+                                </div>
+                                <div class="tft-flex tft-flex-column tft-gap-2px">
+                                    <h4 class="tft-sm-title1">Kalenga Marc</h4>
+                                    <p class="tft-sm-title2">lania@gmail.com</p>
+                                </div>
+                            </td>
+                            <td class="tft-title4 tft-clr-white3">Bar</td>
+                            <td class="tft-title4 tft-clr-white3">Gerant</td>
+                            <td class="tft-title4 tft-clr-white3">600000 fbu</td>
+                            <td class="tft-title4 tft-clr-white3">4-5-2026</td>
+                            <td class="tft-bdr-l-gris-1">
+                                <div class="actions">
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
+                                        <i class="fe fe-edit tft-clr-greensav"></i>
+                                    </div>
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
+                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
+                                    </div>
+                                    <!-- <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
+                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
+                                    </div> -->
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                    <div class="tft-pagination">
+                        <div class="tft-icon-round-moyen tft-bdr-greensav-1 tft-hover-greensav">
+                            <i class="fas fa-arrow-left tft-color-white"></i>
+                        </div>
+                        <ul class="tft-page-numbers">
+                            <li class="tft-icon-carre-petit tft-clr-white3 tft-br-none">1</li>
+                            <li class="tft-icon-carre-petit tft-clr-white3 tft-br-none">2</li>
+                            <li class="tft-icon-carre-petit tft-clr-white3 tft-br-none">3</li>
+                        </ul>
+                        <div class="tft-icon-round-moyen tft-bdr-greensav-1 tft-hover-greensav">
+                            <i class="fas fa-arrow-right tft-color-white"></i>
+                        </div>
                     </div>
                 </div>
             </div>
