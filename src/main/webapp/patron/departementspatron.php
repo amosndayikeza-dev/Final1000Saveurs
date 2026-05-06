@@ -392,82 +392,104 @@
     </div>
     <script src="../assets/js/scripts.js"></script>
     <script>
-HEAD:src/main/webapp/patron/departementspatron.php
-       
-
-
-        // Fermeture des modales
+        // ============================================================
+        // FERMETURE DES MODALES
+        // ============================================================
         function closeModal() {
             document.getElementById('deconnection-modal').style.display = 'none';
         }
+
         function deconnectionModal() {
             document.getElementById('deconnection-modal').style.display = 'flex';
         }
- mes_modifications:src/main/webapp/patron/departements.html
+
         function closeModalForm() {
             document.getElementById('add-departement').style.display = 'none';
             document.getElementById('departementForm').reset();
             document.getElementById('deptId').value = '';
         }
+
         function openAddModal() {
             document.getElementById('modalTitle').innerText = 'Ajouter un département';
             document.getElementById('departementForm').reset();
             document.getElementById('deptId').value = '';
             document.getElementById('add-departement').style.display = 'flex';
         }
+
         function openEditModal(id, name, description, address, managerId) {
             document.getElementById('modalTitle').innerText = 'Modifier le département';
             document.getElementById('deptId').value = id;
             document.getElementById('nom-departement').value = name;
             document.getElementById('description-departement').value = description || '';
             document.getElementById('address-departement').value = address || '';
-            // Pour le select, on positionne la valeur
             const select = document.getElementById('manager-id');
             if (select) select.value = managerId || '';
             document.getElementById('add-departement').style.display = 'flex';
         }
 
-        // Charger les départements depuis l'API
+        // ============================================================
+        // CHARGER LES DÉPARTEMENTS DEPUIS L'API
+        // ============================================================
         async function loadDepartements() {
             try {
-                const response = await fetch('/api/patron/departements');
-                if (!response.ok) throw new Error('Erreur chargement départements');
+                // ← CORRECTION : Ajouter le slash à la fin
+                const response = await fetch('/api/patron/departements/');
+
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP: ${response.status}`);
+                }
+
                 const departments = await response.json();
                 const container = document.getElementById('container-departements');
+
+                if (!container) {
+                    console.error('Conteneur non trouvé');
+                    return;
+                }
+
                 container.innerHTML = '';
+
+                if (departments.length === 0) {
+                    container.innerHTML = '<div class="error"><p>Aucun département trouvé</p></div>';
+                }
+
                 departments.forEach(dept => {
                     const card = document.createElement('div');
                     card.className = 'departement';
-                    const createdAt = dept.createdAt ? (() => {
+
+                    // Formatage de la date
+                    let createdAt = 'Date inconnue';
+                    if (dept.createdAt) {
                         const match = dept.createdAt.match(/(\d{4})-(\d{2})-(\d{2})/);
-                        return match ? `${match[3]}/${match[2]}/${match[1]}` : 'Date inconnue';
-                    })() : 'Date inconnue';
+                        if (match) createdAt = `${match[3]}/${match[2]}/${match[1]}`;
+                    }
+
                     card.innerHTML = `
-                        <p class="tft-sm-title2 tft-bg-black2" id="creation-date">Créé le ${createdAt}</p>
+                        <p class="tft-sm-title2 tft-bg-black2">Créé le ${createdAt}</p>
                         <div class="departement-details">
-                            <h3 class="tft-title2 tft-clr-orangesav tft-a-self-center">${escapeHtml(dept.name)}</h3>
-                            <p class="tft-sm-title1 tft-text-justify tft-w-100 tft-break-word tft-fs-15px tft-line-h-1-4">${escapeHtml(dept.description || '')}</p>
+                            <h3 class="tft-title2 tft-clr-orangesav">${escapeHtml(dept.name)}</h3>
+                            <p class="tft-sm-title1">${escapeHtml(dept.description || 'Aucune description')}</p>
                         </div>
                         <div class="departement-infos">
                             <div class="manager-infos">
                                 <div class="departement-info-icon">
-                                    <div class="tft-icon-round-moyen tft-bg-black2 tft-bdr-greensav-1 tft-cursor-pointer">
+                                    <div class="tft-icon-round-moyen tft-bg-black2 tft-bdr-greensav-1">
                                         <i class="fas fa-user-tie tft-clr-greensav"></i>
                                     </div>
                                 </div>
                                 <div class="manager-name">
-                                    <h4 class="tft-title4">Lania Ishimwe</h4>
+                                    <h4 class="tft-title4">${escapeHtml(dept.managerName || 'Non assigné')}</h4>
                                     <p class="tft-sm-title1">Manager</p>
                                 </div>
                             </div>
                             <div class="manager-infos">
                                 <div class="departement-info-icon">
-                                    <div class="tft-icon-round-moyen tft-bg-black2 tft-bdr-greensav-1 tft-cursor-pointer">
+                                    <div class="tft-icon-round-moyen tft-bg-black2 tft-bdr-greensav-1">
                                         <i class="fas fa-map-marker-alt tft-clr-greensav"></i>
                                     </div>
                                 </div>
                                 <div class="manager-name">
-                                    <h4 class="tft-title4">Rohero 2</h4>
+                                    <h4 class="tft-title4">${escapeHtml(dept.address || 'Adresse non renseignée')}</h4>
                                     <p class="tft-sm-title1">Adresse</p>
                                 </div>
                             </div>
@@ -479,6 +501,7 @@ HEAD:src/main/webapp/patron/departementspatron.php
                     `;
                     container.appendChild(card);
                 });
+
                 // Ajouter la carte "Ajouter"
                 const addCard = document.createElement('div');
                 addCard.className = 'departement';
@@ -490,63 +513,88 @@ HEAD:src/main/webapp/patron/departementspatron.php
                     <p class="tft-title2">Ajouter un département</p>
                 `;
                 container.appendChild(addCard);
-                // Attacher événements
+
+                // Attacher les événements
                 document.querySelectorAll('.edit-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
                         openEditModal(btn.dataset.id, btn.dataset.name, btn.dataset.desc, btn.dataset.addr, btn.dataset.mgr);
                     });
                 });
+
                 document.querySelectorAll('.delete-btn').forEach(btn => {
                     btn.addEventListener('click', async () => {
                         if (confirm('Supprimer définitivement ce département ?')) {
                             try {
-                                await fetch(`/api/patron/departements/${btn.dataset.id}`, { method: 'DELETE' });
-                                await loadDepartements();
-                            } catch (err) { console.error(err); alert('Erreur réseau'); }
+                                const res = await fetch(`/api/patron/departements/${btn.dataset.id}`, { method: 'DELETE' });
+                                if (res.ok) await loadDepartements();
+                                else alert('Erreur lors de la suppression');
+                            } catch (err) {
+                                console.error(err);
+                                alert('Erreur réseau');
+                            }
                         }
                     });
                 });
+
             } catch (error) {
-                console.error(error);
-                document.getElementById('container-departements').innerHTML = `
-                <div class="error">
-                    <div class="tft-icon-carre-moyen tft-bg-red">
-                        <i class="fas fa-exclamation-triangle tft-clr-remain-white"></i>
-                    </div>
-                    <p class="tft-title1">Impossible de charger les départements</p>
-                </div>`;
+                console.error('Erreur:', error);
+                const container = document.getElementById('container-departements');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="error">
+                            <div class="tft-icon-carre-moyen tft-bg-red">
+                                <i class="fas fa-exclamation-triangle tft-clr-remain-white"></i>
+                            </div>
+                            <p class="tft-title1">Impossible de charger les départements</p>
+                            <p class="tft-sm-title1">Vérifiez que l'API est accessible</p>
+                        </div>`;
+                }
             }
         }
 
+        // ============================================================
+        // SÉCURITÉ : ÉVITER LES INJECTIONS XSS
+        // ============================================================
         function escapeHtml(str) {
             if (!str) return '';
-            return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
+            return str.replace(/[&<>]/g, m => {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
         }
 
-        // Charger les employés pour le select des gérants
+        // ============================================================
+        // CHARGER LES EMPLOYÉS POUR LE SELECT DES GÉRANTS
+        // ============================================================
         async function loadManagersSelect() {
             try {
-                const response = await fetch('/api/patron/employees');
+                const response = await fetch('/api/patron/employees/');
                 if (!response.ok) throw new Error('Erreur chargement employés');
                 const employees = await response.json();
                 const select = document.getElementById('manager-id');
                 if (!select) return;
-                select.innerHTML = '<option value="">-- Aucun --</option>';
+
+                select.innerHTML = '<option value="">-- Sélectionner un gérant --</option>';
                 employees.forEach(emp => {
-                    const fullName = `${emp.first_name || ''} ${emp.last_name || ''}`.trim();
+                    const fullName = `${emp.firstName || ''} ${emp.lastName || ''}`.trim();
                     const option = document.createElement('option');
-                    option.value = emp.userId || emp.user_id || emp.id;
-                    option.textContent = fullName || `Employé #${option.value}`;
+                    option.value = emp.id;
+                    option.textContent = fullName || `Employé #${emp.id}`;
                     select.appendChild(option);
                 });
             } catch (error) {
-                console.error('Erreur chargement des employés :', error);
+                console.error('Erreur chargement des employés:', error);
             }
         }
 
-        // Gestion du formulaire
+        // ============================================================
+        // GESTION DU FORMULAIRE (AJOUT/MODIFICATION)
+        // ============================================================
         document.getElementById('departementForm').addEventListener('submit', async (e) => {
             e.preventDefault();
+
             const id = document.getElementById('deptId').value;
             const payload = {
                 name: document.getElementById('nom-departement').value.trim(),
@@ -554,20 +602,24 @@ HEAD:src/main/webapp/patron/departementspatron.php
                 address: document.getElementById('address-departement').value.trim(),
                 managerId: document.getElementById('manager-id').value ? parseInt(document.getElementById('manager-id').value) : null
             };
-            const url = id ? `/api/patron/departements/${id}` : '/api/patron/departements';
+
+            const url = id ? `/api/patron/departements/${id}` : '/api/patron/departements/';
             const method = id ? 'PUT' : 'POST';
+
             try {
                 const response = await fetch(url, {
                     method: method,
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
+
                 if (!response.ok) {
                     const err = await response.json();
                     alert(err.error || 'Erreur lors de l\'enregistrement');
                 } else {
                     closeModalForm();
                     await loadDepartements();
+                    alert(id ? 'Département modifié' : 'Département ajouté');
                 }
             } catch (error) {
                 console.error(error);
@@ -575,23 +627,37 @@ HEAD:src/main/webapp/patron/departementspatron.php
             }
         });
 
-        // Déconnexion
-        document.getElementById('logoutYes')?.addEventListener('click', async (e) => {
-            e.preventDefault();
-            await fetch('/api/auth/logout', { method: 'POST' });
-            location.href = '/login.html';
-        });
+        // ============================================================
+        // AFFICHER LE NOM DE L'UTILISATEUR
+        // ============================================================
+        async function loadUserName() {
+            try {
+                const response = await fetch('/api/auth/me');
+                if (response.ok) {
+                    const user = await response.json();
+                    const userNameElement = document.getElementById('userName');
+                    if (userNameElement) {
+                        userNameElement.textContent = user.userName || user.firstName || 'Utilisateur';
+                    }
+                    const userRoleElement = document.getElementById('userRole');
+                    if (userRoleElement) {
+                        userRoleElement.textContent = user.role || 'Patron';
+                    }
+                }
+            } catch (error) {
+                console.error('Erreur chargement utilisateur:', error);
+            }
+        }
 
-        // Récupération du nom utilisateur
-        fetch('/api/auth/me').then(r => r.json()).then(user => {
-            if (user.userName) document.getElementById('user-name').innerText = user.userName;
-        }).catch(() => {});
-
-        // Initialisation au chargement de la page
+        // ============================================================
+        // INITIALISATION AU CHARGEMENT DE LA PAGE
+        // ============================================================
         document.addEventListener('DOMContentLoaded', () => {
             loadDepartements();
             loadManagersSelect();
+            loadUserName();
         });
+
     </script>
 </body>
 </html>

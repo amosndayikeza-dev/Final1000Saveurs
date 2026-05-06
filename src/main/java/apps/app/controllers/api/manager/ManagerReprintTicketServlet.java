@@ -23,7 +23,7 @@ import java.util.Map;
  * Servlet pour la réimpression d'un ticket de caisse (par le manager).
  * Endpoint : GET /api/manager/sales/{saleId}/ticket/reprint
  */
-@WebServlet("/api/manager/sales/*")
+@WebServlet("/api/manager/reprint-ticket/*")
 public class ManagerReprintTicketServlet extends HttpServlet {
 
     // DAO pour accéder aux données des ventes et lignes

@@ -142,9 +142,7 @@
                     <button class="tft-btn tft-bg-greensav tft-clr-white tft-p-relative" onmouseenter="showFilterOptions()">
                         Filtrer<i class="fas fa-stream"></i>
                         <div class="tft-filters tft-p-absolute" id="filter-options" onmouseenter="showFilterOptions()" onmouseleave="hideFilterOptions()">
-                            <p class="tft-title4 tft-hover-greensav">Par departement</p>
-                            <p class="tft-title4 tft-hover-greensav">Par departement</p>
-                            <p class="tft-title4 tft-hover-greensav">Par departement</p>
+                            <!-- La liste des départements sera chargée dynamiquement ici -->
                         </div>
                     </button>
                     <button class="tft-btn tft-bdr-greensav-1 tft-clr-white3 tft-hover-greensav" onclick="ajouterProduct()">
@@ -154,138 +152,18 @@
                 <div class="products-container">
                     <table class="tft-table">
                         <tr class="tft-b-bottom-gris">
-                            <th class="tft-title3">Nom</th>
-                            <th class="tft-title3">Description</th>
-                            <th class="tft-title3">Prix unitaire</th>
-                            <th class="tft-title3">Stock</th>
-                            <th class="tft-title3">Statut</th>
-                            <th class="tft-title3 ">Actions</th>
+                            <th class="tft-title3">ID</th>
+                            <th class="tft-title3">NOM</th>
+                            <th class="tft-title3">DESCRIPTION</th>
+                            <th class="tft-title3">PRIX UNITAIRE</th>
+                            <th class="tft-title3">STOCK</th>
+                            <th class="tft-title3">STATUS</th>
+                            <th class="tft-title3 ">ACTION</th>
                         </tr>
-                        <tr class="tft-b-bottom-gris">
-                            <td class="tft-title4 tft-clr-white3">Red wine</td>
-                            <td class="tft-title4 tft-clr-white3">Vin pour les fetes</td>
-                            <td class="tft-title4 tft-clr-white3">60000 fbu</td>
-                            <td class="tft-title4 tft-clr-white3">20</td>
-                            <td class="tft-stock-badge-red1" id="stock-status">
-                                <div class="tft-stock-dot"></div>
-                                <div class="tft-stock-info">
-                                    <p>Stock en rupture</p>
-                                </div>
-                            </td>
-                            <td class="tft-bdr-l-gris-1">
-                                <div class="actions">
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
-                                        <i class="fe fe-edit tft-clr-greensav"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
-                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
-                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr> 
-                        <tr class="tft-b-bottom-gris">
-                            <td class="tft-title4 tft-clr-white3">Red wine</td>
-                            <td class="tft-title4 tft-clr-white3">Vin pour les fetes</td>
-                            <td class="tft-title4 tft-clr-white3">60000 fbu</td>
-                            <td class="tft-title4 tft-clr-white3">20</td>
-                            <td class="tft-stock-badge-yellow1" id="stock-status">
-                                <div class="tft-stock-dot"></div>
-                                <div class="tft-stock-info">
-                                    <p>Stock en cours</p>
-                                </div>
-                            </td>
-                            <td class="tft-bdr-l-gris-1">
-                                <div class="actions">
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
-                                        <i class="fe fe-edit tft-clr-greensav"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
-                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
-                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr> 
-                        <tr class="tft-b-bottom-gris">
-                            <td class="tft-title4 tft-clr-white3">Red wine</td>
-                            <td class="tft-title4 tft-clr-white3">Vin pour les fetes</td>
-                            <td class="tft-title4 tft-clr-white3">60000 fbu</td>
-                            <td class="tft-title4 tft-clr-white3">20</td>
-                            <td class="tft-stock-badge-red1" id="stock-status">
-                                <div class="tft-stock-dot"></div>
-                                <div class="tft-stock-info">
-                                    <p>Stock en rupture</p>
-                                </div>
-                            </td>
-                            <td class="tft-bdr-l-gris-1">
-                                <div class="actions">
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
-                                        <i class="fe fe-edit tft-clr-greensav"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
-                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
-                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr> 
-                        <tr class="tft-b-bottom-gris">
-                            <td class="tft-title4 tft-clr-white3">Red wine</td>
-                            <td class="tft-title4 tft-clr-white3">Vin pour les fetes</td>
-                            <td class="tft-title4 tft-clr-white3">60000 fbu</td>
-                            <td class="tft-title4 tft-clr-white3">20</td>
-                            <td class="tft-stock-badge-green1" id="stock-status">
-                                <div class="tft-stock-dot"></div>
-                                <div class="tft-stock-info">
-                                    <p>Stock en cours</p>
-                                </div>
-                            </td>
-                            <td class="tft-bdr-l-gris-1">
-                                <div class="actions">
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
-                                        <i class="fe fe-edit tft-clr-greensav"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
-                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
-                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr> 
-                        <tr class="tft-b-bottom-gris">
-                            <td class="tft-title4 tft-clr-white3">Red wine</td>
-                            <td class="tft-title4 tft-clr-white3">Vin pour les fetes</td>
-                            <td class="tft-title4 tft-clr-white3">60000 fbu</td>
-                            <td class="tft-title4 tft-clr-white3">20</td>
-                            <td class="tft-stock-badge-yellow1" id="stock-status">
-                                <div class="tft-stock-dot"></div>
-                                <div class="tft-stock-info">
-                                    <p>Stock en rupture</p>
-                                </div>
-                            </td>
-                            <td class="tft-bdr-l-gris-1">
-                                <div class="actions">
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
-                                        <i class="fe fe-edit tft-clr-greensav"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
-                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
-                                    </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
-                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr> 
+                        <tbody id="products-table-body">
+                                <!-- Les produits seront injectés ici -->
+                        </tbody>
+
                     </table>
                     <div class="tft-pagination">
                         <div class="tft-icon-round-moyen tft-bdr-greensav-1 tft-hover-greensav">
@@ -520,4 +398,363 @@
     </div>
 </body>
 <script src="../assets/js/scripts.js"></script>
+<script>
+    // ============================================================
+  // INITIALISATION AU CHARGEMENT DE LA PAGE
+  // ============================================================
+  document.addEventListener('DOMContentLoaded', () => {
+      loadDepartementsForFilter();  // Charge les départements et initialise l'affichage
+      initProductForm();            // Initialise le formulaire d'ajout
+  });
+
+  // ============================================================
+  // VARIABLES GLOBALES
+  // ============================================================
+  let currentDepartementFilter = null;  // null au lieu de 'all' pour avoir le premier département par défaut
+  let departementsList = [];              // Liste des départements
+
+  // ============================================================
+  // CHARGEMENT DES DÉPARTEMENTS POUR LE MENU FILTRE
+  // ============================================================
+  async function loadDepartementsForFilter() {
+      try {
+          const response = await fetch('/api/patron/departements/');
+          departementsList = await response.json();
+
+          // Remplir le menu déroulant des filtres
+          const filterOptions = document.getElementById('filter-options');
+          if (filterOptions) {
+              filterOptions.innerHTML = `<p class="tft-title4 tft-hover-greensav" onclick="filterByDepartement('all')">📊 Tous les départements</p>`;
+              departementsList.forEach(dept => {
+                  filterOptions.innerHTML += `<p class="tft-title4 tft-hover-greensav" onclick="filterByDepartement(${dept.id})">🏢 ${dept.name}</p>`;
+              });
+          }
+
+          // Afficher le premier département par défaut au chargement
+          if (departementsList.length > 0) {
+              const premierDepartement = departementsList[0].id;
+              currentDepartementFilter = premierDepartement;
+
+              // Mettre à jour le texte du bouton filtre
+              const filterButton = document.getElementById('filterButton');
+              if (filterButton) {
+                  filterButton.innerHTML = `${departementsList[0].name} <i class="fas fa-stream"></i>`;
+              }
+
+              // Charger les produits du premier département
+              loadProducts();
+          } else {
+              // Aucun département, charger tous les produits
+              loadProducts();
+          }
+
+      } catch (error) {
+          console.error('Erreur chargement départements:', error);
+          displayError("Impossible de charger la liste des départements");
+          loadProducts(); // Fallback : charger tous les produits
+      }
+  }
+
+  // ============================================================
+  // FILTRER LES PRODUITS PAR DÉPARTEMENT
+  // ============================================================
+  function filterByDepartement(departementId) {
+      currentDepartementFilter = departementId;  // Mémorise le filtre
+
+      // Change le texte du bouton filtre
+      const filterButton = document.getElementById('filterButton');
+      if (filterButton) {
+          if (departementId === 'all') {
+              filterButton.innerHTML = 'Filtrer <i class="fas fa-stream"></i>';
+          } else {
+              const dept = departementsList.find(d => d.id == departementId);
+              filterButton.innerHTML = `${dept?.name || 'Département'} <i class="fas fa-stream"></i>`;
+          }
+      }
+
+      hideFilterOptions();  // Cache le menu
+      loadProducts();       // Recharge avec le filtre
+  }
+
+  // ============================================================
+  // CHARGEMENT DES PRODUITS (AVEC FILTRE)
+  // ============================================================
+  async function loadProducts() {
+      try {
+          // Construit l'URL avec le filtre si nécessaire
+          let url = '/api/patron/products/';
+          if (currentDepartementFilter && currentDepartementFilter !== 'all') {
+              url = `/api/patron/products/?departement_id=${currentDepartementFilter}`;
+          }
+
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const products = await response.json();
+          displayProducts(products);
+
+      } catch (error) {
+          console.error('Erreur:', error);
+          displayError("Impossible de charger les produits");
+      }
+  }
+
+  // ============================================================
+  // AFFICHAGE DES PRODUITS DANS LE TABLEAU
+  // ============================================================
+  function displayProducts(products) {
+      let tbody = document.querySelector('#products-table-body');
+      if (!tbody) {
+          tbody = document.createElement('tbody');
+          tbody.id = 'products-table-body';
+          const table = document.querySelector('.tft-table');
+          if (table) table.appendChild(tbody);
+      }
+      tbody.innerHTML = '';
+
+      if (products.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">Aucun produit dans ce département</td><tr>`;
+          return;
+      }
+
+      products.forEach(product => {
+          // Détermine le statut du stock
+          let stockClass = 'tft-stock-badge-green1', stockText = 'Stock disponible';
+          if (product.currentStock <= 0) {
+              stockClass = 'tft-stock-badge-red1';
+              stockText = 'Stock en rupture';
+          } else if (product.currentStock <= (product.lowStockThreshold || 5)) {
+              stockClass = 'tft-stock-badge-yellow1';
+              stockText = 'Stock faible';
+          }
+
+          // Crée la ligne du tableau
+          const row = document.createElement('tr');
+          row.className = 'tft-b-bottom-gris';
+          row.innerHTML = `
+              <td class="tft-title4 tft-clr-white3">${product.id}</td>
+              <td class="tft-title4 tft-clr-white3">${escapeHtml(product.name)}</td>
+              <td class="tft-title4 tft-clr-white3">${escapeHtml(product.description || '')}</td>
+              <td class="tft-title4 tft-clr-white3">${formatPrice(product.unitPrice)}</td>
+              <td class="tft-title4 tft-clr-white3">${product.currentStock}</td>
+              <td class="${stockClass}"><div class="tft-stock-dot"></div><div class="tft-stock-info"><p>${stockText}</p></div></td>
+              <td class="tft-bdr-l-gris-1"><div class="actions">
+                  <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1" onclick="openEditProductModal(${product.id})"><i class="fe fe-edit tft-clr-greensav"></i></div>
+                  <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1" onclick="deleteProduct(${product.id})"><i class="fe fe-trash delete-icon tft-clr-red"></i></div>
+              </div></td>
+          `;
+          tbody.appendChild(row);
+      });
+  }
+
+  // ============================================================
+  // FORMATAGE DU PRIX
+  // ============================================================
+  function formatPrice(price) {
+      return price.toLocaleString('fr-FR') + ' FBu';
+  }
+
+  // ============================================================
+  // SÉCURITÉ : ÉVITER LES INJECTIONS XSS
+  // ============================================================
+  function escapeHtml(text) {
+      if (!text) return '';
+      return text.replace(/[&<>]/g, function(m) {
+          if (m === '&') return '&amp;';
+          if (m === '<') return '&lt;';
+          if (m === '>') return '&gt;';
+          return m;
+      });
+  }
+
+  // ============================================================
+  // AFFICHAGE D'UNE ERREUR DANS LE TABLEAU
+  // ============================================================
+  function displayError(message) {
+      const tbody = document.querySelector('#products-table-body');
+      if (tbody) {
+          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:red; padding:20px;">${message}</td></tr>`;
+      } else {
+          console.error('Erreur:', message);
+      }
+  }
+
+  // ============================================================
+  // SUPPRIMER UN PRODUIT
+  // ============================================================
+  async function deleteProduct(productId) {
+      if (!confirm('Supprimer ce produit ?')) return;
+      try {
+          const response = await fetch(`/api/patron/products/${productId}`, { method: 'DELETE' });
+          if (!response.ok) throw new Error('Erreur suppression');
+          loadProducts();  // Recharge la liste après suppression
+          alert('Produit supprimé');
+      } catch (error) {
+          alert('Erreur: ' + error.message);
+      }
+  }
+
+  // ============================================================
+  // OUVRIRE LE MODAL POUR MODIFIER UN PRODUIT
+  // ============================================================
+  async function openEditProductModal(productId) {
+      try {
+          const response = await fetch(`/api/patron/products/${productId}`);
+          if (!response.ok) throw new Error('Produit non trouvé');
+          const product = await response.json();
+
+          // Remplit le formulaire
+          document.getElementById('productId').value = product.id;
+          document.getElementById('nom-product').value = product.name;
+          document.getElementById('description-product').value = product.description || '';
+          document.getElementById('price-product').value = product.unitPrice;
+          document.getElementById('stock-product').value = product.currentStock;
+          document.getElementById('modalTitle').textContent = 'Modifier le produit';
+
+          // Affiche le modal
+          document.getElementById('add-product').style.display = 'flex';
+      } catch (error) {
+          alert('Erreur: ' + error.message);
+      }
+  }
+
+  // ============================================================
+  // OUVRIRE LE MODAL POUR AJOUTER UN PRODUIT
+  // ============================================================
+  function ajouterProduct() {
+      resetProductForm();  // Réinitialise le formulaire
+
+      // Pré-sélectionner le département du filtre
+      const departementSelect = document.getElementById('departement-product');
+      if (departementSelect && currentDepartementFilter && currentDepartementFilter !== 'all') {
+          departementSelect.value = currentDepartementFilter;
+          departementSelect.disabled = true;  // Désactiver car le département est imposé par le filtre
+
+          // Ajouter un champ caché pour l'envoi
+          let hiddenDept = document.getElementById('hidden-departement-id');
+          if (!hiddenDept) {
+              hiddenDept = document.createElement('input');
+              hiddenDept.type = 'hidden';
+              hiddenDept.id = 'hidden-departement-id';
+              hiddenDept.name = 'departementId';
+              document.getElementById('productForm').appendChild(hiddenDept);
+          }
+          hiddenDept.value = currentDepartementFilter;
+      } else if (departementSelect) {
+          departementSelect.disabled = false;
+          departementSelect.value = '';
+          const hiddenDept = document.getElementById('hidden-departement-id');
+          if (hiddenDept) hiddenDept.remove();
+      }
+
+      document.getElementById('modalTitle').textContent = 'Ajouter un nouveau produit';
+      document.getElementById('add-product').style.display = 'flex';
+  }
+
+  // ============================================================
+  // INITIALISATION DU FORMULAIRE
+  // ============================================================
+  function initProductForm() {
+      const form = document.getElementById('productForm');
+      if (form) form.addEventListener('submit', submitProductForm);
+  }
+
+  // ============================================================
+  // SOUMISSION DU FORMULAIRE (AJOUT OU MODIFICATION)
+  // ============================================================
+  async function submitProductForm(event) {
+      event.preventDefault();
+
+      // Récupère les valeurs
+      const productId = document.getElementById('productId').value;
+      const name = document.getElementById('nom-product').value.trim();
+      const description = document.getElementById('description-product').value.trim();
+      const unitPrice = parseFloat(document.getElementById('price-product').value);
+      const currentStock = parseInt(document.getElementById('stock-product').value);
+
+      // Récupère le département (du champ caché ou du select)
+      let departementId = null;
+      const hiddenDept = document.getElementById('hidden-departement-id');
+      if (hiddenDept) {
+          departementId = parseInt(hiddenDept.value);
+      } else {
+          const select = document.getElementById('departement-product');
+          if (select && select.value) departementId = parseInt(select.value);
+      }
+
+      // Validation
+      if (!name || !description || isNaN(unitPrice) || unitPrice <= 0 || isNaN(currentStock) || currentStock < 0 || !departementId) {
+          alert('Tous les champs sont requis et valides');
+          return;
+      }
+
+      // Prépare les données
+      const productData = {
+          name,
+          description,
+          unitPrice,
+          currentStock,
+          lowStockThreshold: 5,
+          departementId
+      };
+      const isEdit = productId && productId !== '';
+      const url = isEdit ? `/api/patron/products/${productId}` : '/api/patron/products/';
+
+      try {
+          const response = await fetch(url, {
+              method: isEdit ? 'PUT' : 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(productData)
+          });
+
+          if (!response.ok) {
+              const error = await response.json();
+              throw new Error(error.error || 'Erreur');
+          }
+
+          alert(isEdit ? 'Produit modifié' : 'Produit ajouté');
+          closeModal();
+          loadProducts();  // Recharge la liste
+      } catch (error) {
+          alert('Erreur: ' + error.message);
+      }
+  }
+
+  // ============================================================
+  // RÉINITIALISATION DU FORMULAIRE
+  // ============================================================
+  function resetProductForm() {
+      document.getElementById('productForm').reset();
+      document.getElementById('productId').value = '';
+
+      const select = document.getElementById('departement-product');
+      if (select) {
+          select.disabled = false;
+          select.value = '';
+      }
+
+      const hiddenDept = document.getElementById('hidden-departement-id');
+      if (hiddenDept) hiddenDept.remove();
+  }
+
+  // ============================================================
+  // FERMETURE DU MODAL
+  // ============================================================
+  function closeModal() {
+      document.getElementById('add-product').style.display = 'none';
+      resetProductForm();
+  }
+
+  // ============================================================
+  // AFFICHER/CACHER LE MENU DES FILTRES
+  // ============================================================
+  function showFilterOptions() {
+      const el = document.getElementById('filter-options');
+      if (el) el.style.display = 'block';
+  }
+
+  function hideFilterOptions() {
+      const el = document.getElementById('filter-options');
+      if (el) el.style.display = 'none';
+  }
+</script>
 </html>
