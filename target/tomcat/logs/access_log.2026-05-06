@@ -43,3 +43,4 @@
 0:0:0:0:0:0:0:1 - - [06/May/2026:12:20:08 +0100] "GET /api/patron/departements/ HTTP/1.1" 200 2082 http-bio-8080-exec-6 275
 0:0:0:0:0:0:0:1 - - [06/May/2026:12:23:36 +0100] "GET /api/auth/me HTTP/1.1" 200 54 http-bio-8080-exec-1 64
 0:0:0:0:0:0:0:1 - - [06/May/2026:12:23:36 +0100] "GET /api/patron/dashboard HTTP/1.1" 200 307 http-bio-8080-exec-9 509
+0:0:0:0:0:0:0:1 - - [06/May/2026:12:24:03 +0100] "GET /patron/patron/rapports/ventes.html HTTP/1.1" 404 1019 http-bio-8080-exec-9 62
