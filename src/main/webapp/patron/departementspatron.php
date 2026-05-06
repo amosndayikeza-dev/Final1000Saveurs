@@ -47,7 +47,7 @@
                             <p class="option-name">Départements</p>
                         </div>
                     </a>
-                    <a href="patron/rapports/ventes.html">
+                    <a href="#">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-chart-bar"></i>
@@ -55,7 +55,7 @@
                             <p class="option-name">Rapports</p>
                         </div>
                     </a>
-                    <a href="/patron/employes.html">
+                    <a href="./employespatron.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-users"></i>

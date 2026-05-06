@@ -20,24 +20,31 @@
                 <i class="fas fa-arrow-right"></i>
             </div>
             <div class="c-left-header">
-                <a href="./dashboardmanager.html">
+                <a href="./dashboardpatron.php">
                     <div class="tft-logo-avatar tft-bdr-greensav-1">
                         <img src="../assets/images/icons/abonnes.png" alt="">
                     </div>
                 </a>
                 <div class="app-title">
                     <h1 class="app-name">1000<span>Saveurs</span></h1>
-                    <p class="tft-title3">Nom du departement</p>
                 </div>
             </div>
             <div class="menu">
                 <div class="c-left-menu">
-                    <a href="./dashboardmanager.html">
+                    <a href="./dashboardpatron.php">
                         <div class="c-left-option">
                             <div class="tft-icon-round" onclick="showSidebar()">
                                 <i class="fas fa-home"></i>
                             </div>
                             <p class="option-name">Dashboard</p>
+                        </div>
+                    </a>
+                    <a href="./departementspatron.php">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <p class="option-name">Départements</p>
                         </div>
                     </a>
                     <a href="#">
@@ -48,7 +55,7 @@
                             <p class="option-name">Rapports</p>
                         </div>
                     </a>
-                    <a href="./employeesmanager.html">
+                    <a href="./employespatron.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
                                 <i class="fas fa-users"></i>
@@ -56,10 +63,10 @@
                             <p class="option-name">Employés</p>
                         </div>
                     </a>
-                    <a href="./stockmanager.html">
+                    <a href="./stockpatron.html">
                         <div class="c-left-option">
-                            <div class="tft-icon-round" onclick="showSidebar()">
-                                <i class="fas fa-home"></i>
+                            <div class="tft-icon-round">
+                                <i class="fas fa-users"></i>
                             </div>
                             <p class="option-name">Stock</p>
                         </div>
@@ -72,7 +79,7 @@
                     <div class="user-infos">
                         <div class="user-name">
                             <h2 id="userName" class="tft-title4 tft-fw-600"> Chargement</h2>
-                            <p id="userRole" class="tft-sm-title1">Manager</p>
+                            <p id="userRole" class="tft-sm-title1">Patronne</p>
                         </div>
                         <div class="tft-icon-carre-moyen tft-bg-black3 tft-transition" onclick="deconnectionModal()">
                             <i class="fe fe-log-out tft-clr-red"></i>
@@ -494,6 +501,69 @@
             </div>
         </div>
         <!-- popup de deconnexion -->
+        <!-- =========================Popup pour supprimer=========== -->
+        <div class="tft-popup-modal tft-a-center" id="popup-modal-deleteElement">
+            <div class="tft-popup-container-small tft-bg-black3 tft-p-relative">
+                <div class="tft-close-icon tft-hover-red tft-p-absolute tft-top-5 tft-right-10" onclick="closeModal()">
+                    <i class="fas fa-times tft-clr-white3"></i>
+                </div>
+                <div class="deconnection-actions">
+                    <h3 class="tft-title2">Voulez-vous supprimer cet element ?</h3>
+                    <div class="deconnection-options">
+                        <a class="tft-btn tft-bg-red tft-clr-white" href="#">Oui</a>
+                        <btn class="tft-btn tft-bg-greensav tft-clr-white" onclick="closeModal()">Non</btn>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- =========================Popup pour supprimer=========== -->
+         <!-- popup d'ajouter un produit -->
+         <div class="tft-popup-modal" id="add-product">
+            <div class="tft-popup-container-small tft-bg-remain-black3 tft-p-relative">
+                <h1 class="tft-title1 tft-mt-20 tft-clr-remain-white" id="modalTitle">Ajouter un nouveau produit</h1>
+                <div class="tft-form-container">
+                    <form id="productForm" class="tft-gap-10px">
+                        <input type="hidden" id="productId" name="id">
+                        <div class="tft-form-group tft-gap-10px">
+                            <label for="nom-product" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-user tft-clr-orangesav"></i></div>
+                                Nom du produit <span>*</span>
+                            </label>
+                            <input type="text" class="tft-form-control" id="nom-product" name="name" placeholder="Tapez le nom du produit ici..." required>
+                        </div>
+                        <div class="tft-form-group tft-gap-10px">
+                            <label for="description-product" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-edit tft-clr-orangesav"></i></div>
+                                Description <span>*</span>
+                            </label>
+                            <textarea class="tft-form-control" id="description-product" name="description" placeholder="Tapez la description ici..." required></textarea>
+                        </div>
+                        <div class="tft-form-group tft-gap-10px">
+                            <label for="price-product" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-map-marker-alt tft-clr-orangesav"></i></div>
+                                Prix unitaire
+                            </label>
+                            <input type="number" class="tft-form-control" id="price-product" name="price" placeholder="Le prix unitaire..." min="100">
+                        </div>
+                        <div class="tft-form-group tft-gap-10px">
+                            <label for="stock-product" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-user-tie tft-clr-orangesav"></i></div>
+                                Stock
+                            </label>
+                            <input type="number" class="tft-form-control" id="stock-product" name="stock" placeholder="Le stock..." min="1">
+                        </div>
+                        <div class="form-actions tft-flex tft-gap-20px tft-mt-20">
+                            <button type="submit" class="tft-btn tft-bdr-orangesav-1 tft-clr-orangesav tft-hover-orangesav">Enregistrer</button>
+                            <button type="button" class="tft-btn tft-bdr-gris-1 tft-clr-white tft-hover-orangesav" onclick="closeModal()">Annuler</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tft-close-icon tft-p-absolute tft-top-5 tft-right-10 tft-hover-red" onclick="closeModal()">
+                    <i class="fas fa-times tft-clr-remain-white3"></i>
+                </div>
+            </div>
+        </div>
+        <!-- popup d'ajouter un produit -->
     </div>
 </body>
 <script src="../assets/js/scripts.js"></script>

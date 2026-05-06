@@ -230,6 +230,9 @@ optgroup {
 /* ////////////////////////////////////////////////////////////////////////////////// */
 /* =                              CLASSES COLORS                                      */
 /* ////////////////////////////////////////////////////////////////////////////////// */
+.tft-clr-transparent{
+  color: transparent !important;
+}
 .tft-clr-white{
   color: var(--white) !important;
 }
@@ -1611,6 +1614,19 @@ textarea {
     display:flex;
     gap:0.625rem;
     padding: 0.125rem 0rem;
+}
+.tft-checkbox{
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+.tft-checkbox i{
+  font-size: 10px;
+  font-weight: 800;
 }
 form{
     width:100%;
