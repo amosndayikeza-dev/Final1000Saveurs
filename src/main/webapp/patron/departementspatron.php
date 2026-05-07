@@ -24,10 +24,14 @@
                 <i class="fas fa-arrow-right"></i>
             </div>
             <div class="c-left-header">
-                <div class="tft-logo-avatar tft-bdr-greensav-1">
-                    <img src="../assets/images/icons/abonnes.png" alt="">
+                <a href="./dashboardpatron.php">
+                    <div class="tft-logo-avatar tft-bdr-greensav-1">
+                        <img src="../assets/images/icons/abonnes.png" alt="">
+                    </div>
+                </a>
+                <div class="app-title">
+                    <h1 class="app-name">1000<span>Saveurs</span></h1>
                 </div>
-                <p class="app-name">1000<span>Saveurs</span></p>
             </div>
             <div class="menu">
                 <div class="c-left-menu">
@@ -47,14 +51,37 @@
                             <p class="option-name">Départements</p>
                         </div>
                     </a>
-                    <a href="#">
-                        <div class="c-left-option">
+                    <div class="repport">
+                        <div class="c-left-option tft-br-5-5-0-0 tft-p-relative">
                             <div class="tft-icon-round">
                                 <i class="fas fa-chart-bar"></i>
                             </div>
                             <p class="option-name">Rapports</p>
+                            <div class="tft-chevron-icon tft-p-absolute tft-top-15 tft-right-5" onclick="showRepportOptions()">
+                                <i class="fas fa-chevron-down tft-clr-gris1"></i>
+                            </div>
                         </div>
-                    </a>
+                        <div class="repport-options" id="repport-options">
+                            <a href="./salespatron.html" class="repport-title">
+                                <div class="tft-icon-round-petit tft-bdr-greensav-1">
+                                    <i class="fas fa-chart-bar tft-clr-greensav"></i>
+                                </div>
+                                <p class="tft-title4">Ventes</p>
+                            </a>
+                            <a href="./repportdebtspatron.html" class="repport-title">
+                                <div class="tft-icon-round-petit tft-bdr-greensav-1">
+                                    <i class="fas fa-chart-bar tft-clr-greensav"></i>
+                                </div>
+                                <p class="tft-title4">Dettes</p>
+                            </a>
+                            <a href="./repportsalarypatron.html" class="repport-title">
+                                <div class="tft-icon-round-petit tft-bdr-greensav-1">
+                                    <i class="fas fa-chart-bar tft-clr-greensav"></i>
+                                </div>
+                                <p class="tft-title4">Salaires</p>
+                            </a>
+                        </div>
+                    </div>
                     <a href="./employespatron.html">
                         <div class="c-left-option">
                             <div class="tft-icon-round">
