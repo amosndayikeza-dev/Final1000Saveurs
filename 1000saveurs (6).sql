@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 24 avr. 2026 à 20:50
+-- Généré le : jeu. 07 mai 2026 à 12:10
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -70,12 +70,15 @@ CREATE TABLE `departements` (
 --
 
 INSERT INTO `departements` (`id`, `name`, `address`, `description`, `manager_id`, `created_at`, `updated_at`) VALUES
-(1, 'Boulangerie Feel welcome', 'BUJUMBURA , ROHERO', 'Buy your favorites breads', NULL, '2026-04-18 08:17:15', '2026-04-18 08:17:15'),
-(5, 'Boucherie', '123 rue des Saveurs', 'Viandes fraîches', NULL, '2026-04-19 18:53:38', '2026-04-19 18:53:38'),
-(6, 'Test Dept', NULL, NULL, NULL, '2026-04-19 18:55:16', '2026-04-19 18:55:16'),
-(7, 'Test Prod Dept', NULL, NULL, NULL, '2026-04-19 18:56:01', '2026-04-19 18:56:01'),
-(8, 'Boucherie', '123 rue des Saveurs', 'Viandes fraÃ®ches', NULL, '2026-04-22 20:14:57', '2026-04-22 20:14:57'),
-(9, 'Boucherie Premium', '456 rue des Gourmets', 'Viandes de qualitÃ© supÃ©rieure', NULL, '2026-04-22 20:22:23', '2026-04-22 20:22:23');
+(1, 'Feel welcome', 'BUJUMBURA , ROHERO', 'Dans un monde en constante Ã©volution, il est essentiel de sâadapter et de continuer', 8, '2026-04-18 08:17:15', '2026-05-06 11:20:07'),
+(5, 'Boucherie', '123 rue des Saveurs', 'Dans un monde en constante Ã©volution, il est essentiel de sâadapter et de continuer', NULL, '2026-04-19 18:53:38', '2026-04-27 20:28:01'),
+(6, 'Test Dept', '', 'Dans un monde en constante Ã©volution, il est essentiel', 5, '2026-04-19 18:55:16', '2026-05-06 20:34:39'),
+(7, 'Test Prod Dept', '', 'Dans un monde en constante Ã©volution, il est essentiel de sâadapter et de continuer', NULL, '2026-04-19 18:56:01', '2026-04-27 20:29:10'),
+(10, '1000saveurs', 'COTEBU', 'Dans un monde en constante Ã©volution, il est essentiel de sâadapter et de continuer', 5, '2026-04-27 17:08:52', '2026-04-27 20:27:25'),
+(11, 'Viande hachee', 'yuiop', 'jup;;lju', 5, '2026-04-30 09:01:58', '2026-04-30 09:01:58'),
+(12, 'fghjkl', 'xcvbnm,.', 'fghjk', 5, '2026-05-04 17:23:41', '2026-05-04 17:23:41'),
+(18, 'Jean Laurent', 'Kamenge', 'Ventes des materiaux de construction', 5, '2026-05-06 20:33:29', '2026-05-06 20:33:29'),
+(19, 'MUCO', '456 rue des Gourmets', 'Dans un monde en constante Ã©volution, il est essentiel de sâadapter et de continuer', NULL, '2026-04-22 20:22:23', '2026-05-05 19:23:51');
 
 -- --------------------------------------------------------
 
@@ -150,11 +153,18 @@ INSERT INTO `products` (`id`, `departement_id`, `name`, `description`, `unit_pri
 (3, 1, 'Steak hachÃ©', '250g', 5.99, 100, 10, '2026-04-22 20:51:28', '2026-04-22 20:51:28'),
 (4, 1, 'Vin ', '250bouteilles', 8.99, 100, 20, '2026-04-22 20:52:29', '2026-04-22 20:52:29'),
 (5, 1, 'Amstel ', '250bouteilles', 8.99, 100, 20, '2026-04-22 20:52:44', '2026-04-22 20:52:44'),
-(7, 1, 'Steak', NULL, 5.99, 100, 5, '2026-04-22 23:52:36', '2026-04-22 23:52:36'),
-(8, 1, 'Steak', NULL, 5.99, 100, 5, '2026-04-23 11:09:46', '2026-04-23 11:09:46'),
-(9, 1, 'Produit test', NULL, 10.00, 100, 5, '2026-04-23 14:04:01', '2026-04-23 14:04:01'),
+(7, 1, 'Steak', 'En vente', 10000.00, 120, 5, '2026-04-22 23:52:36', '2026-05-07 00:08:06'),
+(8, 1, 'Steak', 'Skeak for all', 104.00, 103, 5, '2026-04-23 11:09:46', '2026-05-06 22:02:08'),
+(9, 1, 'Produit test', 'En vente', 115.00, 100, 5, '2026-04-23 14:04:01', '2026-05-07 00:05:38'),
 (10, 1, 'Produit test', NULL, 10.00, 100, 5, '2026-04-23 14:05:39', '2026-04-23 14:05:39'),
-(11, 1, 'Produit test', NULL, 10.00, 100, 5, '2026-04-23 14:05:50', '2026-04-23 14:05:50');
+(11, 1, 'Produit test', NULL, 10.00, 100, 5, '2026-04-23 14:05:50', '2026-04-23 14:05:50'),
+(12, 6, 'Boisson', 'Boisson non alcoliser', 5000.00, 500, 5, '2026-05-05 18:54:45', '2026-05-05 18:54:45'),
+(13, 10, 'lkjhgbbb', 'kuhjjj', 106.00, 19, 5, '2026-05-06 21:27:27', '2026-05-06 21:27:27'),
+(14, 10, 'Bovin', 'Bovin for B', 500.00, 20, 5, '2026-05-06 21:28:57', '2026-05-06 21:28:57'),
+(15, 10, 'Depot de boissons', 'Boisson non alcholise', 8000.00, 45, 5, '2026-05-06 23:44:06', '2026-05-07 00:04:58'),
+(16, 10, 'vtvt', 'vtvt', 2000.00, 10, 5, '2026-05-06 23:51:14', '2026-05-07 00:25:24'),
+(17, 10, 'gggg', 'ggg', 121.00, 17, 5, '2026-05-07 00:04:08', '2026-05-07 00:04:08'),
+(18, 10, 'BBNC', 'bbnc for all', 1999.00, 5000, 5, '2026-05-07 00:26:03', '2026-05-07 00:26:03');
 
 -- --------------------------------------------------------
 
@@ -384,13 +394,13 @@ ALTER TABLE `debts`
 -- AUTO_INCREMENT pour la table `departements`
 --
 ALTER TABLE `departements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `notifications`
@@ -402,7 +412,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `salary_reports`

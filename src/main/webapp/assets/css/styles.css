@@ -1029,3 +1029,22 @@
 .tft-chevron-icon i{
     font-size: 12px;
 }
+
+
+
+/*Style for pagination*/
+.tft-active-page {
+    background-color: #4CAF50;
+    color: white !important;
+    border-radius: 5px;
+}
+
+.tft-page-numbers li {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tft-page-numbers li:hover {
+    background-color: #4CAF50;
+    color: white !important;
+}

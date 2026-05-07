@@ -55,7 +55,7 @@ public class ProductDAO {
     //find all
     public List<Product> findAll() throws SQLException {
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT * FROM products ORDER BY name";
+        String sql = "SELECT * FROM products ORDER BY id";
         try(
              Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -73,7 +73,7 @@ public class ProductDAO {
 
     public List<Product> findByDepartement(int departementId) throws SQLException{
         List<Product> list = new ArrayList<>();
-        String sql = "SELECT * FROM products WHERE departement_id = ? ORDER BY name";
+        String sql = "SELECT * FROM products WHERE departement_id = ? ORDER BY id";
         try (
             Connection conn = DBConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -108,7 +108,7 @@ public class ProductDAO {
     //update
     // Mettre à jour un produit (utilisé dans PUT et pour l'ajustement)
     public void update(Product product) throws SQLException {
-        String sql = "UPDATE product SET name=?, description=?, unit_price=?, current_stock=?, low_stock_threshold=?, updated_at=NOW() WHERE id=?";
+        String sql = "UPDATE products SET name=?, description=?, unit_price=?, current_stock=?, low_stock_threshold=?, updated_at=NOW() WHERE id=?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, product.getName());

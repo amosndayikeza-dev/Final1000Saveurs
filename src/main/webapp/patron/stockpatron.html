@@ -6,6 +6,7 @@
     <title>1000saveurs</title>
     <link rel="icon" href="../assets/images/icons/abonnes.png">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/notification.css">
     <link rel="stylesheet" href="../assets/css/tft-configStyles.css">
     <link rel="stylesheet" href="../assets/css/responsiveStyles.css">
     <link rel="stylesheet" href="../assets/fonts/feather/feather.css">
@@ -189,15 +190,13 @@
 
                     </table>
                     <div class="tft-pagination">
-                        <div class="tft-icon-round-moyen tft-bdr-greensav-1 tft-hover-greensav">
+                        <div class="tft-icon-round-moyen tft-bdr-greensav-1 tft-hover-greensav" onclick="prevPage()">
                             <i class="fas fa-arrow-left tft-color-white"></i>
                         </div>
                         <ul class="tft-page-numbers">
-                            <li class="tft-icon-carre-petit tft-clr-white3 tft-br-none">1</li>
-                            <li class="tft-icon-carre-petit tft-clr-white3 tft-br-none">2</li>
-                            <li class="tft-icon-carre-petit tft-clr-white3 tft-br-none">3</li>
+                            <!-- Les numéros de page seront générés dynamiquement -->
                         </ul>
-                        <div class="tft-icon-round-moyen tft-bdr-greensav-1 tft-hover-greensav">
+                        <div class="tft-icon-round-moyen tft-bdr-greensav-1 tft-hover-greensav" onclick="nextPage()">
                             <i class="fas fa-arrow-right tft-color-white"></i>
                         </div>
                     </div>
@@ -371,44 +370,81 @@
             </div>
         </div>
         <!-- =========================Popup pour supprimer=========== -->
-         <!-- popup d'ajouter un produit -->
-         <div class="tft-popup-modal" id="add-product">
+        <!-- popup d'ajouter un produit -->
+        <div class="tft-popup-modal" id="add-product">
             <div class="tft-popup-container-small tft-bg-remain-black3 tft-p-relative">
                 <h1 class="tft-title1 tft-mt-20 tft-clr-remain-white" id="modalTitle">Ajouter un nouveau produit</h1>
                 <div class="tft-form-container">
                     <form id="productForm" class="tft-gap-10px">
+                        <!-- Champ caché pour l'ID (modification) -->
                         <input type="hidden" id="productId" name="id">
+
+                        <!-- Champ caché pour le département (pré-rempli par le filtre) -->
+                        <input type="hidden" id="hidden-departement-id" name="departementId">
+
+                        <!-- Nom du produit -->
                         <div class="tft-form-group tft-gap-10px">
                             <label for="nom-product" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-user tft-clr-orangesav"></i></div>
-                                Nom du produit <span>*</span>
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1">
+                                    <i class="fas fa-user tft-clr-orangesav"></i>
+                                </div>
+                                Nom du produit <span class="tft-clr-red">*</span>
                             </label>
-                            <input type="text" class="tft-form-control" id="nom-product" name="name" placeholder="Tapez le nom du produit ici..." required>
+                            <input type="text" class="tft-form-control" id="nom-product" name="name"
+                                   placeholder="Tapez le nom du produit ici..." required>
                         </div>
+
+                        <!-- Description -->
                         <div class="tft-form-group tft-gap-10px">
                             <label for="description-product" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-edit tft-clr-orangesav"></i></div>
-                                Description <span>*</span>
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1">
+                                    <i class="fas fa-edit tft-clr-orangesav"></i>
+                                </div>
+                                Description <span class="tft-clr-red">*</span>
                             </label>
-                            <textarea class="tft-form-control" id="description-product" name="description" placeholder="Tapez la description ici..." required></textarea>
+                            <textarea class="tft-form-control" id="description-product" name="description"
+                                      placeholder="Tapez la description ici..." required></textarea>
                         </div>
+
+                        <!-- Prix unitaire -->
                         <div class="tft-form-group tft-gap-10px">
                             <label for="price-product" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-map-marker-alt tft-clr-orangesav"></i></div>
-                                Prix unitaire
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1">
+                                    <i class="fas fa-tag tft-clr-orangesav"></i>
+                                </div>
+                                Prix unitaire <span class="tft-clr-red">*</span>
                             </label>
-                            <input type="number" class="tft-form-control" id="price-product" name="price" placeholder="Le prix unitaire..." min="100">
+                            <input type="number" class="tft-form-control" id="price-product" name="price"
+                                   placeholder="Le prix unitaire..." min="100" required>
                         </div>
+
+                        <!-- Stock -->
                         <div class="tft-form-group tft-gap-10px">
                             <label for="stock-product" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-user-tie tft-clr-orangesav"></i></div>
-                                Stock
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1">
+                                    <i class="fas fa-boxes tft-clr-orangesav"></i>
+                                </div>
+                                Stock <span class="tft-clr-red">*</span>
                             </label>
-                            <input type="number" class="tft-form-control" id="stock-product" name="stock" placeholder="Le stock..." min="1">
+                            <input type="number" class="tft-form-control" id="stock-product" name="stock"
+                                   placeholder="La quantité en stock..." min="0" required>
                         </div>
+
+                        <!-- Message d'information (optionnel) -->
+                        <div class="tft-form-group tft-gap-10px" id="info-departement">
+                            <p class="tft-sm-title1 tft-clr-greensav">
+                                <i class="fas fa-info-circle"></i> Le produit sera ajouté au département actuellement sélectionné dans le filtre.
+                            </p>
+                        </div>
+
+                        <!-- Boutons -->
                         <div class="form-actions tft-flex tft-gap-20px tft-mt-20">
-                            <button type="submit" class="tft-btn tft-bdr-orangesav-1 tft-clr-orangesav tft-hover-orangesav">Enregistrer</button>
-                            <button type="button" class="tft-btn tft-bdr-gris-1 tft-clr-white tft-hover-orangesav" onclick="closeModal()">Annuler</button>
+                            <button type="submit" class="tft-btn tft-bdr-orangesav-1 tft-clr-orangesav tft-hover-orangesav">
+                                <i class="fas fa-save"></i> Enregistrer
+                            </button>
+                            <button type="button" class="tft-btn tft-bdr-gris-1 tft-clr-white tft-hover-orangesav" onclick="closeModal()">
+                                <i class="fas fa-times"></i> Annuler
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -425,98 +461,213 @@
     // ============================================================
   // INITIALISATION AU CHARGEMENT DE LA PAGE
   // ============================================================
+
+  // Attend que tout le HTML soit chargé avant d'exécuter le code
   document.addEventListener('DOMContentLoaded', () => {
-      loadDepartementsForFilter();  // Charge les départements et initialise l'affichage
-      initProductForm();            // Initialise le formulaire d'ajout
+      // Charge la liste des départements pour le filtre
+      loadDepartementsForFilter();
+      // Initialise le formulaire d'ajout/modification de produits
+      initProductForm();
   });
 
   // ============================================================
   // VARIABLES GLOBALES
   // ============================================================
-  let currentDepartementFilter = null;  // null au lieu de 'all' pour avoir le premier département par défaut
-  let departementsList = [];              // Liste des départements
+
+  // Département actuellement sélectionné dans le filtre (null = aucun filtre)
+  let currentDepartementFilter = null;
+  // Tableau contenant tous les départements récupérés de l'API
+  let departementsList = [];
+  // Nombre de produits affichés par page (pagination)
+  const ITEMS_PER_PAGE = 8;
+  // Page actuelle dans la pagination (commence à 1)
+  let currentPage = 1;
+  // Tableau contenant tous les produits du département filtré
+  let allProducts = [];
+
+  // ============================================================
+  // NOTIFICATIONS PERSONNALISÉES (TOASTS)
+  // ============================================================
+
+  // Affiche une notification flottante
+  function showNotification(message, type = 'info', title = '', duration = 3000) {
+      // Définit les titres par défaut selon le type
+      const defaultTitles = {
+          success: '✅ Succès',
+          error: '❌ Erreur',
+          warning: '⚠️ Attention',
+          info: 'ℹ️ Information'
+      };
+      // Utilise le titre personnalisé ou le titre par défaut
+      const finalTitle = title || defaultTitles[type] || 'Information';
+      // Crée un nouvel élément div pour la notification
+      const toast = document.createElement('div');
+      // Ajoute les classes CSS pour le style et le type
+      toast.className = `tft-toast tft-toast-${type}`;
+      // Variable pour l'icône selon le type
+      let icon = '';
+      // Sélectionne l'icône en fonction du type de notification
+      switch (type) {
+          // Icône de succès (coche)
+          case 'success': icon = 'fas fa-check-circle'; break;
+          // Icône d'erreur (point d'exclamation)
+          case 'error': icon = 'fas fa-exclamation-circle'; break;
+          // Icône d'avertissement (triangle)
+          case 'warning': icon = 'fas fa-exclamation-triangle'; break;
+          // Icône d'information par défaut
+          default: icon = 'fas fa-info-circle';
+      }
+      // Structure HTML de la notification
+      toast.innerHTML = `
+          <i class="${icon}"></i>
+          <div class="tft-toast-content">
+              <div class="tft-toast-title">${finalTitle}</div>
+              <div class="tft-toast-message">${escapeHtml(message)}</div>
+          </div>
+          <i class="fas fa-times tft-toast-close"></i>
+      `;
+      // Ajoute la notification à la page
+      document.body.appendChild(toast);
+      // Récupère le bouton de fermeture
+      const closeBtn = toast.querySelector('.tft-toast-close');
+      // Ferme la notification au clic sur la croix
+      closeBtn.addEventListener('click', () => closeNotification(toast));
+      // Fermeture automatique après la durée spécifiée
+      const timeout = setTimeout(() => closeNotification(toast), duration);
+      // Stocke l'ID du timeout pour pouvoir l'annuler si besoin
+      toast.dataset.timeout = timeout;
+  }
+
+  // Ferme une notification avec animation
+  function closeNotification(toast) {
+      // Ne rien faire si déjà en cours de fermeture
+      if (toast.classList.contains('tft-toast-hide')) return;
+      // Annule la fermeture automatique programmée
+      if (toast.dataset.timeout) clearTimeout(parseInt(toast.dataset.timeout));
+      // Ajoute la classe d'animation de sortie
+      toast.classList.add('tft-toast-hide');
+      // Supprime l'élément après l'animation (300ms)
+      setTimeout(() => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 300);
+  }
+
+  // Raccourci pour les notifications de succès (3 secondes)
+  function showSuccess(message, title = '') { showNotification(message, 'success', title, 3000); }
+  // Raccourci pour les notifications d'erreur (4 secondes)
+  function showError(message, title = '') { showNotification(message, 'error', title, 4000); }
+  // Raccourci pour les notifications d'avertissement (3.5 secondes)
+  function showWarning(message, title = '') { showNotification(message, 'warning', title, 3500); }
+  // Raccourci pour les notifications d'information (2.5 secondes)
+  function showInfo(message, title = '') { showNotification(message, 'info', title, 2500); }
 
   // ============================================================
   // CHARGEMENT DES DÉPARTEMENTS POUR LE MENU FILTRE
   // ============================================================
+
+  // Récupère la liste des départements depuis l'API
   async function loadDepartementsForFilter() {
       try {
+          // Appel API pour obtenir les départements
           const response = await fetch('/api/patron/departements/');
+          // Convertit la réponse en JSON et stocke dans le tableau
           departementsList = await response.json();
-
-          // Remplir le menu déroulant des filtres
+          // Récupère le conteneur du menu filtre
           const filterOptions = document.getElementById('filter-options');
+          // Si le conteneur existe
           if (filterOptions) {
+              // Option "Tous les départements"
               filterOptions.innerHTML = `<p class="tft-title4 tft-hover-greensav" onclick="filterByDepartement('all')">📊 Tous les départements</p>`;
+              // Parcourt chaque département
               departementsList.forEach(dept => {
+                  // Ajoute une option par département
                   filterOptions.innerHTML += `<p class="tft-title4 tft-hover-greensav" onclick="filterByDepartement(${dept.id})">🏢 ${dept.name}</p>`;
               });
           }
-
-          // Afficher le premier département par défaut au chargement
+          // Si au moins un département existe
           if (departementsList.length > 0) {
-              const premierDepartement = departementsList[0].id;
-              currentDepartementFilter = premierDepartement;
-
-              // Mettre à jour le texte du bouton filtre
+              // Sélectionne le premier département par défaut
+              currentDepartementFilter = departementsList[0].id;
+              // Récupère le bouton du filtre
               const filterButton = document.getElementById('filterButton');
-              if (filterButton) {
-                  filterButton.innerHTML = `${departementsList[0].name} <i class="fas fa-stream"></i>`;
-              }
-
-              // Charger les produits du premier département
+              // Met à jour le texte du bouton avec le nom du premier département
+              if (filterButton) filterButton.innerHTML = `${departementsList[0].name} <i class="fas fa-stream"></i>`;
+              // Charge les produits du premier département
               loadProducts();
           } else {
-              // Aucun département, charger tous les produits
+              // Sinon charge tous les produits
               loadProducts();
           }
-
       } catch (error) {
+          // En cas d'erreur réseau ou serveur
           console.error('Erreur chargement départements:', error);
-          displayError("Impossible de charger la liste des départements");
-          loadProducts(); // Fallback : charger tous les produits
+          // Affiche une notification d'erreur
+          showError('Impossible de charger la liste des départements', '⚠️ Erreur');
+          // Tente de charger les produits quand même
+          loadProducts();
       }
   }
 
   // ============================================================
-  // FILTRER LES PRODUITS PAR DÉPARTEMENT
+  // FILTRAGE DES PRODUITS PAR DÉPARTEMENT
   // ============================================================
-  function filterByDepartement(departementId) {
-      currentDepartementFilter = departementId;  // Mémorise le filtre
 
-      // Change le texte du bouton filtre
+  // Fonction appelée quand on clique sur un département dans le menu
+  function filterByDepartement(departementId) {
+      // Met à jour le département sélectionné
+      currentDepartementFilter = departementId;
+      // Réinitialise à la première page (la pagination)
+      currentPage = 1;
+      // Récupère le bouton du filtre
       const filterButton = document.getElementById('filterButton');
+      // Si le bouton existe
       if (filterButton) {
+          // Si "Tous les départements" est sélectionné
           if (departementId === 'all') {
+              // Texte par défaut du bouton
               filterButton.innerHTML = 'Filtrer <i class="fas fa-stream"></i>';
           } else {
+              // Sinon un département spécifique
+              // Trouve le département dans la liste
               const dept = departementsList.find(d => d.id == departementId);
+              // Affiche le nom du département sur le bouton
               filterButton.innerHTML = `${dept?.name || 'Département'} <i class="fas fa-stream"></i>`;
           }
       }
-
-      hideFilterOptions();  // Cache le menu
-      loadProducts();       // Recharge avec le filtre
+      // Cache le menu déroulant des filtres
+      hideFilterOptions();
+      // Recharge les produits avec le nouveau filtre
+      loadProducts();
   }
 
   // ============================================================
-  // CHARGEMENT DES PRODUITS (AVEC FILTRE)
+  // CHARGEMENT DES PRODUITS DEPUIS L'API
   // ============================================================
+
+  // Récupère les produits depuis l'API
   async function loadProducts() {
       try {
-          // Construit l'URL avec le filtre si nécessaire
+          // URL de base pour tous les produits
           let url = '/api/patron/products/';
+          // Si un département est sélectionné et ce n'est pas "Tous"
           if (currentDepartementFilter && currentDepartementFilter !== 'all') {
+              // Ajoute le paramètre de filtre à l'URL
               url = `/api/patron/products/?departement_id=${currentDepartementFilter}`;
           }
-
+          // Envoie la requête à l'API
           const response = await fetch(url);
+          // Vérifie si la réponse est correcte (status 200)
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          const products = await response.json();
-          displayProducts(products);
-
+          // Stocke tous les produits dans le tableau global
+          allProducts = await response.json();
+          // Réinitialise à la première page
+          currentPage = 1;
+          // Affiche la première page des produits
+          displayCurrentPage();
       } catch (error) {
+          // En cas d'erreur (réseau ou serveur)
           console.error('Erreur:', error);
+          // Affiche une notification d'erreur
+          showError('Impossible de charger les produits. Vérifiez votre connexion.', '⚠️ Erreur réseau');
+          // Affiche un message d'erreur dans le tableau
           displayError("Impossible de charger les produits");
       }
   }
@@ -524,35 +675,52 @@
   // ============================================================
   // AFFICHAGE DES PRODUITS DANS LE TABLEAU
   // ============================================================
+
+  // Affiche la liste des produits dans le tableau HTML
   function displayProducts(products) {
+      // Récupère le corps du tableau
       let tbody = document.querySelector('#products-table-body');
+      // Si le tbody n'existe pas
       if (!tbody) {
+          // Le crée
           tbody = document.createElement('tbody');
+          // Lui donne un ID
           tbody.id = 'products-table-body';
+          // Récupère le tableau
           const table = document.querySelector('.tft-table');
+          // Ajoute le tbody au tableau
           if (table) table.appendChild(tbody);
       }
+      // Vide le contenu existant du tableau
       tbody.innerHTML = '';
-
+      // Si aucun produit
       if (products.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">Aucun produit dans ce département</td><tr>`;
+          // Affiche un message "aucun produit"
+          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">Aucun produit dans ce département</td></tr>`;
           return;
       }
-
+      // Parcourt chaque produit
       products.forEach(product => {
-          // Détermine le statut du stock
+          // Classe CSS et texte par défaut (vert = stock disponible)
           let stockClass = 'tft-stock-badge-green1', stockText = 'Stock disponible';
+          // Si stock à zéro ou négatif (rupture de stock)
           if (product.currentStock <= 0) {
+              // Classe rouge
               stockClass = 'tft-stock-badge-red1';
+              // Texte de rupture
               stockText = 'Stock en rupture';
+          // Si stock inférieur au seuil d'alerte (5 par défaut)
           } else if (product.currentStock <= (product.lowStockThreshold || 5)) {
+              // Classe jaune (stock faible)
               stockClass = 'tft-stock-badge-yellow1';
+              // Texte stock faible
               stockText = 'Stock faible';
           }
-
-          // Crée la ligne du tableau
+          // Crée une ligne de tableau
           const row = document.createElement('tr');
+          // Ajoute la classe CSS pour la ligne
           row.className = 'tft-b-bottom-gris';
+          // Structure HTML de la ligne (les 7 colonnes)
           row.innerHTML = `
               <td class="tft-title4 tft-clr-white3">${product.id}</td>
               <td class="tft-title4 tft-clr-white3">${escapeHtml(product.name)}</td>
@@ -565,117 +733,131 @@
                   <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1" onclick="deleteProduct(${product.id})"><i class="fe fe-trash delete-icon tft-clr-red"></i></div>
               </div></td>
           `;
+          // Ajoute la ligne au tableau
           tbody.appendChild(row);
       });
   }
 
-  // ============================================================
-  // FORMATAGE DU PRIX
-  // ============================================================
-  function formatPrice(price) {
-      return price.toLocaleString('fr-FR') + ' FBu';
-  }
+  // Formate le prix avec séparateurs de milliers et ajoute "FBu"
+  function formatPrice(price) { return price.toLocaleString('fr-FR') + ' FBu'; }
 
-  // ============================================================
-  // SÉCURITÉ : ÉVITER LES INJECTIONS XSS
-  // ============================================================
+  // Protège contre les injections XSS en échappant les caractères spéciaux
   function escapeHtml(text) {
       if (!text) return '';
-      return text.replace(/[&<>]/g, function(m) {
-          if (m === '&') return '&amp;';
-          if (m === '<') return '&lt;';
-          if (m === '>') return '&gt;';
-          return m;
-      });
+      return text.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
   }
 
-  // ============================================================
-  // AFFICHAGE D'UNE ERREUR DANS LE TABLEAU
-  // ============================================================
+  // Affiche un message d'erreur dans le tableau
   function displayError(message) {
-      const tbody = document.querySelector('#products-table-body');
-      if (tbody) {
-          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:red; padding:20px;">${message}</td></tr>`;
-      } else {
-          console.error('Erreur:', message);
-      }
+      const t = document.querySelector('#products-table-body');
+      if (t) t.innerHTML = `<tr><td colspan="7" style="text-align:center;color:red;padding:20px;">${message}</td></tr>`;
   }
 
   // ============================================================
   // SUPPRIMER UN PRODUIT
   // ============================================================
+
+  // Supprime un produit par son ID
   async function deleteProduct(productId) {
+      // Demande confirmation à l'utilisateur
       if (!confirm('Supprimer ce produit ?')) return;
       try {
+          // Envoie la requête DELETE à l'API
           const response = await fetch(`/api/patron/products/${productId}`, { method: 'DELETE' });
+          // Vérifie si la suppression a réussi
           if (!response.ok) throw new Error('Erreur suppression');
-          loadProducts();  // Recharge la liste après suppression
-          alert('Produit supprimé');
+          // Recharge la liste des produits
+          loadProducts();
+          // Notification de succès
+          showSuccess('Produit supprimé avec succès', '✅ Suppression réussie');
       } catch (error) {
-          alert('Erreur: ' + error.message);
+          // Notification d'erreur
+          showError(error.message || 'Impossible de supprimer le produit', '❌ Suppression échouée');
       }
   }
 
   // ============================================================
-  // OUVRIRE LE MODAL POUR MODIFIER UN PRODUIT
+  // MODIFIER UN PRODUIT (OUVRE LE MODAL AVEC LES DONNÉES)
   // ============================================================
+
+  // Ouvre le formulaire de modification avec les données du produit
   async function openEditProductModal(productId) {
       try {
+          // Récupère les détails du produit
           const response = await fetch(`/api/patron/products/${productId}`);
+          // Vérifie si le produit existe
           if (!response.ok) throw new Error('Produit non trouvé');
+          // Convertit la réponse en JSON
           const product = await response.json();
-
-          // Remplit le formulaire
+          // Remplit le champ caché ID
           document.getElementById('productId').value = product.id;
+          // Remplit le champ nom
           document.getElementById('nom-product').value = product.name;
+          // Remplit la description
           document.getElementById('description-product').value = product.description || '';
+          // Remplit le prix
           document.getElementById('price-product').value = product.unitPrice;
+          // Remplit le stock
           document.getElementById('stock-product').value = product.currentStock;
+          // Récupère le champ caché du département
+          const hiddenDept = document.getElementById('hidden-departement-id');
+          // Stocke l'ID du département du produit
+          if (hiddenDept) hiddenDept.value = product.departementId;
+          // Trouve le nom du département
+          const dept = departementsList.find(d => d.id == product.departementId);
+          // Récupère la zone d'information
+          const infoDiv = document.getElementById('info-departement');
+          // Affiche le département dans l'info
+          if (infoDiv && dept) {
+              infoDiv.innerHTML = `<p class="tft-sm-title1 tft-clr-greensav"><i class="fas fa-info-circle"></i> Modification du produit dans le département : <strong>${dept.name}</strong></p>`;
+          }
+          // Change le titre du modal
           document.getElementById('modalTitle').textContent = 'Modifier le produit';
-
           // Affiche le modal
           document.getElementById('add-product').style.display = 'flex';
       } catch (error) {
-          alert('Erreur: ' + error.message);
+          // En cas d'erreur
+          console.error('Erreur:', error);
+          // Notification d'erreur
+          showError('Impossible de charger les informations du produit', '❌ Erreur');
       }
   }
 
   // ============================================================
-  // OUVRIRE LE MODAL POUR AJOUTER UN PRODUIT
+  // AJOUTER UN PRODUIT (OUVRE LE MODAL VIDE)
   // ============================================================
+
+  // Ouvre le formulaire pour ajouter un nouveau produit
   function ajouterProduct() {
-      resetProductForm();  // Réinitialise le formulaire
-
-      // Pré-sélectionner le département du filtre
-      const departementSelect = document.getElementById('departement-product');
-      if (departementSelect && currentDepartementFilter && currentDepartementFilter !== 'all') {
-          departementSelect.value = currentDepartementFilter;
-          departementSelect.disabled = true;  // Désactiver car le département est imposé par le filtre
-
-          // Ajouter un champ caché pour l'envoi
-          let hiddenDept = document.getElementById('hidden-departement-id');
-          if (!hiddenDept) {
-              hiddenDept = document.createElement('input');
-              hiddenDept.type = 'hidden';
-              hiddenDept.id = 'hidden-departement-id';
-              hiddenDept.name = 'departementId';
-              document.getElementById('productForm').appendChild(hiddenDept);
-          }
-          hiddenDept.value = currentDepartementFilter;
-      } else if (departementSelect) {
-          departementSelect.disabled = false;
-          departementSelect.value = '';
+      // Réinitialise tous les champs du formulaire
+      resetProductForm();
+      // Si un département est sélectionné dans le filtre
+      if (currentDepartementFilter && currentDepartementFilter !== 'all') {
+          // Récupère le champ caché
           const hiddenDept = document.getElementById('hidden-departement-id');
-          if (hiddenDept) hiddenDept.remove();
+          // Stocke l'ID du département filtré
+          if (hiddenDept) hiddenDept.value = currentDepartementFilter;
+          // Trouve le nom du département
+          const dept = departementsList.find(d => d.id == currentDepartementFilter);
+          // Récupère la zone d'information
+          const infoDiv = document.getElementById('info-departement');
+          // Affiche le département dans l'info
+          if (infoDiv && dept) {
+              infoDiv.innerHTML = `<p class="tft-sm-title1 tft-clr-greensav"><i class="fas fa-info-circle"></i> Le produit sera ajouté au département : <strong>${dept.name}</strong></p>`;
+          }
+      } else {
+          // Si aucun département filtré, avertit l'utilisateur
+          showWarning('Veuillez d\'abord sélectionner un département via le filtre.', '⚠️ Aucun département sélectionné');
+          // Sort de la fonction sans ouvrir le modal
+          return;
       }
-
+      // Change le titre du modal
       document.getElementById('modalTitle').textContent = 'Ajouter un nouveau produit';
+      // Affiche le modal
       document.getElementById('add-product').style.display = 'flex';
   }
 
-  // ============================================================
-  // INITIALISATION DU FORMULAIRE
-  // ============================================================
+  // Attache l'événement submit au formulaire
   function initProductForm() {
       const form = document.getElementById('productForm');
       if (form) form.addEventListener('submit', submitProductForm);
@@ -684,100 +866,188 @@
   // ============================================================
   // SOUMISSION DU FORMULAIRE (AJOUT OU MODIFICATION)
   // ============================================================
+
+  // Envoie les données du formulaire à l'API
   async function submitProductForm(event) {
+      // Empêche le rechargement de la page
       event.preventDefault();
-
-      // Récupère les valeurs
+      // Récupère l'ID (vide si nouveau produit)
       const productId = document.getElementById('productId').value;
+      // Récupère et nettoie le nom
       const name = document.getElementById('nom-product').value.trim();
+      // Récupère et nettoie la description
       const description = document.getElementById('description-product').value.trim();
+      // Convertit le prix en nombre décimal
       const unitPrice = parseFloat(document.getElementById('price-product').value);
+      // Convertit le stock en nombre entier
       const currentStock = parseInt(document.getElementById('stock-product').value);
-
-      // Récupère le département (du champ caché ou du select)
-      let departementId = null;
+      // Récupère le champ caché du département
       const hiddenDept = document.getElementById('hidden-departement-id');
-      if (hiddenDept) {
-          departementId = parseInt(hiddenDept.value);
-      } else {
-          const select = document.getElementById('departement-product');
-          if (select && select.value) departementId = parseInt(select.value);
-      }
-
-      // Validation
-      if (!name || !description || isNaN(unitPrice) || unitPrice <= 0 || isNaN(currentStock) || currentStock < 0 || !departementId) {
-          alert('Tous les champs sont requis et valides');
-          return;
-      }
-
-      // Prépare les données
-      const productData = {
-          name,
-          description,
-          unitPrice,
-          currentStock,
-          lowStockThreshold: 5,
-          departementId
-      };
+      // Récupère l'ID du département
+      let departementId = hiddenDept ? parseInt(hiddenDept.value) : null;
+      // Fallback sur le filtre actuel si nécessaire
+      if (!departementId && currentDepartementFilter && currentDepartementFilter !== 'all') departementId = currentDepartementFilter;
+      // Validation du nom
+      if (!name) { showError('Le nom du produit est requis', 'Champ manquant'); return; }
+      // Validation de la description
+      if (!description) { showError('La description est requise', 'Champ manquant'); return; }
+      // Validation du prix
+      if (isNaN(unitPrice) || unitPrice <= 0) { showError('Le prix unitaire doit être supérieur à 0'); return; }
+      // Validation du stock
+      if (isNaN(currentStock) || currentStock < 0) { showError('Le stock doit être un nombre positif ou nul'); return; }
+      // Validation du département
+      if (!departementId) { showError('Veuillez sélectionner un département via le filtre'); return; }
+      // Construit l'objet produit
+      const productData = { name, description, unitPrice, currentStock, lowStockThreshold: 5, departementId };
+      // Vérifie si c'est une modification (ID présent)
       const isEdit = productId && productId !== '';
+      // URL selon création ou modification
       const url = isEdit ? `/api/patron/products/${productId}` : '/api/patron/products/';
-
+      // Méthode HTTP selon création ou modification
+      const method = isEdit ? 'PUT' : 'POST';
       try {
-          const response = await fetch(url, {
-              method: isEdit ? 'PUT' : 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(productData)
-          });
-
-          if (!response.ok) {
-              const error = await response.json();
-              throw new Error(error.error || 'Erreur');
-          }
-
-          alert(isEdit ? 'Produit modifié' : 'Produit ajouté');
+          // Envoie la requête à l'API
+          const response = await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(productData) });
+          // Vérifie si la réponse est correcte
+          if (!response.ok) { const error = await response.json(); throw new Error(error.error || 'Erreur'); }
+          // Notification de succès
+          showSuccess(isEdit ? 'Produit modifié avec succès' : 'Produit ajouté avec succès');
+          // Ferme le modal
           closeModal();
-          loadProducts();  // Recharge la liste
-      } catch (error) {
-          alert('Erreur: ' + error.message);
-      }
+          // Recharge la liste des produits
+          loadProducts();
+      } catch (error) { console.error('Erreur:', error); showError('Erreur: ' + error.message); }
   }
 
-  // ============================================================
-  // RÉINITIALISATION DU FORMULAIRE
-  // ============================================================
+  // Réinitialise tous les champs du formulaire
   function resetProductForm() {
+      // Vide tous les champs du formulaire
       document.getElementById('productForm').reset();
-      document.getElementById('productId').value = '';
-
-      const select = document.getElementById('departement-product');
-      if (select) {
-          select.disabled = false;
-          select.value = '';
+      // Récupère le champ ID caché
+      const productIdField = document.getElementById('productId');
+      // Vide l'ID
+      if (productIdField) productIdField.value = '';
+      // Récupère la zone d'information
+      const infoDiv = document.getElementById('info-departement');
+      // Remet le message d'information par défaut
+      if (infoDiv) {
+          infoDiv.innerHTML = `<p class="tft-sm-title1 tft-clr-greensav"><i class="fas fa-info-circle"></i> Le produit sera ajouté au département actuellement sélectionné dans le filtre.</p>`;
       }
-
-      const hiddenDept = document.getElementById('hidden-departement-id');
-      if (hiddenDept) hiddenDept.remove();
   }
 
-  // ============================================================
-  // FERMETURE DU MODAL
-  // ============================================================
+  // Ferme le modal et réinitialise le formulaire
   function closeModal() {
       document.getElementById('add-product').style.display = 'none';
       resetProductForm();
   }
 
-  // ============================================================
-  // AFFICHER/CACHER LE MENU DES FILTRES
-  // ============================================================
+  // Affiche le menu déroulant des filtres
   function showFilterOptions() {
       const el = document.getElementById('filter-options');
       if (el) el.style.display = 'block';
   }
 
+  // Cache le menu déroulant des filtres
   function hideFilterOptions() {
       const el = document.getElementById('filter-options');
       if (el) el.style.display = 'none';
+  }
+
+  // ============================================================
+  // PAGINATION (AFFICHAGE 8 PRODUITS PAR PAGE)
+  // ============================================================
+
+  // Affiche la page courante des produits
+  function displayCurrentPage() {
+      // Calcule l'index de départ (0, 8, 16, 24...)
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      // Calcule l'index de fin (exclu)
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      // Extrait les produits de la page courante
+      const productsToShow = allProducts.slice(startIndex, endIndex);
+      // Affiche ces produits dans le tableau
+      displayProducts(productsToShow);
+      // Met à jour l'affichage des boutons de pagination
+      updatePaginationDisplay();
+  }
+
+  // Passe à la page suivante
+  function nextPage() {
+      // Calcule le nombre total de pages
+      const totalPages = Math.ceil(allProducts.length / ITEMS_PER_PAGE);
+      // Si on n'est pas à la dernière page
+      if (currentPage < totalPages) {
+          // Incrémente la page courante
+          currentPage++;
+          // Affiche la nouvelle page
+          displayCurrentPage();
+      }
+  }
+
+  // Revient à la page précédente
+  function prevPage() {
+      // Si on n'est pas à la première page
+      if (currentPage > 1) {
+          // Décrémente la page courante
+          currentPage--;
+          // Affiche la nouvelle page
+          displayCurrentPage();
+      }
+  }
+
+  // Va à une page spécifique
+  function goToPage(page) {
+      // Calcule le nombre total de pages
+      const totalPages = Math.ceil(allProducts.length / ITEMS_PER_PAGE);
+      // Si la page demandée est valide
+      if (page >= 1 && page <= totalPages) {
+          // Met à jour la page courante
+          currentPage = page;
+          // Affiche la page demandée
+          displayCurrentPage();
+      }
+  }
+
+  // Met à jour l'affichage des boutons de pagination
+  function updatePaginationDisplay() {
+      // Calcule le nombre total de pages
+      const totalPages = Math.ceil(allProducts.length / ITEMS_PER_PAGE);
+      // Récupère le conteneur des numéros de page
+      const container = document.querySelector('.tft-page-numbers');
+      // Sort si le conteneur n'existe pas
+      if (!container) return;
+      // Vide le conteneur
+      container.innerHTML = '';
+      // Cache la pagination si 8 produits ou moins
+      if (allProducts.length <= ITEMS_PER_PAGE) {
+          const div = document.querySelector('.tft-pagination');
+          if (div) div.style.display = 'none';
+          return;
+      }
+      // Affiche la pagination si plus de 8 produits
+      const div = document.querySelector('.tft-pagination');
+      if (div) div.style.display = 'flex';
+      // Page de départ (max 2 pages avant la page actuelle)
+      let startPage = Math.max(1, currentPage - 2);
+      // Page de fin (max 5 pages affichées)
+      let endPage = Math.min(totalPages, startPage + 4);
+      // Ajuste pour toujours afficher 5 pages si possible
+      if (endPage - startPage < 4) startPage = Math.max(1, endPage - 4);
+      // Boucle de la page de départ à la page de fin
+      for (let i = startPage; i <= endPage; i++) {
+          // Crée un élément de liste pour le numéro de page
+          const li = document.createElement('li');
+          // Classes CSS (active pour la page courante)
+          li.className = `tft-icon-carre-petit tft-clr-white3 tft-br-none ${i === currentPage ? 'tft-active-page' : ''}`;
+          // Affiche le numéro de page
+          li.textContent = i;
+          // Au clic, va à la page sélectionnée
+          li.onclick = () => goToPage(i);
+          // Change le curseur en main
+          li.style.cursor = 'pointer';
+          // Ajoute le numéro au conteneur
+          container.appendChild(li);
+      }
   }
 </script>
 </html>
