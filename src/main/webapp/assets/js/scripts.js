@@ -34,9 +34,27 @@
     const checkboxIcons=document.querySelectorAll(".checkbox-icon");
     const checkIcons=document.querySelectorAll(".fa-check");
     const lineSelected=document.querySelector(".line-selected");
+    const repportOptions=document.getElementById("repport-options");
 
 
-    
+    // fonction d'affichage du menu rapport
+    function showRepportOptions(){
+        chevronIcons=document.querySelectorAll(".fa-chevron-down");
+        if(repportOptions.classList.contains("tft-show")){
+            repportOptions.classList.remove("tft-show");
+            chevronIcons.forEach(chevronIcon =>{
+                chevronIcon.classList.remove("fa-chevron-up");
+                chevronIcon.classList.add("fa-chevron-down");
+            })
+        }
+        else{
+            repportOptions.classList.add("tft-show");
+            chevronIcons.forEach(chevronIcon =>{
+                chevronIcon.classList.remove("fa-chevron-down");
+                chevronIcon.classList.add("fa-chevron-up");
+            })
+        }
+    }
     //fonction de selection par checkbox d'un element
     function activeCheckbox(element){
         checkboxIcons.forEach(checkboxIcon =>{

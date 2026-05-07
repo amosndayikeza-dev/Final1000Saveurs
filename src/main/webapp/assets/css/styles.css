@@ -986,3 +986,46 @@
 .tft-bg-orangesav i{
     color: var(--remain-white) !important;
 }
+.repport{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.repport-options{
+    background-color: var(--whiteBlur2);
+    display: none;
+    flex-direction: column;
+    gap:5px;
+    width: 100%;
+    padding: 0px 10px;
+    border-radius: 0px 0px var(--br-btn) var(--br-btn);
+    animation: repportAnim 0.3s ease 0s 1 alternate forwards;
+}
+@keyframes repportAnim{
+    from{
+        transform: translateY(-10px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+.repport-title{
+    display: flex;
+    gap:10px;
+    background-color: transparent;
+    padding: 5px 25px;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+.tft-chevron-icon{
+    width:20px;
+    height:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tft-chevron-icon i{
+    font-size: 12px;
+}

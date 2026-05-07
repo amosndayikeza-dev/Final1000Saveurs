@@ -772,6 +772,9 @@ position: relative !important;
 .tft-bottom-0 {
   bottom: 0 !important;
 }
+.tft-top-P50{
+  top: 50% !important;
+}
 .tft-top-M5{
   top: -0.3125rem !important;
 }
@@ -853,6 +856,9 @@ position: relative !important;
 }
 .tft-b-bottom-gris{
   border-bottom: 0.0625rem solid var(--bg-icons) !important;
+}
+.tft-br-5-5-0-0{
+  border-radius:0.3125rem 0.3125rem 0 0  !important;
 }
 .tft-br-5-0-0-5{
   border-radius:0.3125rem 0 0 0.3125rem !important;
@@ -2141,6 +2147,16 @@ form{
     cursor: pointer;
     z-index: 1000;
 }
+.tft-chevron-icon{
+    width:20px;
+    height:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tft-chevron-icon i{
+    font-size: 12px;
+}
 .tft-file-icon{
     background-color: var(--icons-white);
     width:1.25rem;
@@ -2214,6 +2230,10 @@ form{
 }
 .tft-file-icon-moyen i{
     font-size: 0.625rem;
+}
+.tft-hover-whiteBlur:hover{
+  background-color: var(--whiteBlur) !important;
+  transition: all ease 0.5s;
 }
 .tft-hover-red:hover{
   background-color: var(--red-bg-icons) !important;
