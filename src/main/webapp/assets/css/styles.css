@@ -478,6 +478,7 @@
     border-radius: 50%;
     position: absolute;
     left:-39px;
+    top:-2px;
 }
 .manager-infos{
     display: flex;
@@ -497,7 +498,6 @@
 .manager-name{
     display: flex;
     flex-direction: column;
-    gap:3px;
 }
 .departement{
     background-color: var(--black-utile-3);

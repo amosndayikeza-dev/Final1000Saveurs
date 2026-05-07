@@ -492,10 +492,10 @@
                     }
 
                     card.innerHTML = `
-                        <p class="tft-sm-title2 tft-bg-black2">Créé le ${createdAt}</p>
+                        <p class="tft-sm-title2 tft-bg-black2" id="creation-date">Créé le ${createdAt}</p>
                         <div class="departement-details">
-                            <h3 class="tft-title2 tft-clr-orangesav">${escapeHtml(dept.name)}</h3>
-                            <p class="tft-sm-title1">${escapeHtml(dept.description || 'Aucune description')}</p>
+                            <h3 class="tft-title2 tft-clr-orangesav tft-a-self-center">${escapeHtml(dept.name)}</h3>
+                            <p class="tft-sm-title1 tft-text-justify tft-w-100 tft-break-word tft-fs-15px tft-line-h-1-4">${escapeHtml(dept.description || 'Aucune description')}</p>
                         </div>
                         <div class="departement-infos">
                             <div class="manager-infos">
