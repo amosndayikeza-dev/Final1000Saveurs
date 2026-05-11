@@ -31,8 +31,6 @@
     const iconSidebar=document.getElementById("icon-sidebar");
     const deleteIcons=document.querySelectorAll(".delete-icon");
     const filterOptions=document.getElementById("filter-options");
-    const checkboxIcons=document.querySelectorAll(".checkbox-icon");
-    const checkIcons=document.querySelectorAll(".fa-check");
     const lineSelected=document.querySelector(".line-selected");
     const repportOptions=document.getElementById("repport-options");
 
@@ -57,27 +55,27 @@
     }
     //fonction de selection par checkbox d'un element
     function activeCheckbox(element){
-        checkboxIcons.forEach(checkboxIcon =>{
-            if(checkboxIcon.classList.contains("tft-bg-orangesav")){
+        if(element.classList.contains("checkbox-icon")){
+            element.classList.remove("checkbox-icon");
             element.classList.remove("tft-bg-orangesav");
-            }
-            else{
-                element.classList.add("tft-bg-orangesav");
-                // lineSelected.classList.add("tft-bg-red-bg");
-            }
-        })
-        
-    }
-
-    //fonction de selection par checkbox de tous les elements
-    function activeCheckboxAll(element){
-        if(element.classList.contains("tft-bg-orangesav")){
-            element.classList.remove("tft-bg-orangesav");
-            activeCheckbox();
         }
         else{
+            element.classList.add("checkbox-icon");
             element.classList.add("tft-bg-orangesav");
-            activeCheckbox();
+        }
+    }
+
+    // //fonction de selection par checkbox de tous les elements
+    function activeCheckboxAll(element){
+        if(element.classList.contains("checkbox-iconAll")){
+            element.classList.remove("checkbox-iconAll");
+            element.classList.remove("tft-bg-orangesav");
+            // activeCheckbox();
+        }
+        else{
+            element.classList.add("checkbox-iconAll");
+            element.classList.add("tft-bg-orangesav");
+            // activeCheckbox();
         }
     }
 
