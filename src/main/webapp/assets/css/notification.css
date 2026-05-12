@@ -93,3 +93,34 @@
 .tft-toast-hide {
     animation: slideOutRight 0.3s ease forwards;
 }
+
+/*BOUTON FILTER*/
+/* Style pour le menu filtre */
+.tft-filters {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1e1e2f;
+    border-radius: 8px;
+    padding: 10px 0;
+    min-width: 220px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.tft-filters p {
+    padding: 10px 20px;
+    margin: 0;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s;
+}
+
+.tft-filters p:hover {
+    background-color: #4CAF50;
+}
+
+.products-header {
+    position: relative;
+}

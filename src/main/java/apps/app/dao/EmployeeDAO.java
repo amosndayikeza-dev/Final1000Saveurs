@@ -67,7 +67,7 @@ public class EmployeeDAO {
 
     public List<Map<String,Object>> findAllWithUserDetails(){
         List<Map<String,Object>> list = new ArrayList<>();
-        String sql = "SELECT e.id,e.user_id,u.first_name,u.last_name,e.position FROM employees e JOIN users u ON e.user_id = u.id";
+        String sql = "SELECT e.id,e.user_id,u.first_name,u.last_name,u.email,e.departement_id,e.position,e.salary,e.hired_at FROM employees e JOIN users u ON e.user_id = u.id ORDER BY e.id";
         try{
             Connection connection = DBConnection.getConnection();
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -75,10 +75,14 @@ public class EmployeeDAO {
                 while (rs.next()){
                     Map<String,Object> map = new HashMap<>();
                     map.put("id",rs.getInt("id"));
-                    map.put("user_id",rs.getInt("user_id"));
-                    map.put("first_name",rs.getString("first_name"));
+                    map.put("userId",rs.getInt("user_id"));
+                    map.put("firstName",rs.getString("first_name"));
                     map.put("last_name",rs.getString("last_name"));
-                    map.put("position",rs.getString("position"));
+                    map.put("email",rs.getString("email"));
+                    map.put("departementId",rs.getInt("departement_id"));
+                    map.put("role",rs.getString("position"));
+                    map.put("salary",rs.getDouble("salary"));
+                    map.put("hireDate",rs.getString("hired_at"));
                     list.add(map);
                 }
         } catch (SQLException e) {

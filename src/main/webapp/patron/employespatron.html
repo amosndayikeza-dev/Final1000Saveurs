@@ -163,12 +163,10 @@
             </div>
             <div class="c-center-body">
                 <div class="products-header">
-                    <button class="tft-btn tft-bg-greensav tft-clr-remain-white tft-p-relative" onmouseenter="showFilterOptions()">
-                        Filtrer<i class="fas fa-stream"></i>
-                        <div class="tft-filters tft-p-absolute" id="filter-options" onmouseenter="showFilterOptions()" onmouseleave="hideFilterOptions()">
-                            <!--<p class="tft-title4 tft-hover-greensav">Tous</p>
-                            <p class="tft-title4 tft-hover-greensav">Les employés</p>
-                            <p class="tft-title4 tft-hover-greensav">Les gérants</p>-->
+                    <button class="tft-btn tft-bg-greensav tft-clr-remain-white tft-p-relative" id="filterButton" onclick="toggleFilterMenu()">
+                        Filtrer <i class="fas fa-stream"></i>
+                        <div class="tft-filters tft-p-absolute" id="filter-options" onmouseleave="hideFilterOptions()">
+                            <!-- Les options seront ajoutées ici -->
                         </div>
                     </button>
                     <button class="tft-btn tft-bdr-greensav-1 tft-clr-white3 tft-hover-greensav" onclick="ajouterProduct()">
@@ -469,12 +467,13 @@
         initEmployeeForm();
         initSearchListener();
         attachPaginationEvents();
+        initFilterEvents();
     });
 
     // ============================================================
     // VARIABLES GLOBALES
     // ============================================================
-    let currentDepartementFilter = null;
+    let currentDepartementFilter = 'all';
     let departementsList = [];
     const ITEMS_PER_PAGE = 8;
     let currentPage = 1;
@@ -485,50 +484,74 @@
     // ============================================================
     // CHARGEMENT DES DÉPARTEMENTS
     // ============================================================
+    // ============================================================
+
     async function loadDepartementsForFilter() {
         try {
-            const response = await fetch('/api/patron/departements/');
+            const response = await fetch('http://localhost:8080/api/patron/departements/');
             departementsList = await response.json();
-            console.log('Départements chargés:', departementsList.length);
-
+            console.log('Départements chargés:', departementsList);
+            
             const filterOptions = document.getElementById('filter-options');
             if (filterOptions) {
-                filterOptions.innerHTML = `<p class="tft-title4 tft-hover-greensav" onclick="filterByDepartement('all')">📊 Tous les départements</p>`;
+                // Vider le contenu
+                filterOptions.innerHTML = '';
+                
+                // Ajouter "Tous les départements" en premier
+                const allOption = document.createElement('p');
+                allOption.className = 'tft-title4 tft-hover-greensav';
+                allOption.innerHTML = '📊 Tous les départements';
+                allOption.onclick = () => filterByDepartement('all');
+                allOption.style.cursor = 'pointer';
+                filterOptions.appendChild(allOption);
+                
+                // Ajouter chaque département
                 departementsList.forEach(dept => {
-                    filterOptions.innerHTML += `<p class="tft-title4 tft-hover-greensav" onclick="filterByDepartement(${dept.id})">🏢 ${dept.name}</p>`;
+                    const option = document.createElement('p');
+                    option.className = 'tft-title4 tft-hover-greensav';
+                    option.innerHTML = `🏢 ${dept.name}`;
+                    option.onclick = () => filterByDepartement(dept.id);
+                    option.style.cursor = 'pointer';
+                    filterOptions.appendChild(option);
                 });
             }
-
-            // ✅ Sélectionner le premier département par défaut
-            if (departementsList.length > 0) {
-                currentDepartementFilter = departementsList[0].id;
-                const filterBtn = document.querySelector('.products-header .tft-btn:first-child');
-                if (filterBtn) {
-                    filterBtn.innerHTML = `${departementsList[0].name} <i class="fas fa-stream"></i>`;
-                }
-                loadEmployees(); // Recharger les employés
-            } else {
-                loadEmployees();
+            
+            // ✅ NE PAS sélectionner de département par défaut pour l'affichage
+            // Laisser currentDepartementFilter = 'all' pour afficher tous les employés
+            
+            // Mettre à jour le texte du bouton
+            const filterBtn = document.querySelector('.products-header .tft-btn:first-child');
+            if (filterBtn) {
+                filterBtn.innerHTML = 'Filtrer <i class="fas fa-stream"></i>';
             }
+            
+            // Charger tous les employés (sans filtre)
+            loadEmployees();
+            
         } catch (error) {
             console.error('Erreur:', error);
             showError('Impossible de charger les départements');
             loadEmployees();
         }
     }
-
     // ============================================================
     // FILTRAGE PAR DÉPARTEMENT
     // ============================================================
+    // ============================================================
+    // FILTRAGE PAR DÉPARTEMENT (CORRIGÉ)
+    // ============================================================
     function filterByDepartement(departementId) {
+        console.log('Filtrage par département:', departementId);
+        
+        // Mettre à jour le filtre
         currentDepartementFilter = departementId;
         currentPage = 1;
         searchTerm = '';
-
+        
         // Vider la recherche
         const searchInput = document.querySelector('.tft-search-withIcon input');
         if (searchInput) searchInput.value = '';
-
+        
         // Mettre à jour le texte du bouton
         const filterBtn = document.querySelector('.products-header .tft-btn:first-child');
         if (filterBtn) {
@@ -539,31 +562,44 @@
                 filterBtn.innerHTML = `${dept?.name || 'Département'} <i class="fas fa-stream"></i>`;
             }
         }
-
+        
+        // Cacher le menu
         hideFilterOptions();
-        loadEmployees(); // ✅ Recharger les employés avec le nouveau filtre
+        
+        // Recharger les employés avec le nouveau filtre
+        loadEmployees();
     }
 
     // ============================================================
     // CHARGEMENT DES EMPLOYÉS
     // ============================================================
+    // ============================================================
+    // CHARGEMENT DES EMPLOYÉS (CORRIGÉ)
+    // ============================================================
     async function loadEmployees() {
         try {
-            let url = '/api/patron/employees/';
+            let url = 'http://localhost:8080/api/patron/employees/';
+            
+            // Appliquer le filtre si un département est sélectionné (et pas 'all')
             if (currentDepartementFilter && currentDepartementFilter !== 'all') {
-                url = `/api/patron/employees/?departement_id=${currentDepartementFilter}`;
+                url = `http://localhost:8080/api/patron/employees/?departement_id=${currentDepartementFilter}`;
+                console.log('Filtre appliqué: département', currentDepartementFilter);
+            } else {
+                console.log('Aucun filtre, tous les employés');
             }
-            console.log('Chargement:', url);
-
+            
+            console.log('Chargement URL:', url);
+            
             const response = await fetch(url);
             if (!response.ok) throw new Error('Erreur chargement');
-
+            
             const data = await response.json();
             allEmployees = Array.isArray(data) ? data : [];
             console.log('Employés chargés:', allEmployees.length);
-
+            
             currentPage = 1;
             displayCurrentPage();
+            
         } catch (error) {
             console.error('Erreur:', error);
             showError('Impossible de charger les employés');
@@ -831,7 +867,7 @@
 
     async function openEditEmployeeModal(id) {
         try {
-            const response = await fetch(`/api/patron/employees/${id}`);
+            const response = await fetch(`http://localhost:8080/api/patron/employees/${id}`);
             if (!response.ok) throw new Error('Employé non trouvé');
             const emp = await response.json();
 
@@ -862,7 +898,7 @@
     async function deleteEmployee(id) {
         if (!confirm('Supprimer définitivement cet employé ?')) return;
         try {
-            const response = await fetch(`/api/patron/employees/${id}`, { method: 'DELETE' });
+            const response = await fetch(`http://localhost:8080/api/patron/employees/${id}`, { method: 'DELETE' });
             if (!response.ok) throw new Error('Erreur suppression');
             loadEmployees();
             showSuccess('Employé supprimé avec succès');
@@ -899,7 +935,7 @@
 
         const data = { firstName, lastName, email, salary, role, departementId };
         const isEdit = id && id !== '';
-        const url = isEdit ? `/api/patron/employees/${id}` : '/api/patron/employees/';
+        const url = isEdit ? `http://localhost:8080/api/patron/employees/${id}` : 'http://localhost:8080/api/patron/employees/';
         const method = isEdit ? 'PUT' : 'POST';
 
         try {
@@ -938,10 +974,25 @@
     // ============================================================
     // AFFICHER/CACHER LE MENU FILTRE
     // ============================================================
+   // ============================================================
+    // ============================================================
+    // AFFICHER/CACHER LE MENU FILTRE (AVEC LOGS)
+    // ============================================================
     function showFilterOptions() {
+        console.log('showFilterOptions appelée');
         const filterOptions = document.getElementById('filter-options');
         if (filterOptions) {
             filterOptions.style.display = 'block';
+            console.log('Menu affiché');
+        } else {
+            console.error('filter-options non trouvé');
+        }
+    }
+
+    function hideFilterOptions() {
+        const filterOptions = document.getElementById('filter-options');
+        if (filterOptions) {
+            filterOptions.style.display = 'none';
         }
     }
 
@@ -957,6 +1008,33 @@
         const nextBtn = document.querySelector('.tft-pagination .fa-arrow-right')?.parentElement;
         if (prevBtn) prevBtn.onclick = () => prevPage();
         if (nextBtn) nextBtn.onclick = () => nextPage();
+    }
+
+    // ============================================================
+    // INITIALISER LES ÉVÉNEMENTS DU MENU FILTRE
+    // ============================================================
+    function initFilterEvents() {
+        const filterBtn = document.querySelector('.products-header .tft-btn:first-child');
+        const filterOptions = document.getElementById('filter-options');
+        
+        if (filterBtn && filterOptions) {
+            // Nettoyer les attributs onclick existants
+            filterBtn.onmouseenter = function() {
+                filterOptions.style.display = 'block';
+            };
+            
+            filterOptions.onmouseenter = function() {
+                filterOptions.style.display = 'block';
+            };
+            
+            filterOptions.onmouseleave = function() {
+                filterOptions.style.display = 'none';
+            };
+            
+            console.log('Événements du filtre initialisés');
+        } else {
+            console.error('Bouton ou menu filtre non trouvé');
+        }
     }
 </script>
 
