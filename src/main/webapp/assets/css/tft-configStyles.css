@@ -1628,11 +1628,11 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2px;
+  padding: 3px;
 }
 .tft-checkbox i{
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 600;
 }
 form{
     width:100%;
