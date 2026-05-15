@@ -18,6 +18,7 @@
     const btnDarkMode=document.getElementById("btn-dark-mode");
     const btnLightMode=document.getElementById("btn-light-mode");
     const recentIntro=document.getElementById("recent-intro");
+    const avatarsTable=document.querySelectorAll(".table-profile");
     const containerRight=document.getElementById("container-right");
     const tftUsers=document.getElementById("tft-users");
     const tftUsersPics=document.getElementById("tft-users-pics");
@@ -31,7 +32,6 @@
     const iconSidebar=document.getElementById("icon-sidebar");
     const deleteIcons=document.querySelectorAll(".delete-icon");
     const filterOptions=document.getElementById("filter-options");
-    const lineSelected=document.querySelector(".line-selected");
     const repportOptions=document.getElementById("repport-options");
 
 
@@ -54,29 +54,29 @@
         }
     }
     //fonction de selection par checkbox d'un element
-    function activeCheckbox(element){
-        if(element.classList.contains("checkbox-icon")){
-            element.classList.remove("checkbox-icon");
-            element.classList.remove("tft-bg-orangesav");
-        }
-        else{
-            element.classList.add("checkbox-icon");
-            element.classList.add("tft-bg-orangesav");
-        }
+    function activeCheckbox(check){
+        check.classList.toggle("tft-bg-greensav");
+        const lineSelected=check.closest("tr");
+        lineSelected.classList.toggle("line-selected");
     }
 
     // //fonction de selection par checkbox de tous les elements
-    function activeCheckboxAll(element){
-        if(element.classList.contains("checkbox-iconAll")){
-            element.classList.remove("checkbox-iconAll");
-            element.classList.remove("tft-bg-orangesav");
-            // activeCheckbox();
-        }
-        else{
-            element.classList.add("checkbox-iconAll");
-            element.classList.add("tft-bg-orangesav");
-            // activeCheckbox();
-        }
+    function activeCheckboxAll(checkAll){
+        checkAll.classList.toggle("tft-bg-greensav");
+        const iconsChecked=document.querySelectorAll(".icon-checked");
+        const isChecked=checkAll.classList.contains("tft-bg-greensav");
+        iconsChecked.forEach(iconChecked =>{
+            const rowSelected = iconChecked.closest("tr");
+            if(isChecked){
+                iconChecked.classList.add("tft-bg-greensav");
+                rowSelected.classList.add("line-selected");
+            }
+            else{
+                iconChecked.classList.remove("tft-bg-greensav");
+                rowSelected.classList.remove("line-selected");
+            }
+        })
+        
     }
 
     // fonction pour montrer les optionds du filtrage
@@ -112,13 +112,13 @@
                 element.classList.remove("tft-bdr-gris-1");
             }
         }
-    // affiche le sidebar mobile
+    // affiche le sidebar sur mobile
     function showSidebar(){
         containerLeft.classList.add("tft-show");
         iconSidebar.classList.add("tft-show");
     }
 
-    // affiche le sidebar mobile
+    // affiche le sidebar sur mobile
     function hideSidebar(){
         containerLeft.classList.remove("tft-show");
     }

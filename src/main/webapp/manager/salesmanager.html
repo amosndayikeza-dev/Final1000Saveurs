@@ -171,7 +171,7 @@
                     <table class="tft-table">
                         <tr class="tft-b-bottom-gris">
                             <th class="tft-title3">
-                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 checkbox-iconAll" onclick="activeCheckboxAll(this)">
+                               <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1" onclick="activeCheckboxAll(this)">
                                     <i class="fas fa-check tft-clr-transparent "></i>
                                 </div>
                             </th>
@@ -182,9 +182,9 @@
                             <th class="tft-title3">Date</th>
                             <th class="tft-title3 ">Actions</th>
                         </tr>
-                        <tr class="tft-b-bottom-gris line-selected">
+                        <tr class="tft-b-bottom-gris">
                             <td class="tft-title3 ">
-                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 " onclick="activeCheckbox(this)">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 icon-checked" onclick="activeCheckbox(this)">
                                     <i class="fas fa-check tft-clr-transparent "></i>
                                 </div>
                             </td>
@@ -209,15 +209,15 @@
                                     <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
                                         <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
                                     </div>
-                                    <!-- <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
                                         <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </td>
                         </tr>
-                        <tr class="tft-b-bottom-gris line-selected">
+                        <tr class="tft-b-bottom-gris">
                             <td class="tft-title3 ">
-                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 " onclick="activeCheckbox(this)">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 icon-checked" onclick="activeCheckbox(this)">
                                     <i class="fas fa-check tft-clr-transparent "></i>
                                 </div>
                             </td>
@@ -242,42 +242,9 @@
                                     <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
                                         <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
                                     </div>
-                                    <!-- <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
+                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
                                         <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
-                                    </div> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="tft-b-bottom-gris line-selected">
-                            <td class="tft-title3 ">
-                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1 " onclick="activeCheckbox(this)">
-                                    <i class="fas fa-check tft-clr-transparent "></i>
-                                </div>
-                            </td>
-                            <td class="tft-profile-td">
-                                <div class="tft-avatar-profil-petit table-profile">
-                                    <img src="../assets/images/icons/homme.jpg">
-                                </div>
-                                <div class="tft-flex tft-flex-column tft-gap-2px">
-                                    <h4 class="tft-sm-title1">Kalenga Marc</h4>
-                                    <p class="tft-sm-title2">lania@gmail.com</p>
-                                </div>
-                            </td>
-                            <td class="tft-title4 tft-clr-white3">Bar</td>
-                            <td class="tft-title4 tft-clr-white3">Gerant</td>
-                            <td class="tft-title4 tft-clr-white3">600000 fbu</td>
-                            <td class="tft-title4 tft-clr-white3">4-5-2026</td>
-                            <td class="tft-bdr-l-gris-1">
-                                <div class="actions">
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-greensav-1">
-                                        <i class="fe fe-edit tft-clr-greensav"></i>
                                     </div>
-                                    <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-red-txt-1">
-                                        <i class="fe fe-trash delete-icon tft-clr-red" onclick="popupdeleteElement()"></i>
-                                    </div>
-                                    <!-- <div class="tft-icon-round-petit tft-bg-black2 tft-bdr-gris-1 active-icon-parent" onclick="activeDesactiveElement(this)">
-                                        <i class="fas fa-toggle-off active-icon tft-clr-gris1"></i>
-                                    </div> -->
                                 </div>
                             </td>
                         </tr>
@@ -437,20 +404,36 @@
         </div>
         <!-- popup de deconnexion -->
         <div class="tft-popup-modal tft-a-center" id="deconnection-modal">
-            <div class="tft-popup-container-small tft-bg-black3 tft-p-relative">
+            <div class="tft-popup-container-small tft-bg-remain-black3 tft-p-relative">
                 <div class="deconnection-actions">
-                    <h3 class="tft-title1">Voulez-vous deconnecter ?</h3>
+                    <h3 class="tft-title1 tft-clr-remain-white2">Voulez-vous deconnecter ?</h3>
                     <div class="deconnection-options">
-                        <a class="tft-btn tft-bg-red tft-clr-white" href="#">Oui</a>
-                        <btn class="tft-btn tft-bg-greensav tft-clr-white" onclick="closeModal()">Non</btn>
+                        <a class="tft-btn tft-bg-red tft-clr-remain-white" href="#">Oui</a>
+                        <btn class="tft-btn tft-bg-greensav tft-clr-remain-white" onclick="closeModal()">Non</btn>
                     </div>
                 </div>
                 <div class="tft-close-icon tft-p-absolute tft-top-5 tft-right-10 tft-hover-red" onclick="closeModal()">
-                    <i class="fas fa-times tft-clr-white3"></i>
+                    <i class="fas fa-times tft-clr-remain-white3"></i>
                 </div>
             </div>
         </div>
         <!-- popup de deconnexion -->
+         <!-- =========================Popup pour supprimer=========== -->
+        <div class="tft-popup-modal tft-a-center" id="popup-modal-deleteElement">
+            <div class="tft-popup-container-small tft-bg-remain-black3 tft-p-relative">
+                <div class="tft-close-icon tft-hover-red tft-p-absolute tft-top-5 tft-right-10" onclick="closeModal()">
+                    <i class="fas fa-times tft-clr-remain-white3"></i>
+                </div>
+                <div class="deconnection-actions">
+                    <h3 class="tft-title2 tft-clr-remain-white2">Voulez-vous supprimer cet element ?</h3>
+                    <div class="deconnection-options">
+                        <a class="tft-btn tft-bg-red tft-clr-remain-white" href="#">Oui</a>
+                        <btn class="tft-btn tft-bg-greensav tft-clr-remain-white" onclick="closeModal()">Non</btn>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- =========================Popup pour supprimer=========== -->
     </div>
 </body>
 <script src="../assets/js/scripts.js"></script>

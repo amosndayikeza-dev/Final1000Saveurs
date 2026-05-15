@@ -19,6 +19,7 @@
   --remain-black-utile-2:rgba(18, 21, 27);
   --black-utile-3:rgba(25, 28, 34);
   --black-utile-3-2nd:rgba(25, 28, 34);
+  --black-utile-3-3rd:rgba(25, 28, 34);
   --remain-black-utile-3:rgba(25, 28, 34);
 
   /* text colors */
@@ -40,6 +41,7 @@
   --yellow-bg-icons:rgba(255, 136, 0, 0.178);
   --yellow-txt-icons: #f4b847;
   --red-bg-icons:#450a0a;
+  --red-line-selected:#47090965;
   --red-txt-icons: crimson;
   --green-bg-icons: #08845f65;
   --green-txt-icons: #00dd7ab5;
@@ -73,6 +75,7 @@
   --remain-black-utile-2:rgba(18, 21, 27);
   --black-utile-3: #d3d4d6af;
   --black-utile-3-2nd:white;
+  --black-utile-3-3rd:whitesmoke;
   --remain-black-utile-3:rgba(25, 28, 34);
   
 
@@ -95,6 +98,7 @@
   --yellow-bg-icons: #f8da64b5;
   --yellow-txt-icons: #f8a202d3;
   --red-bg-icons:crimson;
+  --red-line-selected:#ba0413ba;
   --red-txt-icons: white;
   --blue-bg-icons:#629dfb;
   --blue-txt-icons:#040cfcdc;
@@ -174,12 +178,11 @@
     padding: 5px;
 }
 .app-title p{
-    padding-left: 3px;
     color: var(--white-utile-2) !important;
-    font-weight: 600;
+    font-weight: 500;
 }
 .c-left-header .app-name{
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var( --clr-green1);
     -webkit-text-stroke: 0.0625rem var(--clr-green1);
@@ -962,7 +965,7 @@
 }
 .tft-filters{
     padding:10px 0px;
-    background-color: var(--black-utile-3);
+    background-color: var(--black-utile-3-3rd);
     border-radius: var(--br-btn);
     display: none;
     flex-direction: column;
@@ -989,17 +992,12 @@
     width: fit-content;
     width: 100%;
 }
-.checkbox-icon{
-    background-color: var(--clr-orange1) !important;
-}
-.checkbox-icon i{
+.tft-bg-greensav i{
     color: var(--remain-white) !important;
 }
-.checkbox-iconAll{
-    background-color: var(--clr-orange1) !important;
-}
-.checkbox-iconAll i{
-    color: var(--remain-white) !important;
+
+.line-selected{
+    background-color: var(--red-line-selected);
 }
 .repport{
     display: flex;
