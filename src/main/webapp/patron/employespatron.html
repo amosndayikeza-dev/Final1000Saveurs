@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,11 +14,13 @@
     <link rel="stylesheet" href="../assets/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <div class="containerAll">
         <!-- partie gauche -->
         <div class="containerLeft" id="container-left">
-            <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3" onclick="hideSidebar()" id="icon-sidebar">
+            <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3"
+                onclick="hideSidebar()" id="icon-sidebar">
                 <i class="fas fa-arrow-right"></i>
             </div>
             <div class="c-left-header">
@@ -54,7 +57,8 @@
                                 <i class="fas fa-chart-bar"></i>
                             </div>
                             <p class="option-name">Rapports</p>
-                            <div class="tft-chevron-icon tft-p-absolute tft-top-15 tft-right-5" onclick="showRepportOptions()">
+                            <div class="tft-chevron-icon tft-p-absolute tft-top-15 tft-right-5"
+                                onclick="showRepportOptions()">
                                 <i class="fas fa-chevron-down tft-clr-gris1"></i>
                             </div>
                         </div>
@@ -97,7 +101,8 @@
                     </a>
                 </div>
                 <div class="user-option">
-                    <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer" onclick="showContainerRight()">
+                    <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer"
+                        onclick="showContainerRight()">
                         <img src="../assets/images/icons/femme.jpg" alt="">
                     </div>
                     <div class="user-infos">
@@ -119,7 +124,8 @@
                     <div class="tft-icon-carre tft-bdr-gris-1" onclick="showSidebar()">
                         <i class="fas fa-bars"></i>
                     </div>
-                    Les employés</h2>
+                    Les employés
+                </h2>
                 <div class="header-aside">
                     <div class="tft-search-withIcon">
                         <input type="search" placeholder="Rechercher" class="tft-clr-white3">
@@ -147,29 +153,34 @@
                         </div>
                         <h4 class="tft-sm-title1 tft-bg-black1" id="user-desc">Utilisateurs</h4>
                     </div> -->
-                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3" onclick="showContainerRightNotification()">
+                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3"
+                        onclick="showContainerRightNotification()">
                         <i class="fas fa-bell tft-clr-greensav"></i>
                     </div>
-                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3"  onclick="showContainerRightParametre()">
+                    <div class="tft-icon-carre-moyen tft-bdr-greensav-1 tft-bg-black3"
+                        onclick="showContainerRightParametre()">
                         <i class="fas fa-cog tft-clr-greensav"></i>
                     </div>
                     <div class="tft-icon-carre-moyen tft-bg-orangesav2" id="btn-light-mode" onclick="changeMode()">
                         <i class="fas fa-moon tft-clr-white"></i>
                     </div>
-                    <div class="tft-icon-carre-moyen tft-bg-orangesav2 tft-hidden" id="btn-dark-mode" onclick="changeMode()">
+                    <div class="tft-icon-carre-moyen tft-bg-orangesav2 tft-hidden" id="btn-dark-mode"
+                        onclick="changeMode()">
                         <i class="fas fa-moon tft-clr-white"></i>
                     </div>
                 </div>
             </div>
             <div class="c-center-body">
                 <div class="products-header">
-                    <button class="tft-btn tft-bg-greensav tft-clr-remain-white tft-p-relative" id="filterButton" onclick="toggleFilterMenu()">
+                    <button class="tft-btn tft-bg-greensav tft-clr-remain-white tft-p-relative" id="filterButton"
+                        onclick="toggleFilterMenu()">
                         Filtrer <i class="fas fa-stream"></i>
                         <div class="tft-filters tft-p-absolute" id="filter-options" onmouseleave="hideFilterOptions()">
                             <!-- Les options seront ajoutées ici -->
                         </div>
                     </button>
-                    <button class="tft-btn tft-bdr-greensav-1 tft-clr-white3 tft-hover-greensav" onclick="ajouterProduct()">
+                    <button class="tft-btn tft-bdr-greensav-1 tft-clr-white3 tft-hover-greensav"
+                        onclick="ajouterProduct()">
                         <i class="fas fa-add"></i>ajouter un employé
                     </button>
                 </div>
@@ -177,7 +188,8 @@
                     <table class="tft-table">
                         <tr class="tft-b-bottom-gris">
                             <th class="tft-title3">
-                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1" onclick="activeCheckboxAll(this)">
+                                <div class="tft-checkbox tft-bg-remain-white3 tft-bdr-white-1"
+                                    onclick="activeCheckboxAll(this)">
                                     <i class="fas fa-check tft-clr-transparent "></i>
                                 </div>
                             </th>
@@ -189,7 +201,7 @@
                             <th class="tft-title3 ">Actions</th>
                         </tr>
                         <tbody id="employees-table-body">
-                        <!-- Les employés seront chargés ici -->
+                            <!-- Les employés seront chargés ici -->
                         </tbody>
                     </table>
                     <div class="tft-pagination">
@@ -210,7 +222,8 @@
         </div>
         <!-- partie droite ajoute la classe tft-show pour montrer-->
         <div class="containerRight tft-p-relative" id="container-right">
-            <div class="tft-close-icon tft-p-absolute tft-top-15 tft-right-15 tft-hover-red" onclick="closeModalInfos()">
+            <div class="tft-close-icon tft-p-absolute tft-top-15 tft-right-15 tft-hover-red"
+                onclick="closeModalInfos()">
                 <i class="fas fa-times tft-clr-white3"></i>
             </div>
             <div class="admin-profil">
@@ -375,7 +388,7 @@
             </div>
         </div>
         <!-- =========================Popup pour supprimer=========== -->
-         <!-- popup d'ajouter un produit -->
+        <!-- popup d'ajouter un produit -->
         <!-- popup d'ajouter un employé -->
         <div class="tft-popup-modal" id="add-employee">
             <div class="tft-popup-container-small tft-bg-remain-black3 tft-p-relative">
@@ -386,40 +399,54 @@
                         <input type="hidden" id="employee-departement-id" name="departementId">
 
                         <div class="tft-form-group tft-gap-10px">
-                            <label for="employee-firstname" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-user tft-clr-orangesav"></i></div>
+                            <label for="employee-firstname"
+                                class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i
+                                        class="fas fa-user tft-clr-orangesav"></i></div>
                                 Prénom <span class="tft-clr-red">*</span>
                             </label>
-                            <input type="text" class="tft-form-control" id="employee-firstname" placeholder="Prénom" required>
+                            <input type="text" class="tft-form-control" id="employee-firstname" placeholder="Prénom"
+                                required>
                         </div>
 
                         <div class="tft-form-group tft-gap-10px">
-                            <label for="employee-lastname" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-user tft-clr-orangesav"></i></div>
+                            <label for="employee-lastname"
+                                class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i
+                                        class="fas fa-user tft-clr-orangesav"></i></div>
                                 Nom <span class="tft-clr-red">*</span>
                             </label>
-                            <input type="text" class="tft-form-control" id="employee-lastname" placeholder="Nom" required>
+                            <input type="text" class="tft-form-control" id="employee-lastname" placeholder="Nom"
+                                required>
                         </div>
 
                         <div class="tft-form-group tft-gap-10px">
-                            <label for="employee-email" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-envelope tft-clr-orangesav"></i></div>
+                            <label for="employee-email"
+                                class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i
+                                        class="fas fa-envelope tft-clr-orangesav"></i></div>
                                 Email <span class="tft-clr-red">*</span>
                             </label>
-                            <input type="email" class="tft-form-control" id="employee-email" placeholder="exemple@email.com" required>
+                            <input type="email" class="tft-form-control" id="employee-email"
+                                placeholder="exemple@email.com" required>
                         </div>
 
                         <div class="tft-form-group tft-gap-10px">
-                            <label for="employee-salary" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-money-bill tft-clr-orangesav"></i></div>
+                            <label for="employee-salary"
+                                class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i
+                                        class="fas fa-money-bill tft-clr-orangesav"></i></div>
                                 Salaire
                             </label>
-                            <input type="number" class="tft-form-control" id="employee-salary" placeholder="Salaire mensuel" min="0">
+                            <input type="number" class="tft-form-control" id="employee-salary"
+                                placeholder="Salaire mensuel" min="0">
                         </div>
 
                         <div class="tft-form-group tft-gap-10px">
-                            <label for="employee-role" class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
-                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i class="fas fa-briefcase tft-clr-orangesav"></i></div>
+                            <label for="employee-role"
+                                class="tft-form-label tft-clr-remain-white tft-flex tft-gap-8px tft-a-center">
+                                <div class="tft-icon-round-moyen tft-bdr-orangesav-1"><i
+                                        class="fas fa-briefcase tft-clr-orangesav"></i></div>
                                 Poste
                             </label>
                             <select class="tft-form-control" id="employee-role">
@@ -432,21 +459,25 @@
 
                         <div class="tft-form-group tft-gap-10px" id="employee-info-departement">
                             <p class="tft-sm-title1 tft-clr-greensav">
-                                <i class="fas fa-info-circle"></i> L'employé sera affecté au département sélectionné dans le filtre.
+                                <i class="fas fa-info-circle"></i> L'employé sera affecté au département sélectionné
+                                dans le filtre.
                             </p>
                         </div>
 
                         <div class="form-actions tft-flex tft-gap-20px tft-mt-20">
-                            <button type="submit" class="tft-btn tft-bdr-orangesav-1 tft-clr-orangesav tft-hover-orangesav">
+                            <button type="submit" onclick="ajouterEmploye()"
+                                class="tft-btn tft-bdr-orangesav-1 tft-clr-orangesav tft-hover-orangesav">
                                 <i class="fas fa-save"></i> Enregistrer
                             </button>
-                            <button type="button" class="tft-btn tft-bdr-gris-1 tft-clr-white tft-hover-orangesav" onclick="closeEmployeeModal()">
+                            <button type="button" class="tft-btn tft-bdr-gris-1 tft-clr-white tft-hover-orangesav"
+                                onclick="closeEmployeeModal()">
                                 <i class="fas fa-times"></i> Annuler
                             </button>
                         </div>
                     </form>
                 </div>
-                <div class="tft-close-icon tft-p-absolute tft-top-5 tft-right-10 tft-hover-red" onclick="closeEmployeeModal()">
+                <div class="tft-close-icon tft-p-absolute tft-top-5 tft-right-10 tft-hover-red"
+                    onclick="closeEmployeeModal()">
                     <i class="fas fa-times tft-clr-remain-white3"></i>
                 </div>
             </div>
@@ -457,6 +488,43 @@
 <script src="../assets/js/scripts.js"></script>
 <script src="../assets/js/notifications.js"></script>
 <script src="../assets/js/notifications.js"></script>
+<!-----------fonction pour ajouter un employe--------------->
+<script>
+    function ajouterEmploye(e) {
+        e.preventDefault();
+        //==================Recuperation des valeurs==================//
+
+        //selectionne le select en question par son id
+        const select = document.getElementById("employee-role");
+        //recupere la valeur de l'option selectionnee
+        const valeurSelectionnee = select.value;
+        //regarde dans la liste de toutes les options,recupere le numero de l'option selectionne et aussi son texte
+        const texteSelectionne = select.options[select.selectedIndex].text;//
+        //pour trouver le label associe au select
+        const label = querySelector('label[for="' + select.id + '"]');
+        //pour la recuperation du texte
+        const texteLabel = label ? label.textContent : 'pas de label';
+
+        //============== affichage dans formData===============//
+        const formData = {
+            'prenom': document.getElementById("employee-firstname").value.trim(),
+            'nom': document.getElementById("employee-lastname").value.trim(),
+            'email': document.getElementById("employee-email").value.trim(),
+            'salaire': document.getElementById("employee-salary").value.trim(),
+        }
+
+        formData.label = texteLabel;
+        formData.valueSelect = valeurSelectionnee;
+        formData.texteSelect = texteSelectionne;
+
+        /*const corpsBody = document.getElementById("#idTable tbody");
+        const nouvelleLigne = corpsBody.insertRow();
+        nouvelleLigne.insertCell(0).textContent = formData.nom;
+        nouvelleLigne.insertCell(1).textContent = formData.texteLabel;
+        nouvelleLigne.insertCell(2).textContent = formData.valeurSelectionnee;
+        nouvelleLigne.insertCell(3).textContent = formData.texteSelectionne;*/
+    }
+</script>
 <script>
     // ============================================================
     // INITIALISATION
@@ -491,12 +559,12 @@
             const response = await fetch('http://localhost:8080/api/patron/departements/');
             departementsList = await response.json();
             console.log('Départements chargés:', departementsList);
-            
+
             const filterOptions = document.getElementById('filter-options');
             if (filterOptions) {
                 // Vider le contenu
                 filterOptions.innerHTML = '';
-                
+
                 // Ajouter "Tous les départements" en premier
                 const allOption = document.createElement('p');
                 allOption.className = 'tft-title4 tft-hover-greensav';
@@ -504,7 +572,7 @@
                 allOption.onclick = () => filterByDepartement('all');
                 allOption.style.cursor = 'pointer';
                 filterOptions.appendChild(allOption);
-                
+
                 // Ajouter chaque département
                 departementsList.forEach(dept => {
                     const option = document.createElement('p');
@@ -515,19 +583,19 @@
                     filterOptions.appendChild(option);
                 });
             }
-            
+
             // ✅ NE PAS sélectionner de département par défaut pour l'affichage
             // Laisser currentDepartementFilter = 'all' pour afficher tous les employés
-            
+
             // Mettre à jour le texte du bouton
             const filterBtn = document.querySelector('.products-header .tft-btn:first-child');
             if (filterBtn) {
                 filterBtn.innerHTML = 'Filtrer <i class="fas fa-stream"></i>';
             }
-            
+
             // Charger tous les employés (sans filtre)
             loadEmployees();
-            
+
         } catch (error) {
             console.error('Erreur:', error);
             showError('Impossible de charger les départements');
@@ -542,16 +610,16 @@
     // ============================================================
     function filterByDepartement(departementId) {
         console.log('Filtrage par département:', departementId);
-        
+
         // Mettre à jour le filtre
         currentDepartementFilter = departementId;
         currentPage = 1;
         searchTerm = '';
-        
+
         // Vider la recherche
         const searchInput = document.querySelector('.tft-search-withIcon input');
         if (searchInput) searchInput.value = '';
-        
+
         // Mettre à jour le texte du bouton
         const filterBtn = document.querySelector('.products-header .tft-btn:first-child');
         if (filterBtn) {
@@ -562,10 +630,10 @@
                 filterBtn.innerHTML = `${dept?.name || 'Département'} <i class="fas fa-stream"></i>`;
             }
         }
-        
+
         // Cacher le menu
         hideFilterOptions();
-        
+
         // Recharger les employés avec le nouveau filtre
         loadEmployees();
     }
@@ -579,7 +647,7 @@
     async function loadEmployees() {
         try {
             let url = 'http://localhost:8080/api/patron/employees/';
-            
+
             // Appliquer le filtre si un département est sélectionné (et pas 'all')
             if (currentDepartementFilter && currentDepartementFilter !== 'all') {
                 url = `http://localhost:8080/api/patron/employees/?departement_id=${currentDepartementFilter}`;
@@ -587,19 +655,19 @@
             } else {
                 console.log('Aucun filtre, tous les employés');
             }
-            
+
             console.log('Chargement URL:', url);
-            
+
             const response = await fetch(url);
             if (!response.ok) throw new Error('Erreur chargement');
-            
+
             const data = await response.json();
             allEmployees = Array.isArray(data) ? data : [];
             console.log('Employés chargés:', allEmployees.length);
-            
+
             currentPage = 1;
             displayCurrentPage();
-            
+
         } catch (error) {
             console.error('Erreur:', error);
             showError('Impossible de charger les employés');
@@ -695,14 +763,14 @@
         try {
             const date = new Date(dateString);
             return date.toLocaleDateString('fr-FR');
-        } catch(e) {
+        } catch (e) {
             return 'Date invalide';
         }
     }
 
     function escapeHtml(text) {
         if (!text) return '';
-        return text.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
+        return text.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
     }
 
     // ============================================================
@@ -1012,21 +1080,21 @@
     function initFilterEvents() {
         const filterBtn = document.querySelector('.products-header .tft-btn:first-child');
         const filterOptions = document.getElementById('filter-options');
-        
+
         if (filterBtn && filterOptions) {
             // Nettoyer les attributs onclick existants
-            filterBtn.onmouseenter = function() {
+            filterBtn.onmouseenter = function () {
                 filterOptions.style.display = 'block';
             };
-            
-            filterOptions.onmouseenter = function() {
+
+            filterOptions.onmouseenter = function () {
                 filterOptions.style.display = 'block';
             };
-            
-            filterOptions.onmouseleave = function() {
+
+            filterOptions.onmouseleave = function () {
                 filterOptions.style.display = 'none';
             };
-            
+
             console.log('Événements du filtre initialisés');
         } else {
             console.error('Bouton ou menu filtre non trouvé');
