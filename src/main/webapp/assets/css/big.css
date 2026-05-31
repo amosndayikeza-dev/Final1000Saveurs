@@ -1,11 +1,12 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     cursor: pointer;
 }
+
 /*div contenant les differentes informations de l'employe*/
-.partie_centre{
+.partie_centre {
     width: 80%;
     height: 100vh;
     display: flex;
@@ -13,30 +14,35 @@
     gap: 10px;
     background: var(--black-utile-2);
 }
+
 /*partie de haut de la page au dessus de la ligne*/
-#tete{
+#tete {
     width: 100%;
     height: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-#tete .partie_gauche{
+
+#tete .partie_gauche {
     display: flex;
     flex-direction: column;
     padding: 5px;
     gap: 8px;
 }
-#tete .partie_gauche h1{
+
+#tete .partie_gauche h1 {
     font-size: 23px;
     font-weight: bold;
     color: var(--white);
 }
-#tete .partie_gauche p{
+
+#tete .partie_gauche p {
     color: var(--white-utile-3);
     font-size: 12px;
 }
-#tete .ajouter_employe{
+
+#tete .ajouter_employe {
     width: 15%;
     height: 2.2rem;
     font-size: 12px;
@@ -46,7 +52,7 @@
 }
 
 /*la balise hr pour separer le contenu du haut et du bas*/
-hr{
+hr {
     border: none;
     height: 0.5px;
     background: var(--white-utile-3);
@@ -55,14 +61,15 @@ hr{
 
 /*partie pour les categories et autres options comme la barre de recherche 
 et les filtres en dessous de la ligne*/
-.categories{
+.categories {
     width: 100%;
     height: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.categories .choix{
+
+.categories .choix {
     width: 35%;
     height: 3rem;
     display: flex;
@@ -70,40 +77,47 @@ et les filtres en dessous de la ligne*/
     align-items: center;
     padding-left: 18px;
 }
-.categories .choix #liste_complet{
+
+.categories .choix #liste_complet {
     width: 19%;
     height: 2rem;
     border-radius: 5px;
     color: var(--white-utile-1);
     background: rgb(47, 46, 46);
 }
-.choix #liste_complet:hover{
+
+.choix #liste_complet:hover {
     background-color: rgb(91, 91, 91);
     color: var(--white);
 }
-.categories .choix #gerant_seulement{
+
+.categories .choix #gerant_seulement {
     width: 24%;
     height: 2rem;
     border-radius: 5px;
     color: var(--white-utile-1);
     background: rgb(47, 46, 46);
 }
-.choix #gerant_seulement:hover{
+
+.choix #gerant_seulement:hover {
     background-color: rgb(91, 91, 91);
     color: var(--white);
 }
-.categories .choix #employe_seulement{
+
+.categories .choix #employe_seulement {
     width: 44%;
     height: 2.4em;
     border-radius: 5px;
     color: var(--white-utile-1);
     background: rgb(47, 46, 46);
 }
-.choix #employe_seulement:hover{
+
+.choix #employe_seulement:hover {
     background-color: rgb(91, 91, 91);
     color: var(--white);
 }
-.categories .barre_filtres{
+
+.categories .barre_filtres {
     width: 33%;
     height: 3rem;
     display: flex;
@@ -111,7 +125,8 @@ et les filtres en dessous de la ligne*/
     align-items: center;
     padding-left: 12px;
 }
-.barre_filtres .barre_de_recherche{
+
+.barre_filtres .barre_de_recherche {
     width: 65%;
     height: 2rem;
     display: flex;
@@ -120,86 +135,106 @@ et les filtres en dessous de la ligne*/
     border-radius: 5px;
     background: rgb(47, 46, 46);
 }
-.barre_de_recherche input{
+
+.barre_de_recherche input {
     width: 200px;
     height: 2.5rem;
     border-radius: 3px;
 }
-.categories .pour_filtrer{
+
+.categories .pour_filtrer {
     width: 25%;
     height: 2rem;
     border-radius: 5px;
     background: rgb(47, 46, 46);
 }
+
 /*partie pour l'affichage des employes et stylisation de la table*/
-.infos_employe{ /*section contenant tous les infos de l'employe*/
+.infos_employe {
+    /*section contenant tous les infos de l'employe*/
     width: 90%;
     height: 100vh;
     margin-left: 5%;
     margin-top: 2px;
     overflow: auto;
 }
-.infos_employe table{
+
+.infos_employe table {
     width: 100%;
     height: auto;
     border: 2px solid rgb(46, 46, 46);
     border-collapse: collapse;
 }
-th{
+
+th {
     background: rgb(46, 46, 46);
     height: 3rem;
 }
-td{
+
+td {
     text-align: center;
 }
-#partie_nom_titre{
+
+#partie_nom_titre {
     display: flex;
     align-items: center;
     color: var(--white-utile-1);
     gap: 10px;
     padding: 10px;
 }
-.partie_nom{ /*pour la partie du nom et aussi profile dans le tableau*/
+
+.partie_nom {
+    /*pour la partie du nom et aussi profile dans le tableau*/
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px;
 }
-input[type="checkbox"]{
+
+input[type="checkbox"] {
     width: 15px;
     height: 15px;
 }
-.photo{
+
+.photo {
     width: 32px;
     height: 32px;
 }
-.photo img{
+
+.photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
     border: 1.5px solid rgb(111, 188, 111);
 }
-.nom{
+
+.nom {
     display: flex;
     flex-direction: column;
 }
-.nom h1{
+
+.nom h1 {
     font-size: 15px;
     text-align: start;
     color: var(--white-utile-1);
     font-weight: 600;
 }
-.nom .connaissance{
+
+.nom .connaissance {
     color: rgb(155, 151, 151);
     font-size: 11px;
 }
-.actionicones{ /*div contenant les icones pour modifier et supprimer se trouvant dans le tableau*/
+
+.actionicones {
+    /*div contenant les icones pour modifier et supprimer se trouvant dans le tableau*/
     display: flex;
     justify-content: center;
     gap: 5px;
 }
-.actionicones .cercle{ /*bouton modifier*/
+
+.actionicones .cercle {
+    /*bouton modifier*/
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -207,21 +242,26 @@ input[type="checkbox"]{
     align-items: center;
     justify-content: center;
 }
-.cercle>i{
+
+.cercle>i {
     font-size: 13px;
 }
-.actionicones .cercle1{ /*bouton supprimer*/
+
+.actionicones .cercle1 {
+    /*bouton supprimer*/
     width: 32px;
     height: 32px;
     border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
-.cercle1>i{
+
+.cercle1>i {
     font-size: 13px;
 }
-.actionicones .cercle :hover{
+
+.actionicones .cercle :hover {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -231,7 +271,8 @@ input[type="checkbox"]{
     justify-content: center;
     background: var(--white);
 }
-.actionicones .cercle1 :hover{
+
+.actionicones .cercle1 :hover {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -242,9 +283,114 @@ input[type="checkbox"]{
     background: rgb(221, 162, 174);
 }
 
- 
+.tft-month-name{
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    background-color: var(--clr-orange1);
+}
 
+.tft-month-cat{
+    width: 35% !important;
+    height: fit-content !important;
+    padding: 5px !important;
+    color: white !important;
+    border-radius: 5px !important;
+    font-size: 12px !important;
+}
 
+.tft-div-container{
+    width: 77.5% !important;
+    height: fit-content;
+}
 
+.tft-w-48{
+    width: 48% !important;
+}
 
+.tft-w-35{
+    width: 35% !important;
+}
 
+.tft-w-24{
+    width: 24% !important;
+}
+
+.tft-w-84{
+    width: 84% !important;
+}
+
+.tft-h-25vh {
+  height: 25vh !important;
+}
+
+.tft-h-fitContent{
+    height: fit-content !important;
+}
+
+.tft-p-15{
+    padding: 15px !important;
+}
+
+.tft-div-type{
+    width: 20% !important;
+    height: fit-content;
+    border-right: 2px solid sienna;
+}
+
+.tft-image-divContainer {
+    width: 2.3rem;
+    height: 2.3rem;
+}
+
+.tft-image-style {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.tft-image-style-desc {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.tft-bdr-bottom{
+    border-bottom: 1px solid var(--clr-green1) !important;
+}
+
+.tft-j-space-between {
+    justify-content: space-between;
+}
+
+/*======================== pour le diagramme en baton ===========================*/
+.R-D{
+    width: 90%;
+    height: 180px;
+}
+
+/*======================== pour le diagramme en baton ===========================*/
+.P-D{
+    width: 90%;
+    height: 180px;
+}
+
+.tft-icon-round-perso{
+    width: 1.875rem;
+    height: 1.875rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    color: var(--icons-white);
+    border : 1px solid var(--clr-orange2);
+}
+.tft-icon-round-perso:hover{
+    background-color: var(--clr-orange2);
+    transition: background 0.8s;
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000saveurs</title>
+    <link rel="icon" href="../assets/images/icons/abonnes.png">
+    <link rel="stylesheet" href="../assets/css/big.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/tft-configStyles.css">
+    <link rel="stylesheet" href="../assets/css/responsiveStyles.css">
+    <link rel="stylesheet" href="../assets/fonts/feather/feather.css">
+    <link rel="stylesheet" href="../assets/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../assets/js/chartSource.js"></script>
+</head>
+
+<body>
+    <div class="containerAll">
+        <!-- partie gauche -->
+        <div class="containerLeft" id="container-left">
+            <div class="tft-icon-round-petit tft-p-absolute tft-top-5 tft-right-10 tft-bg-black3"
+                onclick="hideSidebar()" id="icon-sidebar">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="c-left-header">
+                <a href="./dashboardpatron.php">
+                    <div class="tft-logo-avatar tft-bdr-greensav-1">
+                        <img src="../assets/images/icons/abonnes.png" alt="">
+                    </div>
+                </a>
+                <div class="app-title">
+                    <h1 class="app-name">1000<span>Saveurs</span></h1>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="c-left-menu">
+                    <a href="./dashboardpatron.php">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round" onclick="showSidebar()">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <p class="option-name">Dashboard</p>
+                        </div>
+                    </a>
+                    <a href="./departementspatron.php">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <p class="option-name">Départements</p>
+                        </div>
+                    </a>
+                    <div class="repport">
+                        <div class="c-left-option tft-br-5-5-0-0 tft-p-relative">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <p class="option-name">Rapports</p>
+                            <div class="tft-chevron-icon tft-p-absolute tft-top-15 tft-right-5"
+                                onclick="showRepportOptions()">
+                                <i class="fas fa-chevron-down tft-clr-gris1"></i>
+                            </div>
+                        </div>
+                        <div class="repport-options" id="repport-options">
+                            <a href="./salespatron.html" class="repport-title tft-hover-greensav">
+                                <div class="tft-icon-round-petit tft-bdr-greensav-1">
+                                    <i class="fas fa-chart-bar tft-clr-greensav"></i>
+                                </div>
+                                <p class="tft-title4">Ventes</p>
+                            </a>
+                            <a href="./repportdebtspatron.html" class="repport-title">
+                                <div class="tft-icon-round-petit tft-bdr-greensav-1">
+                                    <i class="fas fa-chart-bar tft-clr-greensav"></i>
+                                </div>
+                                <p class="tft-title4">Dettes</p>
+                            </a>
+                            <a href="./repportsalarypatron.html" class="repport-title">
+                                <div class="tft-icon-round-petit tft-bdr-greensav-1">
+                                    <i class="fas fa-chart-bar tft-clr-greensav"></i>
+                                </div>
+                                <p class="tft-title4">Salaires</p>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="./employespatron.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <p class="option-name">Employés</p>
+                        </div>
+                    </a>
+                    <a href="./stockpatron.html">
+                        <div class="c-left-option">
+                            <div class="tft-icon-round">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <p class="option-name">Stock</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="user-option">
+                    <div class="tft-avatar-profil-petit tft-bdr-orangesav-2 tft-cursor-pointer"
+                        onclick="showContainerRight()">
+                        <img src="../assets/images/icons/femme.jpg" alt="">
+                    </div>
+                    <div class="user-infos">
+                        <div class="user-name">
+                            <h2 id="userName" class="tft-title4 tft-fw-600"> Chargement</h2>
+                            <p id="userRole" class="tft-sm-title1">Patronne</p>
+                        </div>
+                        <div class="tft-icon-carre-moyen tft-bg-black3 tft-transition" onclick="deconnectionModal()">
+                            <i class="fe fe-log-out tft-clr-red"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--partie droite-->
+        <div class="tft-flex tft-flex-column tft-div-container tft-gap-10px">
+            <!--div en haut de la page-->
+            <div class="tft-flex tft-w-98 tft-h-fitContent tft-a-self-center tft-j-space-between">
+                <div class="tft-flex tft-flex-column tft-gap-5px tft-w-30 tft-p-10">
+                    <h1 class="tft-title1">Bienvenu (e)</h1>
+                    <p class="tft-sm-title2">Inventaire et deroulement financier dans 1000saveurs</p>
+                </div>
+                <div class="tft-flex tft-p-10 tft-gap-10px tft-w-24">
+                    <div class="tft-image-divContainer">
+                        <img class="tft-image-style" src="../assets/images/icons/homme.jpg">
+                    </div>
+                    <div class="tft-flex tft-flex-column tft-gap-2px tft-p-4-8">
+                        <h1 class="tft-title3">Ishimwe Lania</h1>
+                        <p class="tft-sm-title1">Patronne</p>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bg-orangesav2" id="btn-light-mode" onclick="changeMode()">
+                        <i class="fas fa-moon tft-clr-white"></i>
+                    </div>
+                    <div class="tft-icon-carre-moyen tft-bg-orangesav2 tft-hidden" id="btn-dark-mode" onclick="changeMode()">
+                        <i class="fas fa-moon tft-clr-white"></i>
+                    </div>
+                </div>
+            </div>
+            <!--fin-->
+        
+            <!--ligne separatrice-->
+            <hr>
+            <!--fin-->
+
+            <!--div contenant les differents types a suivre dans le rapport(salaire,revenus,etc..)-->
+            <div class="tft-flex tft-w-98 tft-h-fitContent tft-a-self-center tft-flex-column tft-p-10">
+                <div class="tft-flex tft-j-center">
+                    <div class="tft-flex tft-div-type tft-a-center tft-gap-10px tft-bg-remain-white tft-p-10">
+                        <a href="../patron/repportsalarypatron.html" class="tft-icon-round-perso"><i class="fas fa-money-bill-wave"></i></a>
+                        <div class="tft-flex tft-flex-column tft-w-80 tft-p-5 tft-gap-5px">
+                            <h1 class="tft-title4">Salaire</h1>
+                            <p class="tft-sm-title1 tft-clr-remain-white2 tft-month-name">Janvier</p>
+                        </div>
+                    </div>
+                    <div class="tft-flex tft-div-type tft-a-center tft-gap-10px tft-bg-remain-white tft-p-10">
+                        <a href="../patron/repportdebtspatron.html" class="tft-icon-round-perso"><i class="fas fa-chart-line"></i></a>
+                        <div class="tft-flex tft-flex-column tft-w-80 tft-p-5 tft-gap-5px">
+                            <h1 class="tft-title4">Dettes</h1>
+                            <p class="tft-sm-title1 tft-clr-remain-white2 tft-month-name">Janvier</p>
+                        </div>
+                    </div>
+                    <div class="tft-flex tft-div-type tft-a-center tft-gap-10px tft-bg-remain-white tft-p-10">
+                        <a href="../patron/salespatron.html" class="tft-icon-round-perso"><i class="fas fa-tag"></i></a>
+                        <div class="tft-flex tft-flex-column tft-w-80 tft-p-5 tft-gap-5px">
+                            <h1 class="tft-title4">Ventes</h1>
+                            <p class="tft-sm-title1 tft-clr-remain-white2 tft-month-name">Janvier</p>
+                        </div>
+                    </div>
+                    <div class="tft-flex tft-div-type tft-a-center tft-gap-10px tft-bg-remain-white tft-p-10">
+                        <a href="../patron/stockpatron.html" class="tft-icon-round-perso"><i class="fas fa-archive"></i></a>
+                        <div class="tft-flex tft-flex-column tft-w-80 tft-p-5 tft-gap-5px">
+                            <h1 class="tft-title4">Stock</h1>
+                            <p class="tft-sm-title1 tft-clr-remain-white2 tft-month-name">Janvier</p>
+                        </div>
+                    </div>
+                    <div class="tft-flex tft-div-type tft-a-center tft-gap-10px tft-bg-remain-white tft-p-10">
+                        <a href="#" class="tft-icon-round-perso"><i class="fas fa-receipt"></i></a>
+                        <div class="tft-flex tft-flex-column tft-w-80 tft-p-5 tft-gap-5px">
+                            <h1 class="tft-title4">Factures</h1>
+                            <p class="tft-sm-title1 tft-clr-remain-white2 tft-month-name">Janvier</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--fin-->
+
+            <!--diagrammes et differents totals par moi-->
+            <div class="tft-flex tft-flex-column tft-w-98 tft-a-self-center tft-gap-5px tft-h-fitContent">
+                <!--diagrammes-->
+                <div class="tft-flex tft-w-100 tft-gap-20px tft-j-center tft-p-5">
+                    <div class="tft-w-48 tft-h-fitContent tft-flex tft-flex-column tft-p-5">
+                        <h1 class="tft-title3 tft-p-5">Revenus et Depenses</h1>
+                        <div class="R-D">
+                            <canvas id="revenusDepenses"></canvas>
+                        </div>
+                    </div>
+                    <div class="tft-w-48 tft-h-fitContent tft-flex tft-flex-column tft-p-5">
+                        <h1 class="tft-title3 tft-p-5">Paiement et Dettes</h1>
+                        <div class="P-D">
+                            <canvas id="dettesPayes"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!--fin-->
+                <!--les totals par moi-->
+                <div class="tft-flex tft-w-100 tft-h-fitContent tft-a-center tft-j-center tft-p-5 tft-gap-10px">
+                    <div class="tft-w-20 tft-h-20vh tft-flex tft-flex-column tft-bdr-greensav-1 tft-br-5 tft-p-10 tft-gap-5px">
+                        <div class="tft-flex tft-h-fitContent tft-j-space-between tft-p-5 tft-a-center">
+                            <div class="tft-icon-round-petit tft-bg-orangesav2"><i class="fas fa-tag"></i></div>
+                            <p class="tft-flex tft-a-center tft-j-center tft-bg-orangesav2 tft-month-cat">Janvier</p>
+                        </div>
+                        <p class="tft-title4 tft-p-5">Total ventes</p>
+                        <p class="tft-title2 tft-p-5 tft-clr-white">2500$</p>
+                    </div>
+                    <div class="tft-w-20 tft-h-20vh tft-flex tft-flex-column tft-bdr-orangesav-1 tft-br-5 tft-p-10 tft-gap-5px">
+                        <div class="tft-flex tft-h-fitContent tft-j-space-between tft-p-5 tft-a-center">
+                            <div class="tft-icon-round-petit tft-bg-greensav"><i class="fas fa-money-bill-wave"></i></div>
+                            <p class="tft-flex tft-a-center tft-bg-greensav tft-j-center tft-month-cat">Janvier</p>
+                        </div>
+                        <p class="tft-title4 tft-p-5">Total revenus</p>
+                        <p class="tft-title2 tft-p-5 tft-clr-white">2500$</p>
+                    </div>
+                    <div class="tft-w-20 tft-h-20vh tft-flex tft-flex-column tft-bdr-greensav-1 tft-br-5 tft-p-10 tft-gap-5px">
+                        <div class="tft-flex tft-h-fitContent tft-j-space-between tft-p-5 tft-a-center">
+                            <div class="tft-icon-round-petit tft-bg-orangesav2"><i class="fas fa-bell"></i></div>
+                            <p class="tft-flex tft-a-center tft-j-center tft-bg-orangesav2 tft-month-cat">Janvier</p>
+                        </div>
+                        <p class="tft-title4 tft-p-5">Total dépenses</p>
+                        <p class="tft-title2 tft-p-5 tft-clr-white">2500$</p>
+                    </div>
+                    <div class="tft-w-35 tft-h-25vh tft-flex tft-flex-column tft-j-center tft-br-5 tft-p-5">
+                        <div class="tft-flex tft-w-100 tft-h-fitContent tft-bdr-bottom tft-a-center tft-p-5 tft-gap-10px">
+                            <div class="tft-image-divContainer">
+                                <img class="tft-image-style-desc" src="../assets/images/icons/homme.jpg">
+                            </div>
+                            <div class="tft-flex tft-flex-column tft-w-84 tft-p-5 tft-gap-2px">
+                                <h1 class="tft-title4">Le moi le plus prometteur de l'année</h1>
+                                <div class="tft-flex tft-j-space-between tft-p-5">
+                                    <p class="tft-sm-title2">Revenus : 1000$</p>
+                                    <p class="tft-sm-title2">Dépenses : 200$</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tft-flex tft-w-100 tft-h-fitContent tft-bdr-bottom tft-a-center tft-p-5 tft-gap-10px">
+                            <div class="tft-image-divContainer">
+                                <img class="tft-image-style-desc" src="../assets/images/icons/homme.jpg">
+                            </div>
+                            <div class="tft-flex tft-flex-column tft-w-84 tft-p-5 tft-gap-2px">
+                                <h1 class="tft-title4">Le moi le moins prometteur de l'année</h1>
+                                <div class="tft-flex tft-j-space-between tft-p-5">
+                                    <p class="tft-sm-title2">Revenus : 700$</p>
+                                    <p class="tft-sm-title2">Dépenses : 500$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--fin-->
+            </div>
+            <!--fin-->
+        </div>
+    </div>
+    <script src="../assets/js/diagrammes.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+</body>
+
+</html>
